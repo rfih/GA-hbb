@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 import sys
 import copy
     
-# 06 mei 2023
+# 06 mei 2023. anyar
 
 #%%
 # read data from input file and return parameters/variables
