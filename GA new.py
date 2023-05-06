@@ -21,6 +21,8 @@ import matplotlib.pyplot as plt
 import sys
 import copy
     
+# 06 mei 2023
+
 #%%
 # read data from input file and return parameters/variables
 def read_data(df_VM_info, input_excel, input_sheet_ProEast, input_sheet_ProNotEast, input_sheet_ProDemand, Index_strart, Index_end):  
