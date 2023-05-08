@@ -902,11 +902,13 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                     replenishresult.append(roundroot)
                     result_with_threshold = [value if value <= 3 else 3 for value in replenishresult]
                     
+                stockou=[]
                 for i in range(len(Selected_Product_Revenue)):
                     # print("tes", len(demand_product_setup_cost))
                     Selected_Product_Revenue[i]=(((price[i]- purc[i])* demand_hasil[i])- copy_inventory_cost[i]*(copy_Cargolane_Capacity[i]+ ((demand_hasil[i]*result_with_threshold[i])/2)) - copy_backroom_cost[i]*(demand_hasil[i]*result_with_threshold[i])/2 - copy_display_cost[i]*copy_Cargolane_Capacity[i] - copy_ordering_cost[i]*result_with_threshold[i])
-
-                # print("The root values for each index are:", result_with_threshold)
+                    stockout = demand_hasil[i]* replenishresult[i] - copy_Cargolane_Capacity[i]
+                    stockou.append(stockout)
+                print("stockout:", stockou)
                
                 if randCargo  in randCargo_selected or randProd  in randProd_selected:
                  pass
