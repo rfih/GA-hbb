@@ -22,6 +22,7 @@ import logging
 import matplotlib.pyplot as plt
 import sys
 import copy
+import collections
 
 #%%
 # read data from input file and return parameters/variables
@@ -272,6 +273,7 @@ def classify_demand_product(Product_ID, Product_Type, Product_Volume, Product_Pr
    
     for i in range(0, len(Demand_Product_ID), 1):
         replenishment_per_time.append((Demand_Product_Sales[i] / (1440 * 30 / (CargoLane_Average_Replenishment[0] * 1440))))
+        # print("tes", replenishment_per_time)
         for j in range(0, len(Product_ID), 1):
             if Demand_Product_ID[i] == Product_ID[j]:
                 
@@ -601,6 +603,13 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
         Demand_Average_Sales= copy_df_Product_demand['Average_sales_month'].tolist()
         Demand_Product_Cost= copy_df_Product_demand['Product_Cost'].tolist()
         # Demand_total_cost= copy_df_Product_demand['total_cost'].tolist()
+        # capacity_dict = {}
+        # for i, string in enumerate(copy_Product_ID):
+        #     capacity_dict[string] = copy_Cargolane_Capacity[i]
+        # capacity_dict = {copy_Product_ID[i]: copy_Cargolane_Capacity[i] for i in range(len(copy_Product_ID))}
+        # capacity_dict = {string: copy_Cargolane_Capacity[copy_Product_ID.index(string)] for string in copy_Product_ID}
+        # print("capacity", capacity_dict)
+
         
         #print("DP_profit=", demand_product_profit)
         # print("Demand_Product_Revenue=", Demand_total_cost)
@@ -813,7 +822,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
         #Constraints of minimum total of chosen products
         Avg_Sales_Product_for_empty_CL= ((sum(Demand_Average_Sales)/ len(Demand_Average_Sales))/5) #!!!!
         # print(Avg_Sales_Product_for_empty_CL)
-        print("Selected_Product_Revenue1111=", Selected_Product_Revenue)
+        # print("Selected_Product_Revenue1111=", Selected_Product_Revenue)
 
         
         
@@ -847,68 +856,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                 randProd= random.choice(index_product_havenot_chosen)
                 # print(index_product_havenot_chosen)
                 ##############################
-                alpha=[]
-                cross_matrix=[]
-                sjmn=[]
-                space_elasticity=[]
-                for i in range(len(Final_Selected_Product)):
-                    rand = random.uniform(0.2, 0.4)
-                    rand= round(rand,3)
-                    space_elasticity.append(rand)
-                        
-                a = len(Final_Selected_Product)
-                for i in range(a):
-                    al=random.uniform(5,10)
-                    alpha.append(al)
-                # print("alpha",alpha)
-                for i in Final_Selected_Product:
-                    cross_elasticity=[]
-                    random.seed()
-                    for i in range(len(Final_Selected_Product)):
-                        rando = random.uniform(-0.05, 0.05)
-                        rando=round(rando,3)
-                        cross_elasticity.append(rando)
-                    cross_matrix.append(cross_elasticity)
-                    
-                for i in range (a):
-                    cross_matrix[i][i]=0.0
-                # print("crossmatrix", cross_matrix)
-                
-                capacity_arr=[]
-                for i in range(len(Final_Selected_Product)):
-                    capacity_arr.append(copy_Cargolane_Capacity)
-                sjm_matrix= np.power(capacity_arr,cross_matrix)
-                # print("sjm_matrix", sjm_matrix)
-                
-                for i in range(len(sjm_matrix)):
-                    f=np.prod(sjm_matrix[i])
-                    sjmn.append(f)
-                # print("sjmn", sjmn)
-                
-                demand_hasil=[]
-                for i in range(len(copy_Cargolane_Capacity)):
-                    if i<=len(copy_Cargolane_Capacity):
-                        dmnd= (alpha[i]*(copy_Cargolane_Capacity[i])**(space_elasticity[i]))*sjmn[i]
-                        roundd=round(dmnd)
-                        demand_hasil.append(roundd)
-                # print("Demand String=", demand_hasil)
-                #########################################
-                replenishresult=[]
-                for i in range(len(Final_Selected_Product)):
-                    expression_value = copy_ordering_cost[i]/ ((copy_inventory_cost[i]/2) + copy_backroom_cost[i]) * demand_hasil[i]
-                    # print(copy_inventory_cost)
-                    root_value = math.sqrt(expression_value)
-                    roundroot = round(root_value)
-                    replenishresult.append(roundroot)
-                    result_with_threshold = [value if value <= 3 else 3 for value in replenishresult]
-                    
-                stockou=[]
-                for i in range(len(Selected_Product_Revenue)):
-                    # print("tes", len(demand_product_setup_cost))
-                    Selected_Product_Revenue[i]=(((price[i]- purc[i])* demand_hasil[i])- copy_inventory_cost[i]*(copy_Cargolane_Capacity[i]+ ((demand_hasil[i]*result_with_threshold[i])/2)) - copy_backroom_cost[i]*(demand_hasil[i]*result_with_threshold[i])/2 - copy_display_cost[i]*copy_Cargolane_Capacity[i] - copy_ordering_cost[i]*result_with_threshold[i])
-                    stockout = demand_hasil[i]* replenishresult[i] - copy_Cargolane_Capacity[i]
-                    stockou.append(stockout)
-                print("stockout:", stockou)
+        
                
                 if randCargo  in randCargo_selected or randProd  in randProd_selected:
                  pass
@@ -925,7 +873,8 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                              if repeated_id_in_selected_product.count(a) == 0:  # condition to check
                       
                                  repeated_id_in_selected_product.append(a)
-                                  # print("Final_Selected_Product1111", Final_Selected_Product)
+                                 # print("Final_Selected_Product1111", Final_Selected_Product)
+
                    
                     
                     if Final_Selected_Product[randCargo] not in repeated_id_in_selected_product:
@@ -935,8 +884,9 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                         # print("Final_Selected_Product1111", Final_Selected_Product)
                         if CargoLane_Type[randCargo]== 1 and Demand_Product_Type_Num[randProd]==1:
                             Final_Selected_Product[randCargo]=Demand_Product_ID[randProd]
+                            # stockou = capacity_counts[i] - (replenish[i] * demand[i])
                             #Selected_Product_Revenue[randCargo]= Demand_Product_Revenue[randProd]
-                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* demand_hasil[randProd])- copy_inventory_cost[randProd]*(copy_Cargolane_Capacity[randProd]+ ((demand_hasil[randProd]*replenishresult[randProd])/2)) - copy_backroom_cost[randProd]*(demand_hasil[randProd]*replenishresult[randProd])/2 - copy_display_cost[randProd]*copy_Cargolane_Capacity[randProd] - copy_ordering_cost[randProd]- demand_product_setup_cost[randProd]- replenishresult[randProd])
+                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* Demand_Average_Sales[randProd]) - demand_product_setup_cost[randProd]- demand_product_replenishment_cost[randProd])
                             In_Sol_Type[randCargo]= Demand_Product_Type[randProd]
                             In_Sol_Volume[randCargo]=Demand_Product_Volume[randProd]
                             randCargo_selected.append(randCargo)
@@ -946,8 +896,9 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                         
                         elif CargoLane_Type[randCargo]== 2 and Demand_Product_Type_Num[randProd]<=2:
                             Final_Selected_Product[randCargo]=Demand_Product_ID[randProd]
+                            # stockou = capacity_counts[i] - (replenish[i] * demand[i])
                             #Selected_Product_Revenue[randCargo]= Demand_Product_Revenue[randProd]
-                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* demand_hasil[randProd])- copy_inventory_cost[randProd]*(copy_Cargolane_Capacity[randProd]+ ((demand_hasil[randProd]*replenishresult[randProd])/2)) - copy_backroom_cost[randProd]*(demand_hasil[randProd]*replenishresult[randProd])/2 - copy_display_cost[randProd]*copy_Cargolane_Capacity[randProd] - copy_ordering_cost[randProd] - demand_product_setup_cost[randProd]- replenishresult[randProd])
+                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* Demand_Average_Sales[randProd]) - demand_product_setup_cost[randProd]- demand_product_replenishment_cost[randProd])
                             In_Sol_Volume[randCargo]=Demand_Product_Volume[randProd]
                             randCargo_selected.append(randCargo)
                             randProd_selected.append(randProd)
@@ -956,8 +907,9 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                         
                         elif CargoLane_Type[randCargo]== 3 and Demand_Product_Type_Num[randProd]==3:
                             Final_Selected_Product[randCargo]=Demand_Product_ID[randProd]
+                            # stockou = capacity_counts[i] - (replenish[i] * demand[i])
                             #Selected_Product_Revenue[randCargo]= Demand_Product_Revenue[randProd]
-                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* demand_hasil[randProd])- copy_inventory_cost[randProd]*(copy_Cargolane_Capacity[randProd]+ ((demand_hasil[randProd]*replenishresult[randProd])/2)) - copy_backroom_cost[randProd]*(demand_hasil[randProd]*replenishresult[randProd])/2 - copy_display_cost[randProd]*copy_Cargolane_Capacity[randProd] - copy_ordering_cost[randProd] - demand_product_setup_cost[randProd]- replenishresult[randProd])
+                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* Demand_Average_Sales[randProd]) - demand_product_setup_cost[randProd]- demand_product_replenishment_cost[randProd])
                             In_Sol_Volume[randCargo]=Demand_Product_Volume[randProd]
                             randCargo_selected.append(randCargo)
                             randProd_selected.append(randProd)
@@ -966,8 +918,9 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                         
                         elif CargoLane_Type[randCargo]== 4 and Demand_Product_Type_Num[randProd]>=3 and Demand_Product_Type_Num[j]<=4:
                             Final_Selected_Product[randCargo]=Demand_Product_ID[randProd]
+                            # stockou = capacity_counts[i] - (replenish[i] * demand[i])
                             #Selected_Product_Revenue[randCargo]= Demand_Product_Revenue[randProd]
-                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* demand_hasil[randProd])- copy_inventory_cost[randProd]*(copy_Cargolane_Capacity[randProd]+ ((demand_hasil[randProd]*replenishresult[randProd])/2)) - copy_backroom_cost[randProd]*(demand_hasil[randProd]*replenishresult[randProd])/2 - copy_display_cost[randProd]*copy_Cargolane_Capacity[randProd] - copy_ordering_cost[randProd] - demand_product_setup_cost[randProd]- replenishresult[randProd])
+                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* Demand_Average_Sales[randProd]) - demand_product_setup_cost[randProd]- demand_product_replenishment_cost[randProd])
                             In_Sol_Type[randCargo]= Demand_Product_Type[randProd]
                             In_Sol_Volume[randCargo]=Demand_Product_Volume[randProd]
                             randCargo_selected.append(randCargo)
@@ -977,14 +930,18 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                             
                         elif CargoLane_Type[randCargo]== 5 and Demand_Product_Type_Num[randProd]>=3 and Demand_Product_Type_Num[j]<=5 :
                             Final_Selected_Product[randCargo]=Demand_Product_ID[randProd]
+                            # stockou = capacity_counts[i] - (replenish[i] * demand[i])
                             #Selected_Product_Revenue[randCargo]= Demand_Product_Revenue[randProd]
-                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* demand_hasil[randProd])- copy_inventory_cost[randProd]*(copy_Cargolane_Capacity[randProd]+ ((demand_hasil[randProd]*replenishresult[randProd])/2)) - copy_backroom_cost[randProd]*(demand_hasil[randProd]*replenishresult[randProd])/2 - copy_display_cost[randProd]*copy_Cargolane_Capacity[randProd] - copy_ordering_cost[randProd] - demand_product_setup_cost[randProd]- replenishresult[randProd])
+                            Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* Demand_Average_Sales[randProd]) - demand_product_setup_cost[randProd]- demand_product_replenishment_cost[randProd])
                             In_Sol_Type[randCargo]= Demand_Product_Type[randProd]
                             In_Sol_Volume[randCargo]=Demand_Product_Volume[randProd]
                             randCargo_selected.append(randCargo)
                             randProd_selected.append(randProd)
                            
                             Total_Product_Chosen= Total_Product_Chosen+1
+                            
+                # counts = collections.Counter(Final_Selected_Product)
+                # numbercargo = [counts[string] for string in copy_Product_ID]
                     # print("Final_Selected_Product1111", demand_hasil[randProd])
         #print(Selected_Product_Revenue)
         #print("Final_Selected_Product=", Final_Selected_Product)
@@ -1007,9 +964,16 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
         #print(Demand_Product_Type_Num)
         #
         #print(CargoLane_Type)
-        print("Final_Selected_Product!!!=", Final_Selected_Product)
-        print("Final_demand!!!=", demand_hasil)
-        print("Selected_Product_Revenue=", Selected_Product_Revenue)
+        # print("repelnish = ", replenishresult)
+        # print("demand", demand_list)
+        # print("replenish", replenish)
+        # print("stockout", stockou)
+        # print("capacity_counts", capacity_counts)
+        # print("tes", numbercargo)
+        # print("stockout = ", stockout)
+        # print("Final_Selected_Product!!!=", Final_Selected_Product)
+        # print("Final_demand!!!=", demand_hasil)
+        # print("Selected_Product_Revenue=", Selected_Product_Revenue)
 
         
         for i in range(len(Cargo_Lane_Id_empty)):
@@ -1031,7 +995,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                                
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1042,7 +1006,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                               
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1063,7 +1027,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                              
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1074,7 +1038,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                                
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1094,7 +1058,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                               
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1105,7 +1069,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                                
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1125,7 +1089,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                                
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1136,7 +1100,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                                 
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1156,7 +1120,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                              
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1167,7 +1131,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
                                 
                                 Final_Selected_Product[idx]= initial_prod_for_empty_CG
                                 Selected_Product.append(initial_prod_for_empty_CG)
-                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* demand_hasil[j])- copy_inventory_cost[j]*(copy_Cargolane_Capacity[j]+ ((demand_hasil[j]*replenishresult[j])/2)) - copy_backroom_cost[j]*(demand_hasil[j]*replenishresult[j])/2 - copy_display_cost[j]*copy_Cargolane_Capacity[j] - copy_ordering_cost[j] - demand_product_setup_cost[j]- replenishresult[j])
+                                Revenue_product_in_empty_CL= (((Demand_Product_Price[j]- Demand_Product_Cost[j])* Demand_Average_Sales[j]) - demand_product_setup_cost[j]- demand_product_replenishment_cost[j])
                                 Selected_Product_Revenue[idx]=Revenue_product_in_empty_CL
                                 In_Sol_Type[idx]= Demand_Product_Type[j]
                                 In_Sol_Volume[idx]=Demand_Product_Volume[j]
@@ -1180,8 +1144,111 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
             else:
                 break
             i=i+1
+        
+        
+        counts = {}
+        for string in copy_Product_ID:
+            counts[string] = Final_Selected_Product.count(string)
             
-      
+        capacity_dict = {}
+        for i in range(len(copy_Product_ID)):
+            if i < len(copy_Cargolane_Capacity):
+                capacity_dict[copy_Product_ID[i]] = copy_Cargolane_Capacity[i]
+            else:
+                # If there is no capacity specified for the string, set it to zero
+                capacity_dict[copy_Product_ID[i]] = 0.0
+
+        capacity_counts = [capacity_dict[string] * counts[string] for string in copy_Product_ID]
+        alpha=[]
+        cross_matrix=[]
+        sjmn=[]
+        space_elasticity=[]
+        for i in range(len(Final_Selected_Product)):
+            rand = random.uniform(0.3, 0.5)
+            rand= round(rand,3)
+            space_elasticity.append(rand)
+                
+        a = len(Final_Selected_Product)
+        for i in range(a):
+            al=random.uniform(5,10)
+            alpha.append(al)
+        # print("alpha",alpha)
+        for i in Final_Selected_Product:
+            cross_elasticity=[]
+            random.seed()
+            for i in range(len(Final_Selected_Product)):
+                rando = random.uniform(-0.05, 0.05)
+                rando=round(rando,3)
+                cross_elasticity.append(rando)
+            cross_matrix.append(cross_elasticity)
+            
+        for i in range (a):
+            cross_matrix[i][i]=0.0
+        # print("crossmatrix", cross_matrix)
+        
+        capacity_arr=[]
+        for i in range(len(Final_Selected_Product)):
+            capacity_arr.append(copy_Cargolane_Capacity)
+        sjm_matrix= np.power(capacity_arr,cross_matrix)
+        # print("sjm_matrix", sjm_matrix)
+        
+        for i in range(len(sjm_matrix)):
+            f=np.prod(sjm_matrix[i])
+            sjmn.append(f)
+        # print("sjmn", sjmn)
+        
+        demand_hasil0=[]
+        demand_hasil=[]
+        for i in range(len(copy_Cargolane_Capacity)):
+            if i<=len(copy_Cargolane_Capacity):
+                dmnd= (alpha[i]*(copy_Cargolane_Capacity[i])**(space_elasticity[i]))*sjmn[i]
+                roundd=round(dmnd)
+                demand_hasil.append(roundd)
+                # demand_hasil = [x if x <=copy_Cargolane_Capacity[i] else (copy_Cargolane_Capacity[i]+1) for x in demand_hasil0]
+                # demand_hasil.append(roundd)
+        # print("Demand String=", demand_hasil)
+        #########################################
+        replenishresult=[]
+        demand_dict = {}
+        replenish_dict={}
+        for i in range(len(Final_Selected_Product)):
+            # print(Final_Selected_Product)
+            expression_value = copy_ordering_cost[i]/ ((copy_inventory_cost[i]/2) + copy_backroom_cost[i]) * demand_hasil[i]
+            # print(copy_inventory_cost)
+            root_value = math.sqrt(expression_value)
+            roundroot = round(root_value)
+            replenishresult.append(roundroot)
+            result_with_threshold = [value if value <= 3 else 3 for value in replenishresult]
+            #penghitungan kolektif stockout
+            # if Final_Selected_Product[i] in demand_dict:
+            #     demand_dict[Final_Selected_Product[i]] += demand_hasil[i]
+            # else:
+            #     demand_dict[Final_Selected_Product[i]] = demand_hasil[i]
+            # if Final_Selected_Product[i] in replenish_dict:
+            #     replenish_dict[Final_Selected_Product[i]] += result_with_threshold[i]
+            # else:
+            #     replenish_dict[Final_Selected_Product[i]] = result_with_threshold[i]
+            # demand_list = [demand_dict.get(string,0) for string in copy_Product_ID]
+            # replenish_list = [replenish_dict.get(string,0) for string in copy_Product_ID]
+
+            
+
+        
+        stockout=[]
+        stockoutprice=[]
+        # numbercargo=[]
+        # counts= {}
+        for i in range(len(Selected_Product_Revenue)):
+            cal = max(demand_hasil[i]-copy_Cargolane_Capacity[i], 0)
+            stockout.append(cal)
+            stockoutcal = stockout[i] * (price[i]-purc[i])
+            stockoutprice.append(stockoutcal)
+            # stock = [capacity_counts[j] - (demand_list[j]*replenish_list[j]) for j in range(len(copy_Product_ID))]          #untuk penghitungan kolektif
+            # print("tes", len(demand_product_setup_cost))
+            Selected_Product_Revenue[i]=(((price[i]- purc[i])* demand_hasil[i])- copy_inventory_cost[i]*(copy_Cargolane_Capacity[i] + ((demand_hasil[i]*result_with_threshold[i])/2)) - copy_backroom_cost[i]*(demand_hasil[i]*result_with_threshold[i])/2 - copy_display_cost[i]*copy_Cargolane_Capacity[i] - copy_ordering_cost[i]*result_with_threshold[i] -stockoutprice[i])
+
+        # print("stockout=", stockout)
+        # print("The root values for each index are:", result_with_threshold)
         #print("")
         #print('*'*100)
         #print("")
@@ -1195,17 +1262,22 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
 # Selected_Product_Revenue[randCargo]=(((Demand_Product_Price[randProd]- Demand_Product_Cost[randProd])* demand_hasil[randProd])- copy_inventory_cost[randProd]*(copy_Cargolane_Capacity[randProd]+ ((demand_hasil[randProd]*replenishresult[randProd])/2)) - copy_backroom_cost[randProd]*(demand_hasil[randProd]*replenishresult[randProd])/2 - copy_display_cost[randProd]*copy_Cargolane_Capacity[randProd] - copy_ordering_cost[randProd] - demand_product_setup_cost[randProd]- replenishresult[randProd])
 
         Total_Revenue=sum(Selected_Product_Revenue)
-        print("Total Revenue=", Selected_Product_Revenue)
-        print("price", Demand_Product_Price)
-        print("purchase", Demand_Product_Cost)
-        print("demand", demand_hasil)
-        print("capacity", copy_Cargolane_Capacity)
-        print("replenish", replenishresult)
-        print("copy_Cargolane_Capacity", copy_Cargolane_Capacity)
-        print("inventorycost", copy_inventory_cost)
-        print("backroomcost", copy_backroom_cost)
-        print("displaycost", copy_display_cost)
-        print("orderingcost",copy_ordering_cost)
+        # print("Total Revenue=", Selected_Product_Revenue)
+        # print("price", Demand_Product_Price)
+        # print("purchase", Demand_Product_Cost)
+        # print("demand", demand_hasil)
+        # print("stockoutcost", stockoutprice)
+        # print("capacity", capacity_counts)
+        # print("demandlist", demand_list)
+        # print("replenishlist", replenish_list)
+        # print("stockout", stock)
+        # print("capacity", copy_Cargolane_Capacity)
+        # print("replenish", replenishresult)
+        # print("copy_Cargolane_Capacity", copy_Cargolane_Capacity)
+        # print("inventorycost", copy_inventory_cost)
+        # print("backroomcost", copy_backroom_cost)
+        # print("displaycost", copy_display_cost)
+        # print("orderingcost",copy_ordering_cost)
         # print("demandsum", sum(demand_hasil))
            
         Total_Revenue_of_no_repeated_product= sum(set(Selected_Product_Revenue))
@@ -1214,7 +1286,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
 
         # print("Total_Revenue_of_no_repeated_product=", Total_Revenue_of_no_repeated_product)
             
-       
+       #wqaweqweqweqw
            
         
         ##------------------------------------------- Tabu Search ----------------------------------------------------------------------## !!!!
@@ -1232,8 +1304,8 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
         
         iter = 1
         Terminate = 0
-        max_iter= 50
-        run_max= 50
+        max_iter= 200
+        run_max= 200
         
         
         for i in range(run_max):
@@ -1414,7 +1486,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
         #print('.'*50 , "Performed iterations: {}".format(iter-1), "Best found Solution: {}".format(Best_Solution), "TS_Revenue: {}".format(Total_TS_Revenue), "TS_List_Revenue: {}".format(TS_Revenue),sep="\n")   
         
 
-        return demand_product_price, demand_product_type, demand_product_volume, demand_product_profit, demand_product_profit_product_max, Final_Selected_Product, Selected_Product_Revenue, \
+        return stockoutprice, stockout, demand_hasil, demand_product_price, demand_product_type, demand_product_volume, demand_product_profit, demand_product_profit_product_max, Final_Selected_Product, Selected_Product_Revenue, \
                Cargo_Lane_Id_empty, Selected_id_for_empty_CG, Selected_id_for_empty_CG_for_1st_time, Selected_id_for_empty_CG_for_2nd_time, In_Sol_Type, In_Sol_Volume, \
                Total_Revenue, Total_Revenue_of_no_repeated_product, Tabu_list, temp_sol1, temp_sol2, Best_Solution, TS_Revenue, Total_TS_Revenue,Final_Best_Solution, Final_Best_Revenue, Final_Best_revenue_of_no_repeated_product,TS_list_revenue
   
@@ -1451,7 +1523,7 @@ elif mode == str(2):
 elif mode == str(3):
     termination = 400
 
-inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\File thesis nsop" # test
+inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN" # test
 inputpath1 = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\zzzzzz" #!!!!
 
 if mode == str(1):
@@ -1541,161 +1613,166 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
         No_repeated_comparison.clear()
         revenue_comparison.clear()
         
-        # try:
+        try:
             
-        print(file)
-        logger.info(file)
-        
-        input_excel = os.path.join(inputpath, file)
-        input_sheet_VM = "VM_info"
-        input_sheet_ProEast = "Product_info_東區"
-        input_sheet_ProNotEast = "Product_info_非東區"
-        df_VM_info = pd.read_excel(input_excel, sheet_name = input_sheet_VM) # input VM_info sheet
-        
-        cargolane_num_should_be = (df_VM_info["CargoLane_TotalNumber"].squeeze()).tolist()
-        
-        df_VM_info = df_VM_info.append({"CargoLane_TotalNumber": int(0)}, ignore_index = True)
-        CargoLane_Site_ID_for_log = int((df_VM_info.loc[0, ["Site_ID"]].squeeze()))
-        '''
-        if type(df_VM_info["CargoLane_ID"].squeeze().tolist()) == float:
-            if math.isnan((df_VM_info["CargoLane_ID"].squeeze()).tolist()) == True:
-                print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:VM_info is empty" + "\n")
-                logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:VM_info is empty" + "\n")
+            print(file)
+            logger.info(file)
+            
+            input_excel = os.path.join(inputpath, file)
+            input_sheet_VM = "VM_info"
+            input_sheet_ProEast = "Product_info_東區"
+            input_sheet_ProNotEast = "Product_info_非東區"
+            df_VM_info = pd.read_excel(input_excel, sheet_name = input_sheet_VM) # input VM_info sheet
+            
+            cargolane_num_should_be = (df_VM_info["CargoLane_TotalNumber"].squeeze()).tolist()
+            
+            df_VM_info = df_VM_info.append({"CargoLane_TotalNumber": int(0)}, ignore_index = True)
+            CargoLane_Site_ID_for_log = int((df_VM_info.loc[0, ["Site_ID"]].squeeze()))
+            '''
+            if type(df_VM_info["CargoLane_ID"].squeeze().tolist()) == float:
+                if math.isnan((df_VM_info["CargoLane_ID"].squeeze()).tolist()) == True:
+                    print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:VM_info is empty" + "\n")
+                    logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:VM_info is empty" + "\n")
+                    continue
+            
+            CargoLane_TotalNumber_first = int(df_VM_info.at[0, "CargoLane_TotalNumber"])
+            if len(cargolane_num_should_be) != CargoLane_TotalNumber_first:
+                print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:The number of Cargolanes is not same as CargoLane_TotalNumber" + "\n")
+                logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:The number of Cargolanes is not same as CargoLane_TotalNumber" + "\n")
                 continue
-        
-        CargoLane_TotalNumber_first = int(df_VM_info.at[0, "CargoLane_TotalNumber"])
-        if len(cargolane_num_should_be) != CargoLane_TotalNumber_first:
-            print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:The number of Cargolanes is not same as CargoLane_TotalNumber" + "\n")
-            logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:The number of Cargolanes is not same as CargoLane_TotalNumber" + "\n")
-            continue
-        '''    
-        locate_ID = list(OrderedDict.fromkeys((df_VM_info.loc[:, "Device_ID"].squeeze()).tolist())) # 重複值刪除，顯示所有點位
-        del locate_ID[-1]
-        Index_strart = int(0)
-        Index_end = int(df_VM_info.at[0, "CargoLane_TotalNumber"]) - 1
-        # Index_end = max((df_VM_info["CargoLane_ID"].squeeze()).tolist()) - 1 # 直接抓最後一個ID - 1
-        # Index_end = len((df_VM_info["CargoLane_ID"].squeeze()).tolist()) - 2
-        
-        today = datetime.date.today()
-        today = str(today.year * 10000 + today.month * 100 + today.day)
-                
-        input_sheet_ProDemand = "Product_demand"
-            # print(Index_strart, ":", Index_end)
-        
-        df_VM_info, df_Product_info, df_Product_demand, df_replacement_matrix, VM_ID, CargoLane_Device_ID, CargoLane_Site_ID, CargoLane_TotalNumber, CargoLane_ID, CargoLane_Type, CargoLane_Height_Max, CargoLane_Height_Min, CargoLane_Diameter_Max_1, CargoLane_Diameter_Min_1, CargoLane_Area, CargoLane_Capacity, Current_Product, Max_Prod_Cnt, Min_Prod_Cnt, CargoLane_Allow_Special, CargoLane_Average_Replenishment, CargoLane_Category_Rate, CargoLane_Brand_Rate, Product_ID, Product_Price, Product_Cost, Product_Product_sales, Product_Type, Product_Volume, Product_Length, Product_Width, Product_Height, Product_New, Product_Brand, Product_Category, Product_Specialsize, Demand_Product_ID, Demand_Product_Sales, replacement_matrix, Demand_zero = read_data(df_VM_info, input_excel, input_sheet_ProEast, input_sheet_ProNotEast, input_sheet_ProDemand, Index_strart, Index_end)
-
-        
-        #ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, cargolane_type_num, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, product_product_typenum, replenishment_per_time, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, setup_cost, replenishment_cost, total_cost, total_Cost_CargoLane1, total_Cost_CargoLane2, total_Cost_CargoLane3, total_Cost_CargoLane4, total_Cost_CargoLane5,  total_sCost_CargoLane1, total_sCost_CargoLane2, total_sCost_CargoLane3, total_sCost_CargoLane4,  total_snCost_CargoLane1, total_snCost_CargoLane2, total_snCost_CargoLane3, total_snCost_CargoLane4 = classify_demand_product(Product_ID, Product_Type, Product_Volume, Product_Price, Demand_Product_ID, Demand_Product_Sales, CargoLane_Average_Replenishment, Product_New, Product_Brand, Product_Specialsize, Product_Cost)
-        #Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4,total_Recommend_cost1, total_Recommend_cost2, total_Recommend_cost3, total_Recommend_cost4, total_Recommend_cost5, total_sRecommend_cost1, total_sRecommend_cost2, total_sRecommend_cost3, total_sRecommend_cost4,total_snRecommend_cost1, total_snRecommend_cost2, total_snRecommend_cost3, total_snRecommend_cost4 = classify_recommend_product(Product_ID, Product_Type, Product_Volume, Product_Price, Demand_Product_ID, Product_Cost, setup_cost, replenishment_cost, total_cost)
-        ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5,setup_cost, replenishment_cost, inventory_cost, display_cost, backroom_cost, ordering_cost  = classify_demand_product(Product_ID, Product_Type, Product_Volume, Product_Price, Demand_Product_ID, CargoLane_Capacity, Demand_Product_Sales, CargoLane_Average_Replenishment, Product_New, Product_Brand)
-    
-        print("Model is running...")
-        logger.info("Model is running...")
-        
-        #output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization = main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination)
-        demand_product_price, demand_product_type, demand_product_volume, demand_product_profit, demand_product_profit_product_max, Final_Selected_Product, Selected_Product_Revenue, Cargo_Lane_Id_empty,\
-        Selected_id_for_empty_CG, Selected_id_for_empty_CG_for_1st_time, Selected_id_for_empty_CG_for_2nd_time, In_Sol_Type, In_Sol_Volume, Total_Revenue, Total_Revenue_of_no_repeated_product,\
-        Tabu_list, temp_sol1, temp_sol2, Best_Solution, TS_Revenue, Total_TS_Revenue, Final_Best_Solution, Final_Best_Revenue, Final_Best_revenue_of_no_repeated_product, TS_list_revenue  = Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type,\
-        Product_Price, Demand_Product_Sales, product_typenum, Product_max_cargolanenum, CargoLane_ID, CargoLane_Type, setup_cost, replenishment_cost, Product_Cost)
-        
-        run=100
-        for x in range(run-1):
-        
-            Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Product_Price, Demand_Product_Sales, product_typenum, Product_max_cargolanenum, CargoLane_ID, CargoLane_Type, setup_cost, replenishment_cost, Product_Cost)
-        
-        print("")
-        print('*#'*50)
-        print("")
-        #print("Final_Revenue_of_no_repeated_prodcut=", Final_revenue_of_no_repeated_product)
-        #print("")
-        #print("Final_TS_Revenue=", Final_TS_revenue)
-        print("")
-        print("Final_Best_Solution=", Final_Best_Solution)
-        print("")
-        print("Final_Best_Revenue=", Final_Best_Revenue)
-        print("")
-        print("Final_Best_revenue_of_no_repeated_product=",Final_Best_revenue_of_no_repeated_product)
-        print("")
-        # print("Final_Best_revenue_of_no_repeated_product=",Final_Best_revenue_of_no_repeated_product)
-
-        
-        '''
-        print("Final_Best_Revenue=", Final_Best_Revenue)
-        print("")
-        print("Final_Best_revenue_of_no_repeated_product=",Final_Best_revenue_of_no_repeated_product)
-        print("")
-        '''
-        #print(revenue_comparison)
-        #index_3 = iter_maxprofit_fitness.index(max(iter_maxprofit_fitness))
-        #costlist = []
-        #for i in range(len(iter_maxchro[index_3])):
-            #if iter_maxchro[index_3][i] == "" or iter_maxchro[index_3][i] == "empty":
-                #costlist.append(0)
-            #else:
-                #costlist.append(Product_Cost[Product_ID.index(iter_maxchro[index_3][i])])
-        #compare_result = {"TS_Revenue": No_repeated_comparison}
-        compare_result = {"TS_Revenue": revenue_comparison}
-        output_compare_result = pd.DataFrame(compare_result)
-        
-        nama_file=[]
-        get_number_file=[]
-        get_number_file.clear()
-        get_number_file.append(file)
-        nama_file.append(get_last_three_letters(get_number_file))
-        idxx=int(nama_file[0])
-        print("File=", idxx)
-        # print("tes", Final_Best_Revenue)
-        
-        # op_l_idx=[]
-        # op_l_idx.append(op_l)
-        # print(op_l_idx)
-        fitness=[]
-        for num1,num2 in zip(Final_Best_Revenue, op_l): #!!!!
-            fitness.append(num1-num2) 
-        
-        print("Fitness=", fitness)
-        
-        
-        final_result = {"VM ID": VM_ID, "Device ID": CargoLane_Device_ID, "Site_ID": CargoLane_Site_ID, "CargoLane ID": CargoLane_ID, "Product selection": Final_Best_Solution[0][0] , "Product profit": TS_list_revenue[0][0], "cargo_type": CargoLane_Type, "current prod": Current_Product}
-        output_final_result = pd.DataFrame(final_result)
-        output_final_summarization = pd.DataFrame()
-        output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": Final_Best_Revenue[0], "Value_type": "revenue"}, ignore_index=True)
-        output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": op_l[0], "Value_type": "opportunity_loss"}, ignore_index=True)
-        output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": fitness[0], "Value_type": "fitness"}, ignore_index=True)
-        
-        for i in range(len( Cargo_Lane_Id_empty )):
-            output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value":  Cargo_Lane_Id_empty[i] , "Value_type": "empty"}, ignore_index=True)
-        # for j in range(len(recommend_prod)):
-        #     output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "value": recommend_prod[j], "Value_type": "recommend"}, ignore_index=True)
-        for j in range(len(Selected_id_for_empty_CG)):
-            output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": Selected_id_for_empty_CG[j], "Value_type": "recommend"}, ignore_index=True)
-        #print(output_final_summarization)
-        #print('##')
-        #print("compare=",output_compare_result)
-        
-        outputpath_s = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result2.csv") # 設定路徑及檔名
-        outputpath_r = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result1.csv") # 設定路徑及檔名
-        outputpath_c = os.path.join(outputpath_compare, today + '_' + file + "_" + mode + "TS.csv") # 設定路徑及檔名
-        output_final_result.to_csv(outputpath_r, sep = ",", index = False, encoding = "utf-8")
-        output_final_summarization.to_csv(outputpath_s, sep = ",", header = False, index = False, encoding = "utf-8")
-        output_compare_result.to_csv(outputpath_c, sep = ",", index = False, encoding = "utf-8")
-        
-        # Index_strart = Index_end + 1
-        CargoLane_Quantity = int(df_VM_info.at[Index_strart, "CargoLane_TotalNumber"])
-        # Index_end = Index_strart + CargoLane_Quantity - 1
-        print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
-        logger.info("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
-        
-        # if heu_each_chro_profit > 1:
-        #     ok += 1
-        # else:
-        #     okno += 1
-        #     okno_list.append(file[20:])
+            '''    
+            locate_ID = list(OrderedDict.fromkeys((df_VM_info.loc[:, "Device_ID"].squeeze()).tolist())) # 重複值刪除，顯示所有點位
+            del locate_ID[-1]
+            Index_strart = int(0)
+            Index_end = int(df_VM_info.at[0, "CargoLane_TotalNumber"]) - 1
+            # Index_end = max((df_VM_info["CargoLane_ID"].squeeze()).tolist()) - 1 # 直接抓最後一個ID - 1
+            # Index_end = len((df_VM_info["CargoLane_ID"].squeeze()).tolist()) - 2
             
-    # except:                   # 如果 try 的內容發生錯誤，就執行 except 裡的內容
-        print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
-        logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
-        # pass                  # 略過
+            today = datetime.date.today()
+            today = str(today.year * 10000 + today.month * 100 + today.day)
+                    
+            input_sheet_ProDemand = "Product_demand"
+                # print(Index_strart, ":", Index_end)
+            
+            df_VM_info, df_Product_info, df_Product_demand, df_replacement_matrix, VM_ID, CargoLane_Device_ID, CargoLane_Site_ID, CargoLane_TotalNumber, CargoLane_ID, CargoLane_Type, CargoLane_Height_Max, CargoLane_Height_Min, CargoLane_Diameter_Max_1, CargoLane_Diameter_Min_1, CargoLane_Area, CargoLane_Capacity, Current_Product, Max_Prod_Cnt, Min_Prod_Cnt, CargoLane_Allow_Special, CargoLane_Average_Replenishment, CargoLane_Category_Rate, CargoLane_Brand_Rate, Product_ID, Product_Price, Product_Cost, Product_Product_sales, Product_Type, Product_Volume, Product_Length, Product_Width, Product_Height, Product_New, Product_Brand, Product_Category, Product_Specialsize, Demand_Product_ID, Demand_Product_Sales, replacement_matrix, Demand_zero = read_data(df_VM_info, input_excel, input_sheet_ProEast, input_sheet_ProNotEast, input_sheet_ProDemand, Index_strart, Index_end)
+    
+            
+            #ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, cargolane_type_num, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, product_product_typenum, replenishment_per_time, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, setup_cost, replenishment_cost, total_cost, total_Cost_CargoLane1, total_Cost_CargoLane2, total_Cost_CargoLane3, total_Cost_CargoLane4, total_Cost_CargoLane5,  total_sCost_CargoLane1, total_sCost_CargoLane2, total_sCost_CargoLane3, total_sCost_CargoLane4,  total_snCost_CargoLane1, total_snCost_CargoLane2, total_snCost_CargoLane3, total_snCost_CargoLane4 = classify_demand_product(Product_ID, Product_Type, Product_Volume, Product_Price, Demand_Product_ID, Demand_Product_Sales, CargoLane_Average_Replenishment, Product_New, Product_Brand, Product_Specialsize, Product_Cost)
+            #Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4,total_Recommend_cost1, total_Recommend_cost2, total_Recommend_cost3, total_Recommend_cost4, total_Recommend_cost5, total_sRecommend_cost1, total_sRecommend_cost2, total_sRecommend_cost3, total_sRecommend_cost4,total_snRecommend_cost1, total_snRecommend_cost2, total_snRecommend_cost3, total_snRecommend_cost4 = classify_recommend_product(Product_ID, Product_Type, Product_Volume, Product_Price, Demand_Product_ID, Product_Cost, setup_cost, replenishment_cost, total_cost)
+            ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5,setup_cost, replenishment_cost, inventory_cost, display_cost, backroom_cost, ordering_cost  = classify_demand_product(Product_ID, Product_Type, Product_Volume, Product_Price, Demand_Product_ID, CargoLane_Capacity, Demand_Product_Sales, CargoLane_Average_Replenishment, Product_New, Product_Brand)
+        
+            print("Model is running...")
+            logger.info("Model is running...")
+            
+            #output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization = main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination)
+            stockoutprice, stockout, demand_hasil, demand_product_price, demand_product_type, demand_product_volume, demand_product_profit, demand_product_profit_product_max, Final_Selected_Product, Selected_Product_Revenue, Cargo_Lane_Id_empty,\
+            Selected_id_for_empty_CG, Selected_id_for_empty_CG_for_1st_time, Selected_id_for_empty_CG_for_2nd_time, In_Sol_Type, In_Sol_Volume, Total_Revenue, Total_Revenue_of_no_repeated_product,\
+            Tabu_list, temp_sol1, temp_sol2, Best_Solution, TS_Revenue, Total_TS_Revenue, Final_Best_Solution, Final_Best_Revenue, Final_Best_revenue_of_no_repeated_product, TS_list_revenue  = Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type,\
+            Product_Price, Demand_Product_Sales, product_typenum, Product_max_cargolanenum, CargoLane_ID, CargoLane_Type, setup_cost, replenishment_cost, Product_Cost)
+            
+            run=100
+            for x in range(run-1):
+            
+                Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Product_Price, Demand_Product_Sales, product_typenum, Product_max_cargolanenum, CargoLane_ID, CargoLane_Type, setup_cost, replenishment_cost, Product_Cost)
+            
+            print("")
+            print('*#'*50)
+            print("")
+            #print("Final_Revenue_of_no_repeated_prodcut=", Final_revenue_of_no_repeated_product)
+            #print("")
+            #print("Final_TS_Revenue=", Final_TS_revenue)
+            print("")
+            print("Final_Best_Solution=", Final_Best_Solution)
+            print("")
+            print("Final_Best_Revenue=", Final_Best_Revenue)
+            print("")
+            print("Final_Best_revenue_of_no_repeated_product=",Final_Best_revenue_of_no_repeated_product)
+            print("")
+            print("demand=", demand_hasil)
+            print("")
+            print("stockout =", stockout)
+            print("")
+            print("stockout price =", stockoutprice)
+            # print("Final_Best_revenue_of_no_repeated_product=",Final_Best_revenue_of_no_repeated_product)
+    
+            
+            '''
+            print("Final_Best_Revenue=", Final_Best_Revenue)
+            print("")
+            print("Final_Best_revenue_of_no_repeated_product=",Final_Best_revenue_of_no_repeated_product)
+            print("")
+            '''
+            #print(revenue_comparison)
+            #index_3 = iter_maxprofit_fitness.index(max(iter_maxprofit_fitness))
+            #costlist = []
+            #for i in range(len(iter_maxchro[index_3])):
+                #if iter_maxchro[index_3][i] == "" or iter_maxchro[index_3][i] == "empty":
+                    #costlist.append(0)
+                #else:
+                    #costlist.append(Product_Cost[Product_ID.index(iter_maxchro[index_3][i])])
+            #compare_result = {"TS_Revenue": No_repeated_comparison}
+            compare_result = {"TS_Revenue": revenue_comparison}
+            output_compare_result = pd.DataFrame(compare_result)
+            
+            nama_file=[]
+            get_number_file=[]
+            get_number_file.clear()
+            get_number_file.append(file)
+            nama_file.append(get_last_three_letters(get_number_file))
+            idxx=int(nama_file[0])
+            print("File=", idxx)
+            # print("tes", Final_Best_Revenue)
+            
+            # op_l_idx=[]
+            # op_l_idx.append(op_l)
+            # print(op_l_idx)
+            fitness=[]
+            for num1,num2 in zip(Final_Best_Revenue, op_l): #!!!!
+                fitness.append(num1-num2) 
+            
+            print("Fitness=", fitness)
+            
+            
+            final_result = {"VM ID": VM_ID, "Device ID": CargoLane_Device_ID, "Site_ID": CargoLane_Site_ID, "CargoLane ID": CargoLane_ID, "Product selection": Final_Best_Solution[0][0] , "Product profit": TS_list_revenue[0][0], "cargo_type": CargoLane_Type, "current prod": Current_Product}
+            output_final_result = pd.DataFrame(final_result)
+            output_final_summarization = pd.DataFrame()
+            output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": Final_Best_Revenue[0], "Value_type": "revenue"}, ignore_index=True)
+            output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": op_l[0], "Value_type": "opportunity_loss"}, ignore_index=True)
+            output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": fitness[0], "Value_type": "fitness"}, ignore_index=True)
+            
+            for i in range(len( Cargo_Lane_Id_empty )):
+                output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value":  Cargo_Lane_Id_empty[i] , "Value_type": "empty"}, ignore_index=True)
+            # for j in range(len(recommend_prod)):
+            #     output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "value": recommend_prod[j], "Value_type": "recommend"}, ignore_index=True)
+            for j in range(len(Selected_id_for_empty_CG)):
+                output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": Selected_id_for_empty_CG[j], "Value_type": "recommend"}, ignore_index=True)
+            #print(output_final_summarization)
+            #print('##')
+            #print("compare=",output_compare_result)
+            
+            outputpath_s = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result2.csv") # 設定路徑及檔名
+            outputpath_r = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result1.csv") # 設定路徑及檔名
+            outputpath_c = os.path.join(outputpath_compare, today + '_' + file + "_" + mode + "TS.csv") # 設定路徑及檔名
+            output_final_result.to_csv(outputpath_r, sep = ",", index = False, encoding = "utf-8")
+            output_final_summarization.to_csv(outputpath_s, sep = ",", header = False, index = False, encoding = "utf-8")
+            output_compare_result.to_csv(outputpath_c, sep = ",", index = False, encoding = "utf-8")
+            
+            # Index_strart = Index_end + 1
+            CargoLane_Quantity = int(df_VM_info.at[Index_strart, "CargoLane_TotalNumber"])
+            # Index_end = Index_strart + CargoLane_Quantity - 1
+            print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
+            logger.info("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
+            
+            # if heu_each_chro_profit > 1:
+            #     ok += 1
+            # else:
+            #     okno += 1
+            #     okno_list.append(file[20:])
+            
+        except:                   # 如果 try 的內容發生錯誤，就執行 except 裡的內容
+            print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
+            logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
+            pass                  # 略過
 else:
     if today_std_for_property > 20221231:
         print("The deadline of exection was met, it's exceeded 20221231")
