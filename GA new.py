@@ -2797,6 +2797,8 @@ def objective(chro_profit, chro_ID, chro_new, cargotype, prodtype, num, new_prod
         profit_matrix_without_duplicates = profit_matrix.drop_duplicates(subset = ["ID", "Profit"]) # !!!!!
         #each_chro_profit.append(sum(profit_matrix_without_duplicates["Profit"]))
         each_chro_profit.append(sum(profit_matrix["Profit"]))
+        print("cc_chro_profit", cc_chro_profit)
+        print("each_chro_profit", each_chro_profit)
         
         # for j in list(set(chro_recommend[i])):
         #     if chro_recommend[i].count(j) == 2:
