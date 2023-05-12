@@ -1983,7 +1983,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == 1:
             I = selectionlist_sorted[1][index1]
-            print("1",I)
+            # print("1",I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2042,7 +2042,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == 2:
             I = selectionlist_sorted[2][index2]
-            print("2",I)
+            # print("2",I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2101,7 +2101,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == 3:
             I = selectionlist_sorted[3][index3]
-            print("3", I)
+            # print("3", I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2160,7 +2160,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == 4:
             I = selectionlist_sorted[4][index4]
-            print("4", I)
+            # print("4", I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2219,7 +2219,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == 5:
             I = selectionlist_sorted[5][index5]
-            print("5", I)
+            # print("5", I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2278,7 +2278,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == "s1.0" or i == "s1":
             I = selectionlist_sorted[6][indexs1]
-            print("s1", I)
+            # print("s1", I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2337,7 +2337,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == "s2.0" or i == "s2":
             I = selectionlist_sorted[7][indexs2]
-            print("s2", I)
+            # print("s2", I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2396,7 +2396,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == "s3.0" or i == "s3":
             I = selectionlist_sorted[8][indexs3]
-            print("s3",I)
+            # print("s3",I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2455,7 +2455,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
             cargoID += 1 #####################################################
         elif i == "s4.0" or i == "s4":
             I = selectionlist_sorted[9][indexs4]
-            print("s4", I)
+            # print("s4", I)
             if I == "":
                 selection_ID.append("empty")
                 selection_price.append(0)
@@ -2583,7 +2583,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     stockout=[]
     lostsales=[]
     
-    for i in range(len(selection_ID)):
+    for i in range(len(selection_ID)): #!!!!!
         selection_sales[i]= alpha * (quantity_displayed[i]**space_elas)*(quantity_displayed[i]**cross_elas) #Dikr
         replenishment.append(min(round(sqrt(unit_ordering_cost[Product_ID.index(selection_ID[i])] / ((unit_inventory_cost[Product_ID.index(selection_ID[i])]/2) + unit_backroom_cost[Product_ID.index(selection_ID[i])]) * selection_sales[i])),3))
         stockout.append(round(max(selection_sales[i]-quantity_displayed[i],0)))
@@ -2594,16 +2594,16 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
         ordering_cost.append(unit_ordering_cost[Product_ID.index(selection_ID[i])]* replenishment[i])
         selection_profit[i]=((Product_Price[Product_ID.index(selection_ID[i])]-Product_Cost[Product_ID.index(selection_ID[i])])*selection_sales[i]) - inventory_cost[i] - backroom_cost[i]- display_cost[i]- ordering_cost[i]
         
-    # print("ID=", selection_ID)
+    print("ID=", selection_ID)
     # print("sales after=", selection_sales)
-    # print("stockout=", stockout)
+    print("stockout=", stockout)
     # print("lost sales=", lostsales)
     # print("ic=", inventory_cost)
     # print("bc=",backroom_cost)
     # print("dc=", display_cost)
     # print("oc=", ordering_cost)
-    # print("replenishment", replenishment)
-    # print("Profit After=",selection_profit)
+    print("replenishment", replenishment)
+    print("Profit After=",selection_profit)
     print("**********************************")
     
     return selection_ID, selection_price, selection_sales, selection_profit, selection_new, cargolane_empty_list, recommend_list, selection_empty, inventory_cost,backroom_cost,display_cost,ordering_cost, purchasing_cost, replenishment, stockout, lostsales
@@ -3498,7 +3498,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
     #     f=np.prod(sjm_matrix[i])
     #     sjmn.append(f)
     #recommended_profit_ratio = 1/5
-    recommended_profit_ratio = 1/5
+    recommended_profit_ratio = 1
     alpha= random.uniform(5, 10)
     space_elas= random.uniform(0.2,0.4)
     cross_elas= random.uniform(-0.05, 0.05)

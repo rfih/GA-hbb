@@ -958,7 +958,7 @@ def Main_Program(Demand_Product_ID, Product_ID, Product_Volume, Product_Type, Pr
         Selected_id_for_empty_CG_for_1st_time=[]
         Selected_id_for_empty_CG_for_2nd_time=[]
         
-        Avg_Sales_Product_for_empty_CL= ((sum(Demand_Average_Sales)/ len(Demand_Average_Sales))/5)
+        Avg_Sales_Product_for_empty_CL= ((sum(Demand_Average_Sales)/ len(Demand_Average_Sales)))
         
     
         #print(Demand_Product_Type_Num)
