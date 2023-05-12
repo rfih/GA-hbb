@@ -2012,7 +2012,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2021,14 +2021,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else: # 原選取品項(不是推薦) ORIGINAL OPTIONS (NOT RECOMMENDED)
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2071,7 +2071,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2080,14 +2080,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2130,7 +2130,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2139,14 +2139,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2189,7 +2189,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2198,14 +2198,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2248,7 +2248,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2257,14 +2257,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2307,7 +2307,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2316,14 +2316,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2366,7 +2366,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2375,14 +2375,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2425,7 +2425,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2434,14 +2434,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2484,7 +2484,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2493,14 +2493,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[Product_ID.index(I)]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -3883,7 +3883,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
     
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -3915,7 +3915,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
     
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -3947,7 +3947,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -3979,7 +3979,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -4011,7 +4011,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -4043,7 +4043,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -4075,7 +4075,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -4107,7 +4107,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -4139,7 +4139,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)] 
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
@@ -4175,7 +4175,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4209,7 +4209,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4243,7 +4243,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4277,7 +4277,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4311,7 +4311,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4345,7 +4345,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4379,7 +4379,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4413,7 +4413,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
@@ -4447,7 +4447,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
            
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[Product_ID.index(re_ID)]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
