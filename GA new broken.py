@@ -14,6 +14,7 @@ import logging
 import matplotlib.pyplot as plt
 import sys
 import copy
+import csv
     
 #%%
 # read data from input file and return parameters/variables
@@ -2603,7 +2604,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     # print("ic=", inventory_cost)
     # print("bc=",backroom_cost)
     # print("dc=", display_cost)
-    print("oc=", ordering_cost)
+    # print("oc=", ordering_cost)
     # print("replenishment", replenishment)
     # print("Profit After=",selection_profit)
     # print("**********************************")
@@ -3913,7 +3914,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == 2:
             re_ID = choice(ID2)
             selection1[candidate_index] = re_ID
@@ -3945,7 +3946,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == 3:
             re_ID = choice(ID3)
             selection1[candidate_index] = re_ID
@@ -3978,7 +3979,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == 4:
             re_ID = choice(ID4)
             selection1[candidate_index] = re_ID
@@ -4011,7 +4012,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == 5:
             re_ID = choice(ID5)
             selection1[candidate_index] = re_ID
@@ -4044,7 +4045,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == "s1.0" or CargoLane_Type[candidate_index] == "s1":
             re_ID = choice(IDs1)
             selection1[candidate_index] = re_ID
@@ -4077,7 +4078,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == "s2.0" or CargoLane_Type[candidate_index] == "s2":
             re_ID = choice(IDs2)
             selection1[candidate_index] = re_ID
@@ -4110,7 +4111,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == "s3.0" or CargoLane_Type[candidate_index] == "s3":
             re_ID = choice(IDs3)
             selection1[candidate_index] = re_ID
@@ -4143,7 +4144,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
         elif CargoLane_Type[candidate_index] == "s4.0" or CargoLane_Type[candidate_index] == "s4":
             re_ID = choice(IDs4)
             selection1[candidate_index] = re_ID
@@ -4176,7 +4177,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
-            print(selection1_ordering_cost[candidate_index])
+
     elif mutationran[1] < mutation_rate and Cargolane_ID != []:
         candidate_index2 = CargoLane_ID.index(choice(Cargolane_ID)) # index of chro list
         if CargoLane_Type[candidate_index2] == 0:
@@ -4213,7 +4214,6 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
 
         elif CargoLane_Type[candidate_index2] == 2:
             re_ID = choice(ID2)
@@ -4247,7 +4247,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
+
         elif CargoLane_Type[candidate_index2] == 3:
             re_ID = choice(ID3)
             selection2[candidate_index2] = re_ID
@@ -4281,7 +4281,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
+
         elif CargoLane_Type[candidate_index2] == 4:
             re_ID = choice(ID4)
             selection2[candidate_index2] = re_ID  
@@ -4316,7 +4316,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
+
         elif CargoLane_Type[candidate_index2] == 5:
             re_ID = choice(ID5)
             selection2[candidate_index2] = re_ID
@@ -4351,7 +4351,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
+
         elif CargoLane_Type[candidate_index2] == "s1.0" or CargoLane_Type[candidate_index2] == "s1":
             re_ID = choice(IDs1)
             selection2[candidate_index2] = re_ID
@@ -4386,7 +4386,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
+
         elif CargoLane_Type[candidate_index2] == "s2.0" or CargoLane_Type[candidate_index2] == "s2":
             re_ID = choice(IDs2)
             selection2[candidate_index2] = re_ID
@@ -4421,7 +4421,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
+
         elif CargoLane_Type[candidate_index2] == "s3.0" or CargoLane_Type[candidate_index2] == "s3":
             re_ID = choice(IDs3)
             selection2[candidate_index2] = re_ID
@@ -4455,7 +4455,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
+
         elif CargoLane_Type[candidate_index2] == "s4.0" or CargoLane_Type[candidate_index2] == "s4":
             re_ID = choice(IDs4)
             selection2[candidate_index2] = re_ID
@@ -4489,7 +4489,6 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
-            print(selection2_ordering_cost[candidate_index2])
     
     chro[max_index] = selection1
     chro_price[max_index] = selection1_price
@@ -4991,7 +4990,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
 
 #%%
 # read the in/output path, parameters setting, error log
-time_start = time.time() # start to count the time 開始計時
+# time_start = time.time() # start to count the time 開始計時
 # parameters setting
 mode = str(2)
 new_prod_ratio = int(1) # 5%
@@ -5019,8 +5018,8 @@ inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN" # test
 if mode == str(1):
     outputpath = "/Users/nataliafebri/Documents/Lab Meeting/Lab Meeting Rabu/Project VM/31 Oct/Mode1" # test
 elif mode == str(2):
-    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # !!!!!
-    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"
+    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GA(3,2)"  # !!!!!
+    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GA(3,2)"
 else:
     outputpath =r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # test
 
@@ -5065,11 +5064,15 @@ okno_list = []
 
 print("This program is a property of National Taiwan University of Science and Technology." + "\n")
 logger.info("This program is a property of National Taiwan University of Science and Technology." + "\n")
-
+exe_times=[]
+exe=[]
 if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_property <= 20231231 and iter_def == True:
     inputfile_list = os.listdir(inputpath)
     for file in inputfile_list:
         # try:
+            time_start = time.time()
+            
+            
             print(file)
             logger.info(file)
             
@@ -5202,6 +5205,11 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
             # Index_end = Index_strart + CargoLane_Quantity - 1
             print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
             logger.info("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
+            time_end = time.time()    # 結束計時
+            time_total = time_end - time_start    # 執行所花時間
+            exe.append(time_total)
+            exe_times.append(exe)
+            print('Spend:', exe, '(s)')
             
             if heu_each_chro_profit > 1:
                 ok += 1
@@ -5212,7 +5220,21 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
         # except:                   # 如果 try 的內容發生錯誤，就執行 except 裡的內容
             print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
             logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
+    filename = "execution_times.csv"
+    save_directory = outputpath  # Specify the directory where the CSV file should be saved
+    fullpath = os.path.join(save_directory, filename)
+
+    with open(fullpath, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['File', 'Execution Time'])
+
+        for i in range(len(inputfile_list)):
+            if i < len(exe_times):  # Check if the index is within the range of exe_times
+                writer.writerow([inputfile_list[i], exe[i]])
+            
             # pass                  # 略過
+            # exe_times.append(exe)
+            # print("tes", exe_times)
 else:
     if today_std_for_property > 20231231:
         print("The deadline of exection was met, it's exceeded 20231231")
@@ -5224,10 +5246,25 @@ else:
         print(inputpath, "do not exist")
     elif os.path.exists(outputpath) == False:
         print(outputpath, "do not exist")
+# exe_times.append(exe)
+# print(exe_times)
+        
 
-time_end = time.time()    # 結束計時
-time_total = time_end - time_start    # 執行所花時間
-print('Spend:', time_total, '(s)')
+# filename = "execution_times.csv"
+# save_directory = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GA(3,2)"
+# fullpath = os.path.join(save_directory, filename)
+# with open(fullpath, 'w', newline='') as file:
+#     writer = csv.writer(file)
+#     writer.writerow(['File', 'Execution Time'])
+    
+#     for i in range(len(inputfile_list)):
+#         writer.writerow([inputfile_list[i], exe[i]])
+# print("Execution times exported to execution_times.csv")
+
+
+# time_end = time.time()    # 結束計時
+# time_total = time_end - time_start    # 執行所花時間
+# print('Spend:', time_total, '(s)')
 
 # error log priority
 # VM_info is empty v
