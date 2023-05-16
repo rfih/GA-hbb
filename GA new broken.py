@@ -2858,15 +2858,15 @@ def objective(chro_profit, chro_ID, chro_new, cargotype, prodtype, num, new_prod
         for g in range(len(chro_occupied[i])):
             each_chro_profit[i] += chro_profit[i][CargoLane_ID.index(chro_occupied[i][g])]
 
-    for j in range(len(chro_profit)):
-        meetornot = check(chro_ID[j], chro_new[j], cargotype, prodtype, num, new_prod_ratio, chro_price[j], chro_occupied[j], replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend[j], Product_New, chro_inventory_cost[j], chro_backroom_cost[j], chro_display_cost[j], chro_ordering_cost[j], chro_purchasing_cost[j], chro_replenishment[j], chro_stockout[j], chro_lostsales[j])
+    # for j in range(len(chro_profit)):
+    #     meetornot = check(chro_ID[j], chro_new[j], cargotype, prodtype, num, new_prod_ratio, chro_price[j], chro_occupied[j], replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend[j], Product_New, chro_inventory_cost[j], chro_backroom_cost[j], chro_display_cost[j], chro_ordering_cost[j], chro_purchasing_cost[j], chro_replenishment[j], chro_stockout[j], chro_lostsales[j])
 
         #meetornot, oppo_loss = check(chro_ID[j], chro_new[j], cargotype, prodtype, num, new_prod_ratio, chro_price[j], chro_occupied[j], replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend[j], Product_New)
         #oppo_loss_list.append(oppo_loss)
         #each_chro_profit_withloss.append(each_chro_profit[j] - oppo_loss)
-        if meetornot == False:
-            each_chro_profit[j] = 0.000000000001
-           # each_chro_profit_withloss[j] = 0.000000000001
+        # if meetornot == False:
+        #    each_chro_profit[j] = 0.000000000001
+           #each_chro_profit_withloss[j] = 0.000000000001
             
     return each_chro_profit
 #oppo_loss_list, each_chro_profit_withloss
