@@ -1233,3 +1233,4 @@
 
 2023-05-12 17:49:16,947 result:4017:Execution failed:Incorrect input data
 
+2023-05-12 17:55:04,123 handle_close[c99f7d87efa211ed9115a0510b821ab2]({'header': {'msg_id': 'ce648dc6-c9ad945c64571bf61e1a3e40_16848_1096', 'msg_type': 'comm_close', 'username': 'username', 'session': 'ce648dc6-c9ad945c64571bf61e1a3e40', 'date': datetime.datetime(2023, 5, 12, 9, 55, 4, 87156, tzinfo=tzutc()), 'version': '5.3'}, 'msg_id': 'ce648dc6-c9ad945c64571bf61e1a3e40_16848_1096', 'msg_type': 'comm_close', 'parent_header': {}, 'metadata': {}, 'content': {'comm_id': 'c99f7d87efa211ed9115a0510b821ab2', 'data': {}}, 'buffers': []})
