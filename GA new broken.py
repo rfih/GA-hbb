@@ -57,7 +57,7 @@ def read_data(df_VM_info, input_excel, input_sheet_ProEast, input_sheet_ProNotEa
     # Input data from (Product_info.sheet)
     Product_ID = df_Product_info["Product_ID"].tolist()
     Product_Price = df_Product_info["Price"].tolist()
-    #Product_Cost = df_Product_info["Cost"].tolist()
+    Product_Cost = df_Product_info["Cost"].tolist()
     Product_Product_sales = df_Product_info["Average_sales_month"].tolist()
     Product_Type = df_Product_info["Type"].tolist()
     Product_Volume = df_Product_info["Volume"].tolist()
@@ -73,13 +73,13 @@ def read_data(df_VM_info, input_excel, input_sheet_ProEast, input_sheet_ProNotEa
     
     unit_purc_cost=[]
     
-    random.seed(0)
-    for i in range(len( Product_ID)):
-        rand_purch = random.uniform(10, 20)
+    # random.seed(0)
+    # for i in range(len( Product_ID)):
+        # rand_purch = random.uniform(10, 20)
         #rand_pr= random.uniform(20, 40)
-        unit_purc_cost.append(rand_purch)
+        # unit_purc_cost.append(rand_purch)
         #pr_price.append(rand_pr)
-    Product_Cost= unit_purc_cost
+    # Product_Cost= unit_purc_cost
    
     df_Product_demand = pd.read_excel(input_excel, sheet_name = input_sheet_ProDemand)
     
@@ -908,7 +908,7 @@ def current_info(Current_Product, Product_ID, Demand_Product_ID, Product_Price, 
 def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, cargolane_type_num, Product_New, Product_ID, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, modec, Product_Product_sales, setup_cost, replenishment_cost, CargoLane_Diameter_Max_1,Product_Length, unit_inventory_cost,unit_backroom_cost,unit_display_cost,unit_ordering_cost, Product_Cost):
     cargolane_priority = ["s3", "s4", "s1", "s2", 1, 3, 2, 4, 5, 0] #[1, 3, 2, 4, 5, 0]
     #recommended_profit_ratio = 1/5 # will become a variable to modity easily in future
-    recommended_profit_ratio = 1/5
+    recommended_profit_ratio = 1
     # for normal
     copy_id_1 = ID_CargoLane1.copy() # CAN
     copy_id_2 = ID_CargoLane2.copy() # SCAN
@@ -982,25 +982,25 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     profit_s4 = []
     
     for i in range(len(copy_sales_1)):
-        profit_1.append((copy_price_1[i] - copy_cost_1[i]) * copy_sales_1[i]) # - (setup_cost + replenishment_cost))
+        profit_1.append(copy_price_1[i] - copy_cost_1[i])# * copy_sales_1[i]) # - (setup_cost + replenishment_cost))
     for i in range(len(copy_sales_2)):
-        profit_2.append((copy_price_2[i] - copy_cost_2[i]) * copy_sales_2[i]) # - (setup_cost + replenishment_cost))
+        profit_2.append(copy_price_2[i] - copy_cost_2[i])# * copy_sales_2[i]) # - (setup_cost + replenishment_cost))
     for i in range(len(copy_sales_3)):
-        profit_3.append((copy_price_3[i] - copy_cost_3[i]) * copy_sales_3[i]) # - (setup_cost + replenishment_cost))
+        profit_3.append(copy_price_3[i] - copy_cost_3[i]) #* copy_sales_3[i]) # - (setup_cost + replenishment_cost))
     for i in range(len(copy_sales_4)):
-        profit_4.append((copy_price_4[i] - copy_cost_4[i]) * copy_sales_4[i]) # - (setup_cost + replenishment_cost))
+        profit_4.append(copy_price_4[i] - copy_cost_4[i])# * copy_sales_4[i]) # - (setup_cost + replenishment_cost))
     for i in range(len(copy_sales_5)):
-        profit_5.append((copy_price_5[i] - copy_cost_5[i]) * copy_sales_5[i]) # - (setup_cost + replenishment_cost))
+        profit_5.append(copy_price_5[i] - copy_cost_5[i]) #* copy_sales_5[i]) # - (setup_cost + replenishment_cost))
     
     # s: special
     for i in range(len(copy_sales_s1)):
-        profit_s1.append((copy_price_s1[i] - copy_cost_s1[i]) * copy_sales_s1[i]) # - (setup_cost + replenishment_cost))
+        profit_s1.append(copy_price_s1[i] - copy_cost_s1[i]) #* copy_sales_s1[i]) # - (setup_cost + replenishment_cost))
     for i in range(len(copy_sales_s2)):
-        profit_s2.append((copy_price_s2[i] - copy_cost_s2[i]) * copy_sales_s2[i]) # - (setup_cost + replenishment_cost))
+        profit_s2.append(copy_price_s2[i] - copy_cost_s2[i])# * copy_sales_s2[i]) # - (setup_cost + replenishment_cost))
     for i in range(len(copy_sales_s3)):
-        profit_s3.append((copy_price_s3[i] - copy_cost_s3[i]) * copy_sales_s3[i]) #- (setup_cost + replenishment_cost))
+        profit_s3.append(copy_price_s3[i] - copy_cost_s3[i])# * copy_sales_s3[i]) #- (setup_cost + replenishment_cost))
     for i in range(len(copy_sales_s4)):
-        profit_s4.append((copy_price_s4[i] - copy_cost_s4[i]) * copy_sales_s4[i]) # - (setup_cost + replenishment_cost))
+        profit_s4.append(copy_price_s4[i] - copy_cost_s4[i]) #* copy_sales_s4[i]) # - (setup_cost + replenishment_cost))
     #print("p=",profit_2)
     #print(copy_id_1)
     copy_profit_1 = profit_1.copy()
@@ -1068,11 +1068,11 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     copy_recommended_cost_4 = Recommend_cost4.copy()
     copy_recommended_cost_5 = Recommend_cost5.copy()
     
-    copy_recommended_profit_1 = [((copy_recommended_price_1[i] - copy_recommended_cost_1[i]) * Product_Product_sales[Product_ID.index(Recommend_ID1[i])]) for i in range(len(copy_recommended_price_1))]
-    copy_recommended_profit_2 = [((copy_recommended_price_2[i] - copy_recommended_cost_2[i]) * Product_Product_sales[Product_ID.index(Recommend_ID2[i])]) for i in range(len(copy_recommended_price_2))]
-    copy_recommended_profit_3 = [((copy_recommended_price_3[i] - copy_recommended_cost_3[i]) * Product_Product_sales[Product_ID.index(Recommend_ID3[i])]) for i in range(len(copy_recommended_price_3))]
-    copy_recommended_profit_4 = [((copy_recommended_price_4[i] - copy_recommended_cost_4[i]) * Product_Product_sales[Product_ID.index(Recommend_ID4[i])]) for i in range(len(copy_recommended_price_4))]
-    copy_recommended_profit_5 = [((copy_recommended_price_5[i] - copy_recommended_cost_5[i]) * Product_Product_sales[Product_ID.index(Recommend_ID5[i])]) for i in range(len(copy_recommended_price_5))]
+    copy_recommended_profit_1 = [((copy_recommended_price_1[i] - copy_recommended_cost_1[i]) ) for i in range(len(copy_recommended_price_1))]
+    copy_recommended_profit_2 = [((copy_recommended_price_2[i] - copy_recommended_cost_2[i]) ) for i in range(len(copy_recommended_price_2))]
+    copy_recommended_profit_3 = [((copy_recommended_price_3[i] - copy_recommended_cost_3[i]) ) for i in range(len(copy_recommended_price_3))]
+    copy_recommended_profit_4 = [((copy_recommended_price_4[i] - copy_recommended_cost_4[i]) ) for i in range(len(copy_recommended_price_4))]
+    copy_recommended_profit_5 = [((copy_recommended_price_5[i] - copy_recommended_cost_5[i]) ) for i in range(len(copy_recommended_price_5))]
     
     copy_recommended_id_s1 = snRecommend_ID1.copy() 
     copy_recommended_id_s2 = snRecommend_ID2.copy()
@@ -1094,10 +1094,10 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     copy_recommended_cost_s3 = snRecommend_cost3.copy()
     copy_recommended_cost_s4 = snRecommend_cost4.copy()
 
-    copy_recommended_profit_s1 = [((copy_recommended_price_s1[i] - copy_recommended_cost_s1[i]) * Product_Product_sales[Product_ID.index(snRecommend_ID1[i])])  for i in range(len(copy_recommended_price_s1))]
-    copy_recommended_profit_s2 = [((copy_recommended_price_s2[i] - copy_recommended_cost_s2[i]) * Product_Product_sales[Product_ID.index(snRecommend_ID2[i])])  for i in range(len(copy_recommended_price_s2))]
-    copy_recommended_profit_s3 = [((copy_recommended_price_s3[i] - copy_recommended_cost_s3[i]) * Product_Product_sales[Product_ID.index(snRecommend_ID3[i])])  for i in range(len(copy_recommended_price_s3))]
-    copy_recommended_profit_s4 = [((copy_recommended_price_s4[i] - copy_recommended_cost_s4[i]) * Product_Product_sales[Product_ID.index(snRecommend_ID4[i])])  for i in range(len(copy_recommended_price_s4))]
+    copy_recommended_profit_s1 = [((copy_recommended_price_s1[i] - copy_recommended_cost_s1[i]) )  for i in range(len(copy_recommended_price_s1))]
+    copy_recommended_profit_s2 = [((copy_recommended_price_s2[i] - copy_recommended_cost_s2[i]) )  for i in range(len(copy_recommended_price_s2))]
+    copy_recommended_profit_s3 = [((copy_recommended_price_s3[i] - copy_recommended_cost_s3[i]) )  for i in range(len(copy_recommended_price_s3))]
+    copy_recommended_profit_s4 = [((copy_recommended_price_s4[i] - copy_recommended_cost_s4[i]) )  for i in range(len(copy_recommended_price_s4))]
     
     # copy_brand_1 = Brand_CargoLane1.copy()
     # copy_brand_2 = Brand_CargoLane2.copy()
@@ -1142,11 +1142,11 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     #         if locals() ["copy_sales_" + str(i) + "_mode2"][j] == 0:
     #             locals() ["copy_sales_" + str(i) + "_mode2"][j] = 1
     
-    copy_profit_1_mode2 = [((copy_price_1_mode2[i] - copy_cost_1_mode2[i]) * copy_sales_1_mode2[i])  for i in range(len(copy_price_1_mode2))]
-    copy_profit_2_mode2 = [((copy_price_2_mode2[i] - copy_cost_2_mode2[i]) * copy_sales_2_mode2[i])  for i in range(len(copy_price_2_mode2))]
-    copy_profit_3_mode2 = [((copy_price_3_mode2[i] - copy_cost_3_mode2[i]) * copy_sales_3_mode2[i])  for i in range(len(copy_price_3_mode2))]
-    copy_profit_4_mode2 = [((copy_price_4_mode2[i] - copy_cost_4_mode2[i]) * copy_sales_4_mode2[i])  for i in range(len(copy_price_4_mode2))]
-    copy_profit_5_mode2 = [((copy_price_5_mode2[i] - copy_cost_5_mode2[i]) * copy_sales_5_mode2[i])  for i in range(len(copy_price_5_mode2))]
+    copy_profit_1_mode2 = [(copy_price_1_mode2[i] - copy_cost_1_mode2[i])   for i in range(len(copy_price_1_mode2))]
+    copy_profit_2_mode2 = [(copy_price_2_mode2[i] - copy_cost_2_mode2[i])   for i in range(len(copy_price_2_mode2))]
+    copy_profit_3_mode2 = [(copy_price_3_mode2[i] - copy_cost_3_mode2[i])   for i in range(len(copy_price_3_mode2))]
+    copy_profit_4_mode2 = [(copy_price_4_mode2[i] - copy_cost_4_mode2[i])   for i in range(len(copy_price_4_mode2))]
+    copy_profit_5_mode2 = [(copy_price_5_mode2[i] - copy_cost_5_mode2[i])   for i in range(len(copy_price_5_mode2))]
     
     copy_id_s1_mode2 = snID_CargoLane1.copy()
     copy_id_s2_mode2 = snID_CargoLane2.copy()
@@ -1179,10 +1179,10 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     #         if locals() ["copy_sales_s" + str(i) + "_mode2"][j] == 0:
     #             locals() ["copy_sales_s" + str(i) + "_mode2"][j] = 1
     
-    copy_profit_s1_mode2 = [((copy_price_s1_mode2[i] - copy_cost_s1_mode2[i]) * copy_sales_s1_mode2[i])  for i in range(len(copy_price_s1_mode2))]
-    copy_profit_s2_mode2 = [((copy_price_s2_mode2[i] - copy_cost_s2_mode2[i]) * copy_sales_s2_mode2[i])  for i in range(len(copy_price_s2_mode2))]
-    copy_profit_s3_mode2 = [((copy_price_s3_mode2[i] - copy_cost_s3_mode2[i]) * copy_sales_s3_mode2[i])  for i in range(len(copy_price_s3_mode2))]
-    copy_profit_s4_mode2 = [((copy_price_s4_mode2[i] - copy_cost_s4_mode2[i]) * copy_sales_s4_mode2[i])  for i in range(len(copy_price_s4_mode2))]
+    copy_profit_s1_mode2 = [(copy_price_s1_mode2[i] - copy_cost_s1_mode2[i])  for i in range(len(copy_price_s1_mode2))]
+    copy_profit_s2_mode2 = [(copy_price_s2_mode2[i] - copy_cost_s2_mode2[i]) for i in range(len(copy_price_s2_mode2))]
+    copy_profit_s3_mode2 = [(copy_price_s3_mode2[i] - copy_cost_s3_mode2[i])  for i in range(len(copy_price_s3_mode2))]
+    copy_profit_s4_mode2 = [(copy_price_s4_mode2[i] - copy_cost_s4_mode2[i])   for i in range(len(copy_price_s4_mode2))]
     
     selection_ID = []                                      
     selection_price = []
@@ -1298,7 +1298,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                 max_x = choice(profitlist)
                 while max_x == -1:
                     max_x = choice(profitlist)                                     # 給假如是randomly picking 用的, 避免隨機選到0的; If it is used for random picking, avoid random selection of 0
-            max_ran_x = choice(list(locate(profitlist, lambda x: x == max_x))) # index: 隨機挑選最大利潤的index; index: Randomly select the index with the maximum profit
+            max_ran_x = np.argmax(profitlist)       # index: 隨機挑選最大利潤的index; index: Randomly select the index with the maximum profit
             max_ran_x_ID = IDlist[max_ran_x]
         return max_ran_x, max_ran_x_ID                                         # 輸出選擇的index及ID ;  輸出選擇的index及ID
     
@@ -1920,16 +1920,16 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                     sel_sort_sales.append(-9999999999)
                     sel_sort_rev.append(-9999999999)
                 elif mode == str(2):
-                    sel_sort_sales.append(-9999999999 + Demand_Product_Sales[Demand_Product_ID.index(selectionlist_ID[h])])
-                    sel_sort_rev.append(-9999999999 + ((Product_Price[Product_ID.index(selectionlist_ID[h])] - Product_Cost[Product_ID.index(selectionlist_ID[h])]) * Demand_Product_Sales[Demand_Product_ID.index(selectionlist_ID[h])])) # - (setup_cost + replenishment_cost))
+                    sel_sort_sales.append(Demand_Product_Sales[Demand_Product_ID.index(selectionlist_ID[h])])
+                    sel_sort_rev.append(((Product_Price[Product_ID.index(selectionlist_ID[h])] - Product_Cost[Product_ID.index(selectionlist_ID[h])]) * Product_max_cargolanenum[Demand_Product_ID.index(selectionlist_ID[h])])) # - (setup_cost + replenishment_cost))
                 else:
                     sel_sort_sales.append(-9999999999 + Product_Product_sales[Product_ID.index(selectionlist_ID[h])])
                     sel_sort_rev.append(-9999999999 + ((Product_Price[Product_ID.index(selectionlist_ID[h])] - Product_Cost[Product_ID.index(selectionlist_ID[h])]) * Product_Product_sales[Product_ID.index(selectionlist_ID[h])])) # - (setup_cost + replenishment_cost))
             else:
                 if selectionlist_ID[h] == "":
                     sel_sort.append("zzzzzz")
-                    sel_sort_sales.append(-9999999999)
-                    sel_sort_rev.append(-9999999999)
+                    sel_sort_sales.append(-9)
+                    sel_sort_rev.append(-9)
                 else:
                     sel_sort.append(selectionlist_ID[h])
                     if selectionlist_ID[h] in Demand_Product_ID:
@@ -1945,7 +1945,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
         df = pd.DataFrame({"ID": sel_sort, "revenue": sel_sort_rev, "sales": sel_sort_sales})
         # print(sel_sort)
         # df.sort_values(by = ["sales", "ID"])
-        df.sort_values(by = ["revenue", "ID"])
+        df.sort_values(by = ["revenue"], ascending = False)
         df_sel_sort = df["ID"]
         selectionlist_sorted.append(df_sel_sort)
         # print(selectionlist_sorted)
@@ -3471,7 +3471,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
 #def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, each_chro_profit_withloss, ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4, Cargolane_ID,Product_Cost, setup_cost, replenishment_cost, total_cost):
 def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4,Cargolane_ID):
    
-    mutation_rate = 0.1
+    mutation_rate = 0.05
     mutationran = [random.random(), random.random()]
     
     #!!!!!
@@ -4640,11 +4640,11 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
     #     termination = 200
 
     if mode == str(1):
-        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(12, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
+        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(100, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
     elif mode == str(2):
-        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(12, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
+        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(100, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
     elif mode == str(3):
-        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(12, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
+        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(100, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
 
     # print current profit
     cur_chro, cur_chro_price, cur_chro_sales, cur_chro_profit, cur_chro_new, cur_chro_cargolane_occupied, cur_chro_recommend_prod, cur_chro_cargolane_occupiedlist = current_info(Current_Product, Product_ID, Demand_Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, Product_Cost, setup_cost, replenishment_cost)
@@ -4964,16 +4964,16 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
     
     # # history diagram
     
-    plt.figure()
-    plt.title("GA history" + " " + file) # title
-    plt.plot(it_forchart, max_profit_fitness_his, label = "AI profit= " + str(round(max(max_profit_fitness_his), 2)))
-    #plt.plot(it_forchart, iter_cur_profit, label = "current profit= " + str(round(cur_each_chro_profit, 2)))
-    #plt.plot(it_forchart, iter_heu_profit, label = "heuristic profit= " + str(round(heu_each_chro_profit, 2)))
-    plt.xlabel('iterations')
-    plt.ylabel('max profit')
-    #plt.ylim(round((cur_each_chro_profit - 200) / 100, 0) * 100, round((round(max(max_profit_fitness_his), 0) + 400) / 100, 0) * 100)
-    plt.legend()
-    plt.show()
+    # plt.figure()
+    # plt.title("GA history" + " " + file) # title
+    # plt.plot(it_forchart, max_profit_fitness_his, label = "AI profit= " + str(round(max(max_profit_fitness_his), 2)))
+    # #plt.plot(it_forchart, iter_cur_profit, label = "current profit= " + str(round(cur_each_chro_profit, 2)))
+    # #plt.plot(it_forchart, iter_heu_profit, label = "heuristic profit= " + str(round(heu_each_chro_profit, 2)))
+    # plt.xlabel('iterations')
+    # plt.ylabel('max profit')
+    # #plt.ylim(round((cur_each_chro_profit - 200) / 100, 0) * 100, round((round(max(max_profit_fitness_his), 0) + 400) / 100, 0) * 100)
+    # plt.legend()
+    # plt.show()
     # # history diagram
     # plt.figure()
     # plt.title("oppotunity loss history") # title
@@ -5010,16 +5010,16 @@ new_prod_ratio = int(1) # 5%
 if mode == str(1):
     termination = 20
 elif mode == str(2):
-    termination = 100
+    termination = 25
 elif mode == str(3):
     termination = 200
 
-inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN\3032" # test
+inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN\10065" # test
 if mode == str(1):
     outputpath = "/Users/nataliafebri/Documents/Lab Meeting/Lab Meeting Rabu/Project VM/31 Oct/Mode1" # test
 elif mode == str(2):
-    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew\3032"  # !!!!!
-    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew\3032"
+    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew\10065"  # !!!!!
+    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew\10065"
 else:
     outputpath =r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # test
 
@@ -5262,6 +5262,21 @@ else:
         print(inputpath, "do not exist")
     elif os.path.exists(outputpath) == False:
         print(outputpath, "do not exist")
+        
+# print(fitness_each)
+avgfit = sum(fitness_each[-1]) / len(fitness_each[-1])
+avgtime = sum(exe_times[-1]) / len(exe_times[-1])
+maxfit = max(fitness_each[-1])
+maxtime = max(exe_times[-1])
+
+filename = "average_result.csv"
+save_directory = outputpath  # Specify the directory where the CSV file should be saved
+fullpath = os.path.join(save_directory, filename)
+data = {'Average fitness': [avgfit] , 'Max fitness': [maxfit],'Average times': [avgtime], 'Max times': [maxtime]}
+df = pd.DataFrame(data)
+
+path = os.path.join(save_directory, filename)
+df.to_csv(path, index=False) #!!!!!
 # exe_times.append(exe)
 # print(exe_times)
         
