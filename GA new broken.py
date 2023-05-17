@@ -2587,7 +2587,6 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     
     for i in range(len(selection_ID)): #!!!!!
         selection_sales[i]= alpha * (quantity_displayed[i]**space_elas)*(sjmn[i]) #Dikr
-        # print(min(round(sqrt(unit_ordering_cost[Product_ID.index(selection_ID[i])] / ((unit_inventory_cost[Product_ID.index(selection_ID[i])]/2) + unit_backroom_cost[Product_ID.index(selection_ID[i])]) * selection_sales[i])),3))
         replenishment.append(min(round(sqrt(unit_ordering_cost[Product_ID.index(selection_ID[i])] / ((unit_inventory_cost[Product_ID.index(selection_ID[i])]/2) + unit_backroom_cost[Product_ID.index(selection_ID[i])]) * selection_sales[i])),3))
         stockout.append(round(max(selection_sales[i]-quantity_displayed[i],0)))
         lostsales.append(problostsales*Product_Price[Product_ID.index(selection_ID[i])]*stockout[i]/replenishment[i])
@@ -2595,7 +2594,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
         backroom_cost.append(unit_backroom_cost[Product_ID.index(selection_ID[i])]*selection_sales[i]*replenishment[i])
         display_cost.append(unit_display_cost[Product_ID.index(selection_ID[i])]* quantity_displayed[i])
         ordering_cost.append(unit_ordering_cost[Product_ID.index(selection_ID[i])]* replenishment[i])
-        selection_profit[i]=((Product_Price[Product_ID.index(selection_ID[i])]-Product_Cost[Product_ID.index(selection_ID[i])])*selection_sales[i]) - inventory_cost[i] - backroom_cost[i]- display_cost[i]- ordering_cost[i]
+        selection_profit[i]=((Product_Price[Product_ID.index(selection_ID[i])]-Product_Cost[Product_ID.index(selection_ID[i])])*selection_sales[i]) - inventory_cost[i] - backroom_cost[i]- display_cost[i]- ordering_cost[i] - lostsales[i]
         
     # print("ID=", selection_ID)
     # print("sales after=", selection_sales)
@@ -3901,7 +3900,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                 
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -3913,7 +3912,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == 2:
             re_ID = choice(ID2)
@@ -3933,7 +3932,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                 
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -3945,7 +3944,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == 3:
             re_ID = choice(ID3)
@@ -3966,7 +3965,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -3978,7 +3977,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == 4:
             re_ID = choice(ID4)
@@ -3999,7 +3998,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -4011,7 +4010,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == 5:
             re_ID = choice(ID5)
@@ -4032,7 +4031,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -4044,7 +4043,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == "s1.0" or CargoLane_Type[candidate_index] == "s1":
             re_ID = choice(IDs1)
@@ -4065,7 +4064,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -4077,7 +4076,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == "s2.0" or CargoLane_Type[candidate_index] == "s2":
             re_ID = choice(IDs2)
@@ -4098,7 +4097,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -4110,7 +4109,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == "s3.0" or CargoLane_Type[candidate_index] == "s3":
             re_ID = choice(IDs3)
@@ -4131,7 +4130,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -4143,7 +4142,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index] == "s4.0" or CargoLane_Type[candidate_index] == "s4":
             re_ID = choice(IDs4)
@@ -4164,7 +4163,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
@@ -4176,7 +4175,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2
                 selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] * selection1_replenishment[candidate_index]
-                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index]) * recommended_profit_ratio
+                selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
     elif mutationran[1] < mutation_rate and Cargolane_ID != []:
         candidate_index2 = CargoLane_ID.index(choice(Cargolane_ID)) # index of chro list
@@ -4200,7 +4199,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4213,7 +4212,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == 2:
             re_ID = choice(ID2)
@@ -4233,7 +4232,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4246,7 +4245,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == 3:
             re_ID = choice(ID3)
@@ -4267,7 +4266,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4280,7 +4279,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == 4:
             re_ID = choice(ID4)
@@ -4302,7 +4301,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4315,7 +4314,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == 5:
             re_ID = choice(ID5)
@@ -4337,7 +4336,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4350,7 +4349,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == "s1.0" or CargoLane_Type[candidate_index2] == "s1":
             re_ID = choice(IDs1)
@@ -4372,7 +4371,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4385,7 +4384,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == "s2.0" or CargoLane_Type[candidate_index2] == "s2":
             re_ID = choice(IDs2)
@@ -4407,7 +4406,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4420,7 +4419,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == "s3.0" or CargoLane_Type[candidate_index2] == "s3":
             re_ID = choice(IDs3)
@@ -4441,7 +4440,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4454,7 +4453,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
         elif CargoLane_Type[candidate_index2] == "s4.0" or CargoLane_Type[candidate_index2] == "s4":
             re_ID = choice(IDs4)
@@ -4475,7 +4474,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
@@ -4488,7 +4487,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2
                 selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]*selection2_replenishment[candidate_index2]
-                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2]) * recommended_profit_ratio
+                selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
     
     chro[max_index] = selection1
     chro_price[max_index] = selection1_price
@@ -5015,12 +5014,12 @@ elif mode == str(2):
 elif mode == str(3):
     termination = 200
 
-inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN" # test
+inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN\3032" # test
 if mode == str(1):
     outputpath = "/Users/nataliafebri/Documents/Lab Meeting/Lab Meeting Rabu/Project VM/31 Oct/Mode1" # test
 elif mode == str(2):
-    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # !!!!!
-    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"
+    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew\3032"  # !!!!!
+    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew\3032"
 else:
     outputpath =r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # test
 
