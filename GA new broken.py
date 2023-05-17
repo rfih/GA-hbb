@@ -4867,7 +4867,8 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
         for j in range(len(iter_maxchro_recommend_prod[index_2])):
             output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": iter_maxchro_recommend_prod[index_2][j], "Value_type": "recommend"}, ignore_index=True)
         # print(output_final_summarization) #!!!!!
-        # print("Fitness GA", max_profit_fitness_his)
+        # print("Fitness GA", iter_maxprofit_fitness[index_2])
+        # data_collect={"Fitness_each_GA": iter_maxprofit_fitness[index_2]}
         #data_fitness_GA_csv={"Fitness_GA":max_profit_fitness_his, "Oppo_loss":iter_maxprofit_oppoloss[index_2]}
         data_fitness_GA_csv={"Fitness_GA":max_profit_fitness_his}
 
@@ -4986,7 +4987,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
     
     
     # print("heu:", heu_each_chro_fitness, "AI:", iter_maxprofit_fitness[iter_maxprofit_fitness.index(max(iter_maxprofit_fitness))])
-    return output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv
+    return output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv, max_profit_fitness_his
 
 #%%
 # read the in/output path, parameters setting, error log
@@ -5018,8 +5019,8 @@ inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN" # test
 if mode == str(1):
     outputpath = "/Users/nataliafebri/Documents/Lab Meeting/Lab Meeting Rabu/Project VM/31 Oct/Mode1" # test
 elif mode == str(2):
-    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GA(3,2)"  # !!!!!
-    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GA(3,2)"
+    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # !!!!!
+    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"
 else:
     outputpath =r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # test
 
@@ -5066,6 +5067,8 @@ print("This program is a property of National Taiwan University of Science and T
 logger.info("This program is a property of National Taiwan University of Science and Technology." + "\n")
 exe_times=[]
 exe=[]
+fitness=[]
+fitness_each=[]
 if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_property <= 20231231 and iter_def == True:
     inputfile_list = os.listdir(inputpath)
     for file in inputfile_list:
@@ -5183,7 +5186,7 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
             print("Model is running...")
             logger.info("Model is running...")
             
-            output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv = main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination)
+            output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv, max_profit_fitness_his = main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination)
             
             outputpath_s = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result2.csv") # 設定路徑及檔名
             outputpath_r = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result1.csv") # 設定路徑及檔名
@@ -5199,6 +5202,10 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
             
             outputpath_graph = os.path.join(outputpath_comparison, "Fitness" + file + "_" + mode + "GA.csv") # 設定路徑及檔名
             fitness_GA_csv.to_csv(outputpath_graph, sep = ",", index = False, encoding = "utf-8")
+            
+            fitness.append(max(max_profit_fitness_his))
+            fitness_each.append(fitness)
+                        
             
             # Index_strart = Index_end + 1
             CargoLane_Quantity = int(df_VM_info.at[Index_strart, "CargoLane_TotalNumber"])
@@ -5223,6 +5230,8 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
     filename = "execution_times.csv"
     save_directory = outputpath  # Specify the directory where the CSV file should be saved
     fullpath = os.path.join(save_directory, filename)
+    outputfitness = os.path.join(outputpath_comparison, "Fitness_each.csv")
+
 
     with open(fullpath, 'w', newline='') as file:
         writer = csv.writer(file)
@@ -5231,6 +5240,14 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
         for i in range(len(inputfile_list)):
             if i < len(exe_times):  # Check if the index is within the range of exe_times
                 writer.writerow([inputfile_list[i], exe[i]])
+                
+    with open(outputfitness, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['File', 'Fitness'])
+        
+        for i in range(len(inputfile_list)):
+            if i < len(fitness_each):
+                writer.writerow([inputfile_list[i], fitness[i]])
             
             # pass                  # 略過
             # exe_times.append(exe)
