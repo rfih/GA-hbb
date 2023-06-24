@@ -1,4 +1,6 @@
 #%%
+# Filter FutureWarning messages
+import warnings
 import pandas as pd
 import numpy as np
 import random
@@ -15,15 +17,11 @@ import matplotlib.pyplot as plt
 import sys
 import copy
 import csv
-import optuna
-from optuna import TrialPruned
-import warnings
+import win32api
+from knockknock import email_sender
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
-population_size = 0
-mutation_rate = 0
-crossover_rate = 0
-termination = 0
+
     
 #%%
 # read data from input file and return parameters/variables
@@ -2022,7 +2020,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2031,14 +2029,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else: # 原選取品項(不是推薦) ORIGINAL OPTIONS (NOT RECOMMENDED)
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2081,7 +2079,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2090,14 +2088,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2140,7 +2138,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2149,14 +2147,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2199,7 +2197,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2208,14 +2206,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2258,7 +2256,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2267,14 +2265,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2317,7 +2315,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2326,14 +2324,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2376,7 +2374,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2385,14 +2383,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2435,7 +2433,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2444,14 +2442,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)]) * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2494,7 +2492,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Demand_Product_Sales[Demand_Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                     else:
                         cargolane_empty.append(CargoLane_ID[cargoID - 1])
@@ -2503,14 +2501,14 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
                         selection_new.append(Product_New[Product_ID.index(I)])
                         selection_sales.append(Product_Product_sales[Product_ID.index(I)] * recommended_profit_ratio)#
                         selection_profit.append(((Product_Price[Product_ID.index(I)] - Product_Cost[Product_ID.index(I)]) * Product_Product_sales[Product_ID.index(I)])  * recommended_profit_ratio)
-                        quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                        quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                         purchasing_cost.append(Product_Cost[Product_ID.index(I)])
             else:
                 cargolane_empty.append(0)
                 selection_ID.append(I)
                 selection_price.append(Product_Price[Product_ID.index(I)])
                 selection_new.append(Product_New[Product_ID.index(I)])
-                quantity_displayed.append(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)])
+                quantity_displayed.append(round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(I)]))
                 purchasing_cost.append(Product_Cost[Product_ID.index(I)])
                 if I in Demand_Product_ID:
                     selection_sales.append(Demand_Product_Sales[Demand_Product_ID.index(I)])#
@@ -2556,9 +2554,10 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     # print("Purch=",purchasing_cost)
     
     ### Updating the objective value
-    random.seed()
     cross_matrix=[]
     sjmn=[]
+    random.seed()
+    
     for i in selection_ID:
         cross_elasticity=[]
         random.seed()
@@ -2582,18 +2581,30 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
         f=np.prod(sjm_matrix[i])
         sjmn.append(f)
         
+    # print(sjmn)
+    # Define parameters
+    # alpha = 2.5
+    # sikr = 10
+
     mean = 0  # Mean of the normal distribution
-    std = 3  # Standard deviation of the normal distribution
+    std = 1 # Standard deviation of the normal distribution
     # Generate stochastic demand values
     experror = []
     for _ in range(len(selection_ID)):
         error = random.normalvariate(mean, std)  # Generate random error term
         error1 = math.exp(error)
         experror.append(error1)
-        
+    # print("experror", experror)
+
+
+    # Print demand values
+    # for i, demand in enumerate(demand_values):
+    #     print(f"Iteration {i + 1}: Demand = {demand}")
+    
+
     alpha= random.uniform(5,10)
     space_elas= random.uniform(0.2,0.4)
-    cross_elas= random.uniform(-0.05,0.05)
+    cross_elas= random.uniform(-0.05, 0.05)
     problostsales=0.1
     inventory_cost=[]
     backroom_cost=[]
@@ -2602,18 +2613,25 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     replenishment=[]
     stockout=[]
     lostsales=[]
+    # error=[]
+    # epsilon=[]
     
     for i in range(len(selection_ID)): #!!!!!
-        selection_sales[i]= round(max(alpha * (quantity_displayed[i]**space_elas)*(sjmn[i])* experror[i],5)) #Dikr
-        replenishment.append(min(round(sqrt(unit_ordering_cost[Product_ID.index(selection_ID[i])] / ((unit_inventory_cost[Product_ID.index(selection_ID[i])]/2) + unit_backroom_cost[Product_ID.index(selection_ID[i])]) * selection_sales[i])),3))
+        selection_sales[i]= round(max((alpha * (quantity_displayed[i]**space_elas)*(sjmn[i])* experror[i]),1)) #Dikr
+        # print("selection_sales",selection_sales)
+        replenishment.append(round(max(math.sqrt(unit_ordering_cost[Product_ID.index(selection_ID[i])] / (((unit_inventory_cost[Product_ID.index(selection_ID[i])]/2) + unit_backroom_cost[Product_ID.index(selection_ID[i])]) * selection_sales[i])),1)))
+        # print("replenishment",replenishment)
         stockout.append(round(max(selection_sales[i]-quantity_displayed[i],0)))
-        lostsales.append((Product_Price[Product_ID.index(selection_ID[i])]-Product_Cost[Product_ID.index(selection_ID[i])])*stockout[i]*replenishment[i])
+        lostsales.append(max((Product_Price[Product_ID.index(selection_ID[i])]-Product_Cost[Product_ID.index(selection_ID[i])])*(selection_sales[i]*replenishment[i]-quantity_displayed[i]),0))
         inventory_cost.append(unit_inventory_cost[Product_ID.index(selection_ID[i])]*(quantity_displayed[i]+(selection_sales[i]*replenishment[i]/2)))
         backroom_cost.append(unit_backroom_cost[Product_ID.index(selection_ID[i])]*selection_sales[i]*replenishment[i])
         display_cost.append(unit_display_cost[Product_ID.index(selection_ID[i])]* quantity_displayed[i] * replenishment[i])
         ordering_cost.append(unit_ordering_cost[Product_ID.index(selection_ID[i])]/ replenishment[i])
         selection_profit[i]=((Product_Price[Product_ID.index(selection_ID[i])]-Product_Cost[Product_ID.index(selection_ID[i])])*selection_sales[i]* replenishment[i]) - inventory_cost[i] - backroom_cost[i]- display_cost[i]- ordering_cost[i] - lostsales[i]
-        
+    
+    # for i, demand in enumerate(error):
+    #     print(f"Iteration {i + 1}: Demand = {demand}")
+    # print("error =", error)
     # print("ID=", selection_ID)
     # print("sales after=", selection_sales)
     # print("stockout=", stockout)
@@ -2626,7 +2644,7 @@ def chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_Car
     # print("Profit After=",selection_profit)
     # print("**********************************")
     
-    return selection_ID, selection_price, selection_sales, selection_profit, selection_new, cargolane_empty_list, recommend_list, selection_empty, inventory_cost,backroom_cost,display_cost,ordering_cost, purchasing_cost, replenishment, stockout, lostsales
+    return selection_ID, selection_price, selection_sales, selection_profit, selection_new, cargolane_empty_list, recommend_list, selection_empty, inventory_cost,backroom_cost,display_cost,ordering_cost, purchasing_cost, replenishment, stockout, lostsales, quantity_displayed
 
 #%%
 # GA population
@@ -2647,9 +2665,10 @@ def initial_solution(chro_num, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_C
     Pro_chro_replenishment=[]
     Pro_chro_stockout=[]
     Pro_chro_lostsales=[]
+    Pro_chro_quantity_display=[]
     
     # to make heuristic solution be same in every time
-    selection_ini_, selection_price_ini_, selection_sales_ini_, selection_profit_ini_, selection_new_ini_, cargolane_occupied_ini_, recommended_prod_ini_, cargolane_occupiedlist_ini_, inventory_cost_ini_,backroom_cost_ini_,display_cost_ini_,ordering_cost_ini_, purchasing_cost_ini_, replenishment_ini_, stockout_ini_, lostsales_ini_ = chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, cargolane_type_num, Product_New, Product_ID, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, "max", Product_Product_sales, setup_cost, replenishment_cost,CargoLane_Diameter_Max_1,Product_Length, unit_inventory_cost,unit_backroom_cost,unit_display_cost,unit_ordering_cost, Product_Cost)
+    selection_ini_, selection_price_ini_, selection_sales_ini_, selection_profit_ini_, selection_new_ini_, cargolane_occupied_ini_, recommended_prod_ini_, cargolane_occupiedlist_ini_, inventory_cost_ini_,backroom_cost_ini_,display_cost_ini_,ordering_cost_ini_, purchasing_cost_ini_, replenishment_ini_, stockout_ini_, lostsales_ini_, quantity_display_ini_ = chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, cargolane_type_num, Product_New, Product_ID, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, "max", Product_Product_sales, setup_cost, replenishment_cost,CargoLane_Diameter_Max_1,Product_Length, unit_inventory_cost,unit_backroom_cost,unit_display_cost,unit_ordering_cost, Product_Cost)
     Pro_chro.append(selection_ini_)
     Pro_chro_price.append(selection_price_ini_)
     Pro_chro_sales.append(selection_sales_ini_)
@@ -2666,11 +2685,12 @@ def initial_solution(chro_num, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_C
     Pro_chro_replenishment.append(replenishment_ini_)
     Pro_chro_stockout.append(stockout_ini_)
     Pro_chro_lostsales.append(lostsales_ini_)
+    Pro_chro_quantity_display.append(quantity_display_ini_)
     
     
     if mode == str(1):
         for k in range(chro_num-1):
-            selection_ini, selection_price_ini, selection_sales_ini, selection_profit_ini, selection_new_ini, cargolane_occupied_ini, recommended_prod_ini, cargolane_occupiedlist_ini, inventory_cost_ini ,backroom_cost_ini ,display_cost_ini ,ordering_cost_ini, purchasing_cost_ini, replenishment_ini, stockout_ini, lostsales_ini = chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, cargolane_type_num, Product_New, Product_ID, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, "random", Product_Product_sales, setup_cost, replenishment_cost, CargoLane_Diameter_Max_1,Product_Length,unit_inventory_cost,unit_backroom_cost,unit_display_cost,unit_ordering_cost, Product_Cost)
+            selection_ini, selection_price_ini, selection_sales_ini, selection_profit_ini, selection_new_ini, cargolane_occupied_ini, recommended_prod_ini, cargolane_occupiedlist_ini, inventory_cost_ini ,backroom_cost_ini ,display_cost_ini ,ordering_cost_ini, purchasing_cost_ini, replenishment_ini, stockout_ini, lostsales_ini, quantity_display_ini = chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, cargolane_type_num, Product_New, Product_ID, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, "random", Product_Product_sales, setup_cost, replenishment_cost, CargoLane_Diameter_Max_1,Product_Length,unit_inventory_cost,unit_backroom_cost,unit_display_cost,unit_ordering_cost, Product_Cost)
             Pro_chro.append(selection_ini)
             Pro_chro_price.append(selection_price_ini)
             Pro_chro_sales.append(selection_sales_ini)
@@ -2687,9 +2707,10 @@ def initial_solution(chro_num, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_C
             Pro_chro_replenishment.append(replenishment_ini)
             Pro_chro_stockout.append(stockout_ini)
             Pro_chro_lostsales.append(lostsales_ini)
+            Pro_chro_quantity_display.append(quantity_display_ini)
     else:
         for k in range(chro_num-1):
-            selection_ini, selection_price_ini, selection_sales_ini, selection_profit_ini, selection_new_ini, cargolane_occupied_ini, recommended_prod_ini, cargolane_occupiedlist_ini, inventory_cost_ini ,backroom_cost_ini ,display_cost_ini ,ordering_cost_ini, purchasing_cost_ini, replenishment_ini, stockout_ini, lostsales_ini = chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, cargolane_type_num, Product_New, Product_ID, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, "random", Product_Product_sales, setup_cost, replenishment_cost, CargoLane_Diameter_Max_1,Product_Length, unit_inventory_cost,unit_backroom_cost,unit_display_cost,unit_ordering_cost, Product_Cost)
+            selection_ini, selection_price_ini, selection_sales_ini, selection_profit_ini, selection_new_ini, cargolane_occupied_ini, recommended_prod_ini, cargolane_occupiedlist_ini, inventory_cost_ini ,backroom_cost_ini ,display_cost_ini ,ordering_cost_ini, purchasing_cost_ini, replenishment_ini, stockout_ini, lostsales_ini, quantity_display_ini = chomosome(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, cargolane_type_num, Product_New, Product_ID, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, Cost_CargoLane1, Cost_CargoLane2, Cost_CargoLane3, Cost_CargoLane4, Cost_CargoLane5, Recommend_cost1, Recommend_cost2, Recommend_cost3, Recommend_cost4, Recommend_cost5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, "random", Product_Product_sales, setup_cost, replenishment_cost, CargoLane_Diameter_Max_1,Product_Length, unit_inventory_cost,unit_backroom_cost,unit_display_cost,unit_ordering_cost, Product_Cost)
             Pro_chro.append(selection_ini)
             Pro_chro_price.append(selection_price_ini)
             Pro_chro_sales.append(selection_sales_ini)
@@ -2706,7 +2727,8 @@ def initial_solution(chro_num, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_C
             Pro_chro_replenishment.append(replenishment_ini)
             Pro_chro_stockout.append(stockout_ini)
             Pro_chro_lostsales.append(lostsales_ini)
-            # print(Pro_chro)
+            Pro_chro_quantity_display.append(quantity_display_ini)
+            # print(len(Pro_chro[-1]))
 
     #　save the current solution
     # if mode != str(1):
@@ -2723,11 +2745,11 @@ def initial_solution(chro_num, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_C
     #print(Pro_chro)
     # # print("")
     # print("Pro_chro_profit=", Pro_chro_profit)
-    return Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales
+    return Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display
 
 #%%
 # check the constraints
-def check(chro_ID, chro_new, cargotype, prodtype, num, new_prod_ratio, chro_price, chro_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend, Product_New, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales):
+def check(chro_ID, chro_new, cargotype, prodtype, num, new_prod_ratio, chro_price, chro_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend, Product_New, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display):
     copy_chro = chro_ID.copy()
     check_type_list = 0
     check_new_list = 0
@@ -2850,7 +2872,7 @@ def check(chro_ID, chro_new, cargotype, prodtype, num, new_prod_ratio, chro_pric
     
 #%%
 # GA objective(fitness)
-def objective(chro_profit, chro_ID, chro_new, cargotype, prodtype, num, new_prod_ratio, chro_price, chro_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend, Product_New, chro_cargolane_occupied_list, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales):
+def objective(chro_profit, chro_ID, chro_new, cargotype, prodtype, num, new_prod_ratio, chro_price, chro_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend, Product_New, chro_cargolane_occupied_list, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display):
     each_chro_profit = []                                                      # 紀錄每個貨道的利潤
     #oppo_loss_list = []
     #each_chro_profit_withloss = []
@@ -2952,7 +2974,7 @@ def objective(chro_profit, chro_ID, chro_new, cargotype, prodtype, num, new_prod
 #%%
 # GA selection: max & roulette
 #def selection(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, each_chro_profit, oppo_loss_list):
-def selection(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit):
+def selection(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit):
     temp_chro = copy.deepcopy(chro)
     temp_each_chro_profit = copy.deepcopy(each_chro_profit)
     #temp_oppo_loss_list = copy.deepcopy(oppo_loss_list)
@@ -2991,6 +3013,7 @@ def selection(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
                 sec_choosen_replenishment = chro_replenishment[i+1]
                 sec_choosen_stockout = chro_stockout[i+1]
                 sec_choosen_lostsales= chro_lostsales[i+1]
+                sec_choosen_quantity_display = chro_quantity_display[i+1]
                 sec_index = i+1
                 break
             else:
@@ -3009,16 +3032,17 @@ def selection(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
                 sec_choosen_replenishment= chro_replenishment[i]
                 sec_choosen_stockout = chro_stockout[i]
                 sec_choosen_lostsales= chro_lostsales[i]
+                sec_choosen_quantity_display = chro_quantity_display[i]
                 sec_index = i
                 break
     
-    return chro[max_index], chro_price[max_index], chro_sales[max_index], chro_profit[max_index], chro_new[max_index], chro_cargolane_occupied[max_index], chro_recommend_prod[max_index],chro_inventory_cost[max_index], chro_backroom_cost[max_index], chro_display_cost[max_index], chro_ordering_cost[max_index], chro_purchasing_cost[max_index], chro_replenishment[max_index], chro_stockout[max_index], chro_lostsales[max_index],\
-        sec_choosen_chro, sec_choosen_price, sec_choosen_sales, sec_choosen_profit, sec_choosen_new, sec_choosen_occupied, sec_choosen_recommend,sec_choosen_inventory_cost, sec_choosen_backroom_cost,sec_choosen_display_cost,sec_choosen_ordering_cost,sec_choosen_purchasing_cost,sec_choosen_replenishment, sec_choosen_stockout, sec_choosen_lostsales, max_index, sec_index
+    return chro[max_index], chro_price[max_index], chro_sales[max_index], chro_profit[max_index], chro_new[max_index], chro_cargolane_occupied[max_index], chro_recommend_prod[max_index],chro_inventory_cost[max_index], chro_backroom_cost[max_index], chro_display_cost[max_index], chro_ordering_cost[max_index], chro_purchasing_cost[max_index], chro_replenishment[max_index], chro_stockout[max_index], chro_lostsales[max_index], chro_quantity_display[max_index],\
+        sec_choosen_chro, sec_choosen_price, sec_choosen_sales, sec_choosen_profit, sec_choosen_new, sec_choosen_occupied, sec_choosen_recommend,sec_choosen_inventory_cost, sec_choosen_backroom_cost,sec_choosen_display_cost,sec_choosen_ordering_cost,sec_choosen_purchasing_cost,sec_choosen_replenishment, sec_choosen_stockout, sec_choosen_lostsales, sec_choosen_quantity_display, max_index, sec_index
 
 #%%
 # GA selection: max & roulette
 #def selection_pure_rou(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, each_chro_profit, oppo_loss_list):
-def selection_pure_rou(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit):
+def selection_pure_rou(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display,each_chro_profit):
 
     # temp_chro = copy.deepcopy(chro)
     temp_each_chro_profit = copy.deepcopy(each_chro_profit)
@@ -3075,6 +3099,7 @@ def selection_pure_rou(chro, chro_price, chro_sales, chro_profit, chro_new, chro
             sec_choosen_replenishment= chro_replenishment[i]
             sec_choosen_stockout= chro_stockout[i]
             sec_choosen_lostsales= chro_lostsales[i]
+            sec_choosen_quantity_display= chro_quantity_display[i]
             sec_index = i
             break
             # if i >= fir_index:
@@ -3098,13 +3123,13 @@ def selection_pure_rou(chro, chro_price, chro_sales, chro_profit, chro_new, chro
             #     sec_index = i
             #     break
     
-    return chro[fir_index], chro_price[fir_index], chro_sales[fir_index], chro_profit[fir_index], chro_new[fir_index], chro_cargolane_occupied[fir_index], chro_recommend_prod[fir_index],chro_inventory_cost[fir_index], chro_backroom_cost[fir_index], chro_display_cost[fir_index], chro_ordering_cost[fir_index], chro_purchasing_cost[fir_index], chro_replenishment[fir_index], chro_stockout[fir_index], chro_lostsales[fir_index],\
-        sec_choosen_chro, sec_choosen_price, sec_choosen_sales, sec_choosen_profit, sec_choosen_new, sec_choosen_occupied, sec_choosen_recommend, sec_choosen_inventory_cost, sec_choosen_backroom_cost,sec_choosen_display_cost,sec_choosen_ordering_cost,sec_choosen_purchasing_cost, sec_choosen_replenishment, sec_choosen_stockout, sec_choosen_lostsales, fir_index, sec_index
+    return chro[fir_index], chro_price[fir_index], chro_sales[fir_index], chro_profit[fir_index], chro_new[fir_index], chro_cargolane_occupied[fir_index], chro_recommend_prod[fir_index],chro_inventory_cost[fir_index], chro_backroom_cost[fir_index], chro_display_cost[fir_index], chro_ordering_cost[fir_index], chro_purchasing_cost[fir_index], chro_replenishment[fir_index], chro_stockout[fir_index], chro_lostsales[fir_index], chro_quantity_display[fir_index],\
+        sec_choosen_chro, sec_choosen_price, sec_choosen_sales, sec_choosen_profit, sec_choosen_new, sec_choosen_occupied, sec_choosen_recommend, sec_choosen_inventory_cost, sec_choosen_backroom_cost,sec_choosen_display_cost,sec_choosen_ordering_cost,sec_choosen_purchasing_cost, sec_choosen_replenishment, sec_choosen_stockout, sec_choosen_lostsales, sec_choosen_quantity_display, fir_index, sec_index
 
 #%%
 # GA crossover
 #def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, each_chro_profit_withloss):
-def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new,selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend):
+def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new,selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend):
     # cross_points = [np.random.randint(0, len(chro[0])-1)]
     # # cross_ran = random.random()    
     
@@ -3206,11 +3231,9 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
     #     chro_new[sec_index] = copy_new_s1
     #     chro_cargolane_occupied[sec_index] = copy_occupied_s1
     #     chro_recommend_prod[sec_index] = copy_recommend_s1
-    global crossover_rate
-    cross_points = [np.random.randint(0, len(chro[0])-1)]
-    # crossover_rate = 0.5 #!!!!!
-    # print("crossover rate =", crossover_rate)
     
+    cross_points = [np.random.randint(0, len(chro[0])-1)]
+    crossover_rate = 0.84 #!!!!!
     
     list_random=[]
     list_random.clear()
@@ -3233,6 +3256,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
     copy_replenishment_s1= selection1_replenishment.copy()
     copy_stockout_s1= selection1_stockout.copy()
     copy_lostsales_s1= selection1_lostsales.copy()
+    copy_quantity_display_s1 = selection1_qty_displayed.copy()
     
     copy_s2 = selection2.copy()
     copy_profit_s2 = selection2_profit.copy()
@@ -3249,6 +3273,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
     copy_replenishment_s2= selection2_replenishment.copy()
     copy_stockout_s2= selection2_stockout.copy()
     copy_lostsales_s2= selection2_lostsales.copy()
+    copy_quantity_display_s2 = selection2_qty_displayed.copy()
 
     
     temp_s1 = selection1.copy()
@@ -3266,6 +3291,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
     temp_replenishment_s1= selection1_replenishment.copy()
     temp_stockout_s1= selection1_stockout.copy()
     temp_lostsales_s1= selection1_lostsales.copy()
+    temp_quantity_display_s1 = selection1_qty_displayed.copy()
 
     
     
@@ -3319,6 +3345,9 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
                 copy_lostsales_s1[i]= copy_lostsales_s2[i]
                 copy_lostsales_s2[i]= temp_lostsales_s1[i]
                 
+                copy_quantity_display_s1[i] = copy_quantity_display_s2[i]
+                copy_quantity_display_s2[i] = temp_quantity_display_s1[i]
+                
                 
             elif list_random[i] >= crossover_rate:
                 pass
@@ -3365,6 +3394,9 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
                 copy_lostsales_s1[i]= copy_lostsales_s2[i]
                 copy_lostsales_s2[i]= temp_lostsales_s1[i]
                 
+                copy_quantity_display_s1[i] = copy_quantity_display_s2[i]
+                copy_quantity_display_s2[i] = temp_quantity_display_s1[i]
+                
             elif list_random[i] >= crossover_rate:
                   pass
     # 如果只要相符就直接替換, 不管結果是否比較好
@@ -3397,6 +3429,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
         chro_replenishment[max_index]= copy_replenishment_s1
         chro_stockout[max_index]= copy_stockout_s1
         chro_lostsales[max_index]= copy_lostsales_s1
+        chro_quantity_display[max_index]= copy_quantity_display_s1
         
         chro[sec_index] = copy_s2
         chro_price[sec_index] = copy_price_s2
@@ -3413,6 +3446,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
         chro_replenishment[sec_index]= copy_replenishment_s2
         chro_stockout[sec_index]= copy_stockout_s2
         chro_lostsales[sec_index]= copy_lostsales_s2
+        chro_quantity_display[sec_index] = copy_quantity_display_s2
         
     else: #profit2 bigger
         chro[max_index] = copy_s2
@@ -3430,6 +3464,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
         chro_replenishment[max_index]= copy_replenishment_s2
         chro_stockout[max_index]= copy_stockout_s2
         chro_lostsales[max_index]= copy_lostsales_s2
+        chro_quantity_display[max_index]= copy_quantity_display_s2
         
         chro[sec_index] = copy_s1
         chro_price[sec_index] = copy_price_s1
@@ -3446,6 +3481,7 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
         chro_replenishment[sec_index]= copy_replenishment_s1
         chro_stockout[sec_index]= copy_stockout_s1
         chro_lostsales[sec_index]= copy_lostsales_s1
+        chro_quantity_display[sec_index]= copy_quantity_display_s1
        
      ################################################################################################################################################
     # if whichbigger == True: #profit1 bigger
@@ -3484,18 +3520,16 @@ def crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolan
     #         chro_recommend_prod[sec_index] = copy_recommend_s1
         
     # return chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod
-    # global crossover_rate
-    return copy_s1, copy_price_s1, copy_sales_s1, copy_profit_s1, copy_new_s1, copy_occupied_s1, copy_recommend_s1, copy_inventory_cost_s1, copy_backroom_cost_s1, copy_display_cost_s1, copy_ordering_cost_s1, copy_purchasing_cost_s1, copy_replenishment_s1, copy_stockout_s1, copy_lostsales_s1,\
-        copy_s2, copy_price_s2, copy_sales_s2, copy_profit_s2, copy_new_s2, copy_occupied_s2, copy_recommend_s2, copy_inventory_cost_s2, copy_backroom_cost_s2, copy_display_cost_s2, copy_ordering_cost_s2, copy_purchasing_cost_s2, copy_replenishment_s2, copy_stockout_s2, copy_lostsales_s2
+    return copy_s1, copy_price_s1, copy_sales_s1, copy_profit_s1, copy_new_s1, copy_occupied_s1, copy_recommend_s1, copy_inventory_cost_s1, copy_backroom_cost_s1, copy_display_cost_s1, copy_ordering_cost_s1, copy_purchasing_cost_s1, copy_replenishment_s1, copy_stockout_s1, copy_lostsales_s1, copy_quantity_display_s1,\
+        copy_s2, copy_price_s2, copy_sales_s2, copy_profit_s2, copy_new_s2, copy_occupied_s2, copy_recommend_s2, copy_inventory_cost_s2, copy_backroom_cost_s2, copy_display_cost_s2, copy_ordering_cost_s2, copy_purchasing_cost_s2, copy_replenishment_s2, copy_stockout_s2, copy_lostsales_s2, copy_quantity_display_s2
 
 #%%
 # GA mutation
 #def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, each_chro_profit_withloss, ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4, Cargolane_ID,Product_Cost, setup_cost, replenishment_cost, total_cost):
-def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4,Cargolane_ID):
-    global mutation_rate
-    # mutation_rate = 0.05 #!!!!!
+def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4,Cargolane_ID):
+   
+    mutation_rate = 0.0579 #!!!!!
     mutationran = [random.random(), random.random()]
-    # print("mutationrate =", mutation_rate)
     
 
     # print("chro", chro_cargolane_occupied)
@@ -3526,11 +3560,13 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
     #     sjmn.append(f)
     
     mean = 0  # Mean of the normal distribution
-    std = 3  # Standard deviation of the normal distribution
+    std = 1  # Standard deviation of the normal distribution
     # Generate stochastic demand values
     # experror = []
     error = random.normalvariate(mean, std)  # Generate random error term
     experror = math.exp(error)
+    # experror.append(error1)
+    
         
     #recommended_profit_ratio = 1/5
     recommended_profit_ratio = 1
@@ -3579,6 +3615,8 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
         
     for i in selection2:
         cm(replacement_matrix, i)
+        
+    
         
     #************************************ Cargolane Occupied only ******************************************************************
 
@@ -3918,29 +3956,29 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
     
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed * selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index] * selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                 
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas)* experror * recommended_profit_ratio,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror * recommended_profit_ratio,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -3950,29 +3988,29 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
     
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                 
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas)* experror * recommended_profit_ratio,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror * recommended_profit_ratio,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -3982,30 +4020,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
            
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas)* experror * recommended_profit_ratio,10))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas)* experror * recommended_profit_ratio,10))
                 selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
                 selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -4015,30 +4053,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
            
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror* recommended_profit_ratio,10))
                 selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
                 selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -4048,30 +4086,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror* recommended_profit_ratio,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -4081,30 +4119,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
            
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror* recommended_profit_ratio,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -4114,30 +4152,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
            
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror* recommended_profit_ratio,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -4147,30 +4185,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)]
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror * recommended_profit_ratio,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -4180,30 +4218,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection1_price[candidate_index] = Product_Price[Product_ID.index(re_ID)] 
             selection1_new[candidate_index] = Product_New[Product_ID.index(re_ID)]
             selection1_purchasing_cost[candidate_index]= Product_Cost[Product_ID.index(re_ID)]
-            selection1_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection1_qty_displayed[candidate_index]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
    
             if candidate_index not in selection1_occupied:
                 selection1_recommend=selection1_recommend
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
                
             elif candidate_index in selection1_occupied:
                 selection1_recommend[selection1_occupied.index(CargoLane_ID[candidate_index]-1)] = re_ID
-                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed**space_elas) * (selection1_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection1_replenishment[candidate_index]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])))
-                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed,0)))
-                selection1_lostsales[candidate_index]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection1_stockout[candidate_index]*selection1_replenishment[candidate_index])
-                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
+                selection1_sales[candidate_index]= round(max(alpha* (selection1_qty_displayed[candidate_index]**space_elas) * (selection1_qty_displayed[candidate_index]**cross_elas) * experror * recommended_profit_ratio,1))
+                selection1_replenishment[candidate_index]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index])),1)))
+                selection1_stockout[candidate_index]= (round(max(selection1_sales[candidate_index]-selection1_qty_displayed[candidate_index],0)))
+                selection1_lostsales[candidate_index]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection1_sales[candidate_index]*selection1_replenishment[candidate_index]-selection1_qty_displayed[candidate_index]),0)
+                selection1_inventory_cost[candidate_index]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection1_qty_displayed[candidate_index]+(selection1_sales[candidate_index]* selection1_replenishment[candidate_index]/2))
                 selection1_backroom_cost[candidate_index]= unit_backroom_cost[Product_ID.index(re_ID)]* selection1_sales[candidate_index]* selection1_replenishment[candidate_index]
-                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed* selection1_replenishment[candidate_index]
+                selection1_display_cost[candidate_index]= unit_display_cost[Product_ID.index(re_ID)] * selection1_qty_displayed[candidate_index]* selection1_replenishment[candidate_index]
                 selection1_ordering_cost[candidate_index]= unit_ordering_cost[Product_ID.index(re_ID)] / selection1_replenishment[candidate_index]
                 selection1_profit[candidate_index] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection1_sales[candidate_index]* selection1_replenishment[candidate_index]) - selection1_inventory_cost[candidate_index]- selection1_backroom_cost[candidate_index] - selection1_display_cost[candidate_index]- selection1_ordering_cost[candidate_index] - selection1_lostsales[candidate_index]) * recommended_profit_ratio
 
@@ -4217,30 +4255,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed *selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2] *selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4250,30 +4288,30 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4282,32 +4320,31 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2[candidate_index2] = re_ID
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
-            
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4316,33 +4353,32 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2[candidate_index2] = re_ID  
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
-            
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4351,33 +4387,32 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2[candidate_index2] = re_ID
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
-            
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4386,33 +4421,32 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2[candidate_index2] = re_ID
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]  
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
-            
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4421,33 +4455,32 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2[candidate_index2] = re_ID
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
-            
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
             
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4456,32 +4489,31 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2[candidate_index2] = re_ID
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
-            
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror*recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
 
@@ -4490,32 +4522,31 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
             selection2[candidate_index2] = re_ID
             selection2_price[candidate_index2] = Product_Price[Product_ID.index(re_ID)]
             selection2_new[candidate_index2] = Product_New[Product_ID.index(re_ID)]
-           
             selection2_purchasing_cost[candidate_index2]= Product_Cost[Product_ID.index(re_ID)]
-            selection2_qty_displayed= CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)]
+            selection2_qty_displayed[candidate_index2]= round(CargoLane_Diameter_Max_1[0]/Product_Length[Product_ID.index(re_ID)])
              
             if candidate_index2 not in selection2_occupied:
                 selection2_recommend=selection2_recommend
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
                 
                 
             elif candidate_index2 in selection2_occupied:
                 selection2_recommend[selection2_occupied.index(CargoLane_ID[candidate_index2]-1)] = re_ID
-                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed**space_elas) * (selection2_qty_displayed**cross_elas) * experror* recommended_profit_ratio,10))
-                selection2_replenishment[candidate_index2]= (round(sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / ((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])))
-                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed,0)))
-                selection2_lostsales[candidate_index2]= ((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*selection2_stockout[candidate_index2]*selection2_replenishment[candidate_index2])
-                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
+                selection2_sales[candidate_index2]= round(max(alpha* (selection2_qty_displayed[candidate_index2]**space_elas) * (selection2_qty_displayed[candidate_index2]**cross_elas) * experror *recommended_profit_ratio,1))
+                selection2_replenishment[candidate_index2]= (round(max(math.sqrt(unit_ordering_cost[Product_ID.index(re_ID)] / (((unit_inventory_cost[Product_ID.index(re_ID)]/2) + unit_backroom_cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2])),1)))
+                selection2_stockout[candidate_index2]= (round(max(selection2_sales[candidate_index2]-selection2_qty_displayed[candidate_index2],0)))
+                selection2_lostsales[candidate_index2]= max((Product_Price[Product_ID.index(re_ID)]- Product_Cost[Product_ID.index(re_ID)])*(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]-selection2_qty_displayed[candidate_index2]),0)
+                selection2_inventory_cost[candidate_index2]= unit_inventory_cost[Product_ID.index(re_ID)]* (selection2_qty_displayed[candidate_index2]+(selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]/2))
                 selection2_backroom_cost[candidate_index2]= unit_backroom_cost[Product_ID.index(re_ID)]* selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]
-                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed*selection2_replenishment[candidate_index2]
+                selection2_display_cost[candidate_index2]= unit_display_cost[Product_ID.index(re_ID)] * selection2_qty_displayed[candidate_index2]*selection2_replenishment[candidate_index2]
                 selection2_ordering_cost[candidate_index2]= unit_ordering_cost[Product_ID.index(re_ID)]/selection2_replenishment[candidate_index2]
                 selection2_profit[candidate_index2] = (((Product_Price[Product_ID.index(re_ID)] - Product_Cost[Product_ID.index(re_ID)]) * selection2_sales[candidate_index2]*selection2_replenishment[candidate_index2]) - selection2_inventory_cost[candidate_index2]- selection2_backroom_cost[candidate_index2] - selection2_display_cost[candidate_index2]- selection2_ordering_cost[candidate_index2] - selection2_lostsales[candidate_index2]) * recommended_profit_ratio
     
@@ -4534,6 +4565,7 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
     chro_replenishment[max_index]= selection1_replenishment
     chro_stockout[max_index]= selection1_stockout
     chro_lostsales[max_index]= selection1_lostsales
+    chro_quantity_display[max_index]= selection1_qty_displayed
     
     chro[sec_index] = selection2
     chro_price[sec_index] = selection2_price
@@ -4550,15 +4582,15 @@ def mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane
     chro_replenishment[sec_index]= selection2_replenishment
     chro_stockout[sec_index]= selection2_stockout
     chro_lostsales[sec_index]= selection2_lostsales
-    # global mutation_rate
+    chro_quantity_display[sec_index]= selection2_qty_displayed
 
     # return chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod
-    return selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost,selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, \
-        selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost,selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost
+    return selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost,selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, \
+        selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost,selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost
 #%%
 
 #def GA(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, each_chro_profit, oppo_loss_list, each_chro_profit_withloss): # , ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4
-def GA(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit): # , ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4
+def GA(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit): # , ID1, ID2, ID3, ID4, ID5, price1, price2, price3, price4, price5, IDs1, IDs2, IDs3, IDs4, prices1, prices2, prices3, prices4
     
     new_chro = []
     new_chro_price = []
@@ -4575,6 +4607,7 @@ def GA(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occup
     new_chro_replenishment=[]
     new_chro_stockout=[]
     new_chro_lostsales=[]
+    new_chro_quantity_display=[]
     
     #fitness = copy.deepcopy(each_chro_profit_withloss)
     fitness = copy.deepcopy(each_chro_profit)
@@ -4598,18 +4631,19 @@ def GA(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occup
         new_chro_replenishment.append(chro_replenishment[i])
         new_chro_stockout.append(chro_stockout[i])
         new_chro_lostsales.append(chro_lostsales[i])
+        new_chro_quantity_display.append(chro_quantity_display[i])
     
     onemax_onerou = int(round((len(chro)-2)/2/2,0))
     tworou = int((len(chro)-2)/2 - int(round((len(chro)-2)/2/2,0)))
     
     # for j in range(len(chro)-2):
     for j in range(onemax_onerou):
-        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, max_index, sec_index = selection(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit)
-        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales = crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new,selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend)
+        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, max_index, sec_index = selection(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit)
+        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed = crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new,selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend)
         if mode == str(2):
-            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, CargoLane_ID)
+            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, CargoLane_ID)
         if mode == str(3):
-            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, CargoLane_ID)
+            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, CargoLane_ID)
         for i in [1, 2]:
             new_chro.append(locals() ["selection" + str(i)])
             new_chro_price.append(locals() ["selection" + str(i) + "_price"])
@@ -4626,15 +4660,16 @@ def GA(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occup
             new_chro_replenishment.append(locals() ["selection" + str(i) + "_replenishment"])
             new_chro_stockout.append(locals() ["selection" + str(i) + "_stockout"])
             new_chro_lostsales.append(locals() ["selection" + str(i) + "_lostsales"])
+            new_chro_quantity_display.append(locals() ["selection" + str(i) + "_qty_displayed"])
             
         #print('new_chro1',new_chro )   
     for k in range(tworou):
-        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, max_index, sec_index = selection_pure_rou(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit)
-        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales = crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new,selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend)
+        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, max_index, sec_index = selection_pure_rou(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit)
+        selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed = crossover(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost,selection1_ordering_cost, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new,selection2_inventory_cost, selection2_backroom_cost, selection2_display_cost,selection2_ordering_cost, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend)
         if mode == str(2):
-            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, CargoLane_ID)
+            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod,chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, CargoLane_ID)
         if mode == str(3):
-            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, CargoLane_ID)
+            selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend,selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_sales,selection1_inventory_cost,selection1_backroom_cost,selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_sales,selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost = mutation(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occupied, chro_recommend_prod, chro_inventory_cost, chro_backroom_cost, chro_display_cost, chro_ordering_cost, chro_purchasing_cost, chro_replenishment, chro_stockout, chro_lostsales, chro_quantity_display, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_purchasing_cost, selection1_replenishment, selection1_stockout, selection1_lostsales, selection1_qty_displayed, selection1_inventory_cost, selection1_backroom_cost, selection1_display_cost, selection1_ordering_cost, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_purchasing_cost, selection2_replenishment, selection2_stockout, selection2_lostsales, selection2_qty_displayed, selection2_inventory_cost,selection2_backroom_cost,selection2_display_cost, selection2_ordering_cost, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, CargoLane_ID)
         for i in [1, 2]:
             new_chro.append(locals() ["selection" + str(i)])
             new_chro_price.append(locals() ["selection" + str(i) + "_price"])
@@ -4651,14 +4686,14 @@ def GA(chro, chro_price, chro_sales, chro_profit, chro_new, chro_cargolane_occup
             new_chro_replenishment.append(locals() ["selection" + str(i) + "_replenishment"])
             new_chro_stockout.append(locals() ["selection" + str(i) + "_stockout"])
             new_chro_lostsales.append(locals() ["selection" + str(i) + "_lostsales"])
+            new_chro_quantity_display.append(locals() ["selection" + str(i) + "_qty_displayed"])
             
         #print('new_chro2', new_chro)     
-    return new_chro, new_chro_price, new_chro_sales, new_chro_profit, new_chro_new, new_chro_cargolane_occupied, new_chro_recommend_prod, new_chro_inventory_cost, new_chro_backroom_cost, new_chro_display_cost, new_chro_ordering_cost, new_chro_purchasing_cost, new_chro_replenishment, new_chro_stockout, new_chro_lostsales
+    return new_chro, new_chro_price, new_chro_sales, new_chro_profit, new_chro_new, new_chro_cargolane_occupied, new_chro_recommend_prod, new_chro_inventory_cost, new_chro_backroom_cost, new_chro_display_cost, new_chro_ordering_cost, new_chro_purchasing_cost, new_chro_replenishment, new_chro_stockout, new_chro_lostsales, new_chro_quantity_display
 
 #%%
 # main program for the heuristic solution and GA process
 def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination):
-    global population_size
     if list(set(Product_New)) == [0]:
         sku_min_num = len(list(set(Demand_Product_ID)))
     else:
@@ -4672,13 +4707,12 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
     #     termination = 200
 
     if mode == str(1):
-        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(30, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost) 
+        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display = initial_solution(30, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost) 
     elif mode == str(2):
-        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(population_size, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost) #!!!!!
+        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display = initial_solution(2*50, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost) #!!!!!
     elif mode == str(3):
-        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = initial_solution(30, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
-        
-    
+        Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display = initial_solution(30, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, Demand_Product_ID, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, new_prod_ratio, sku_min_num, Current_Product, Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, mode, setup_cost, replenishment_cost)
+
     # print current profit
     cur_chro, cur_chro_price, cur_chro_sales, cur_chro_profit, cur_chro_new, cur_chro_cargolane_occupied, cur_chro_recommend_prod, cur_chro_cargolane_occupiedlist = current_info(Current_Product, Product_ID, Demand_Product_ID, Product_Price, Demand_Product_Sales, Product_Product_sales, Product_New, Product_Cost, setup_cost, replenishment_cost)
     cur_profit_matrix = pd.DataFrame({"ID": cur_chro, "Profit": cur_chro_profit})
@@ -4705,11 +4739,14 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
     iter_maxchro_replenishment=[]
     iter_maxchro_stockout=[]
     iter_maxchro_lostsales=[]
+    iter_maxchro_quantity_display=[]
     
     
     max_profit_his = [] # 歷代最佳
     #max_profit_min_oppo_his = [] # 歷代最佳
     max_profit_fitness_his = [] # 歷代最佳
+    demand=[]
+    demand1=[]
     
     it_forchart = []
     iter_cur_profit = []
@@ -4718,13 +4755,13 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
     while iter_times <= termination:
         
         if iter_times == 1:
-            each_chro_profit = objective(Pro_chro_profit, Pro_chro, Pro_chro_new, CargoLane_Type, Product_Type, sku_min_num, new_prod_ratio, Pro_chro_price, Pro_chro_cargolane_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, Pro_chro_recommend_prod, Product_New, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales)
+            each_chro_profit = objective(Pro_chro_profit, Pro_chro, Pro_chro_new, CargoLane_Type, Product_Type, sku_min_num, new_prod_ratio, Pro_chro_price, Pro_chro_cargolane_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, Pro_chro_recommend_prod, Product_New, Pro_chro_cargolane_occupied_list, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display)
             #objective(chro_profit, chro_ID, chro_new, cargotype, prodtype, num, new_prod_ratio, chro_price, chro_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, chro_recommend, Product_New, chro_cargolane_occupied_list):
             #each_chro_profit, oppo_loss_list, each_chro_profit_withloss = objective(Pro_chro_profit, Pro_chro, Pro_chro_new, CargoLane_Type, Product_Type, sku_min_num, new_prod_ratio, Pro_chro_price, Pro_chro_cargolane_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, Pro_chro_recommend_prod, Product_New, Pro_chro_cargolane_occupied_list)
             #heu_min_indexs = list(locate(each_chro_profit_withloss, lambda x: x == max(each_chro_profit_withloss))) # max profit index們
             heu_min_indexs = list(locate(each_chro_profit, lambda x: x == max(each_chro_profit))) # max profit index們
             heu_min_index = 0
-            heu_chro, heu_chro_price, heu_chro_sales, heu_chro_profit, heu_chro_new, heu_chro_cargolane_occupied, heu_chro_recommend_prod, heu_chro_inventory_cost,heu_chro_backroom_cost, heu_chro_display_cost, heu_chro_ordering_cost, heu_chro_purchasing_cost, heu_chro_replenishment, heu_chro_stockout, heu_chro_lostsales = Pro_chro[heu_min_index].copy(), Pro_chro_price[heu_min_index].copy(), Pro_chro_sales[heu_min_index].copy(), Pro_chro_profit[heu_min_index].copy(), Pro_chro_new[heu_min_index].copy(), Pro_chro_cargolane_occupied[heu_min_index].copy(), Pro_chro_recommend_prod[heu_min_index].copy(), Pro_chro_inventory_cost[heu_min_index].copy(), Pro_chro_backroom_cost[heu_min_index].copy(),Pro_chro_display_cost[heu_min_index].copy(),Pro_chro_ordering_cost[heu_min_index].copy(), Pro_chro_purchasing_cost[heu_min_index].copy(), Pro_chro_replenishment[heu_min_index].copy(), Pro_chro_stockout[heu_min_index].copy(), Pro_chro_lostsales[heu_min_index].copy()
+            heu_chro, heu_chro_price, heu_chro_sales, heu_chro_profit, heu_chro_new, heu_chro_cargolane_occupied, heu_chro_recommend_prod, heu_chro_inventory_cost,heu_chro_backroom_cost, heu_chro_display_cost, heu_chro_ordering_cost, heu_chro_purchasing_cost, heu_chro_replenishment, heu_chro_stockout, heu_chro_lostsales, heu_chro_quantity_display = Pro_chro[heu_min_index].copy(), Pro_chro_price[heu_min_index].copy(), Pro_chro_sales[heu_min_index].copy(), Pro_chro_profit[heu_min_index].copy(), Pro_chro_new[heu_min_index].copy(), Pro_chro_cargolane_occupied[heu_min_index].copy(), Pro_chro_recommend_prod[heu_min_index].copy(), Pro_chro_inventory_cost[heu_min_index].copy(), Pro_chro_backroom_cost[heu_min_index].copy(),Pro_chro_display_cost[heu_min_index].copy(),Pro_chro_ordering_cost[heu_min_index].copy(), Pro_chro_purchasing_cost[heu_min_index].copy(), Pro_chro_replenishment[heu_min_index].copy(), Pro_chro_stockout[heu_min_index].copy(), Pro_chro_lostsales[heu_min_index].copy(), Pro_chro_quantity_display[heu_min_index].copy()
             heu_profit_matrix = pd.DataFrame({"ID": heu_chro, "Profit": heu_chro_profit})
             heu_profit_matrix_without_duplicates = heu_profit_matrix.drop_duplicates(subset = ["ID", "Profit"])
             heu_each_chro_profit = each_chro_profit[heu_min_index]
@@ -4748,7 +4785,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
             pass
         else:
             
-            Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales = GA(Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, each_chro_profit) #, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4
+            Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display = GA(Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display, each_chro_profit) #, ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4
             # selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection1_occupied, selection1_recommend, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, selection2_occupied, selection2_recommend, max_index, sec_index = selection(Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, each_chro_profit, oppo_loss_list)
             # Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod = crossover(Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, each_chro_profit, selection1, selection1_price, selection1_sales, selection1_profit, selection1_new, selection2, selection2_price, selection2_sales, selection2_profit, selection2_new, max_index, sec_index, selection1_occupied, selection1_recommend, selection2_occupied, selection2_recommend, each_chro_profit_withloss)
             # if mode == str(2):
@@ -4756,7 +4793,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
             # if mode == str(3):
             #     Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod = mutation(Pro_chro, Pro_chro_price, Pro_chro_sales, Pro_chro_profit, Pro_chro_new, Pro_chro_cargolane_occupied, Pro_chro_recommend_prod, each_chro_profit, Pro_chro[max_index], Pro_chro_price[max_index], Pro_chro_sales[max_index], Pro_chro_profit[max_index], Pro_chro_new[max_index], Pro_chro[sec_index], Pro_chro_price[sec_index], Pro_chro_sales[sec_index], Pro_chro_profit[sec_index], Pro_chro_new[sec_index], max_index, sec_index, Pro_chro_cargolane_occupied[max_index], Pro_chro_recommend_prod[max_index], Pro_chro_cargolane_occupied[sec_index], Pro_chro_recommend_prod[sec_index], each_chro_profit_withloss, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4)
         #each_chro_profit, oppo_loss_list, each_chro_profit_withloss = objective(Pro_chro_profit, Pro_chro, Pro_chro_new, CargoLane_Type, Product_Type, sku_min_num, new_prod_ratio, Pro_chro_price, Pro_chro_cargolane_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, Pro_chro_recommend_prod, Product_New, Pro_chro_cargolane_occupied_list) # 重新確認是否符合限制式
-        each_chro_profit = objective(Pro_chro_profit, Pro_chro, Pro_chro_new, CargoLane_Type, Product_Type, sku_min_num, new_prod_ratio, Pro_chro_price, Pro_chro_cargolane_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, Pro_chro_recommend_prod, Product_New, Pro_chro_cargolane_occupied_list,Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales) # 重新確認是否符合限制式
+        each_chro_profit = objective(Pro_chro_profit, Pro_chro, Pro_chro_new, CargoLane_Type, Product_Type, sku_min_num, new_prod_ratio, Pro_chro_price, Pro_chro_cargolane_occupied, replenishment_per_time, Demand_Product_ID, Product_max_cargolanenum, CargoLane_Capacity, Pro_chro_recommend_prod, Product_New, Pro_chro_cargolane_occupied_list,Pro_chro_inventory_cost, Pro_chro_backroom_cost, Pro_chro_display_cost, Pro_chro_ordering_cost, Pro_chro_purchasing_cost, Pro_chro_replenishment, Pro_chro_stockout, Pro_chro_lostsales, Pro_chro_quantity_display) # 重新確認是否符合限制式
 
         # # 以max profit 為選取標準, 再挑選oppo loss 最小的
         # max_position = list(locate(each_chro_profit, lambda x: x == max(each_chro_profit))) # max profit index們
@@ -4806,6 +4843,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
         iter_maxchro_profit.append(Pro_chro_profit[index_m])
         iter_maxchro_cargolane_occupied.append(Pro_chro_cargolane_occupied[index_m])
         iter_maxchro_recommend_prod.append(Pro_chro_recommend_prod[index_m])
+        # print(iter_maxchro_sales)
         
         iter_maxchro_inventory_cost.append(Pro_chro_inventory_cost[index_m])
         iter_maxchro_backroom_cost.append(Pro_chro_backroom_cost[index_m])
@@ -4815,6 +4853,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
         iter_maxchro_replenishment.append(Pro_chro_replenishment[index_m])
         iter_maxchro_stockout.append(Pro_chro_stockout[index_m])
         iter_maxchro_lostsales.append(Pro_chro_lostsales[index_m])
+        iter_maxchro_quantity_display.append(Pro_chro_quantity_display[index_m])
         # print("Pro_chro[index_m]", Pro_chro[index_m])
         # print("iter_maxchro_stockout", Pro_chro_stockout[index_m])
         # print("iter_maxchro_lostsales", Pro_chro_lostsales[index_m])
@@ -4822,6 +4861,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
         max_profit_his.append(iter_maxprofit[iter_maxprofit_fitness.index(max(iter_maxprofit_fitness))])
         #max_profit_min_oppo_his.append(iter_maxprofit_oppoloss[iter_maxprofit_fitness.index(max(iter_maxprofit_fitness))])
         max_profit_fitness_his.append(iter_maxprofit_fitness[iter_maxprofit_fitness.index(max(iter_maxprofit_fitness))])
+        
         
         iter_cur_profit.append(cur_each_chro_profit)
         iter_heu_profit.append(heu_each_chro_profit)
@@ -4887,7 +4927,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
             else:
                 costlist.append(Product_Cost[Product_ID.index(iter_maxchro[index_2][i])])
 
-        final_result = {"VM ID": VM_ID, "Device ID": CargoLane_Device_ID, "Site_ID": CargoLane_Site_ID, "CargoLane ID": CargoLane_ID, "Product selection": iter_maxchro[index_2], "Product price": iter_maxchro_price[index_2], "Purchasing cost": iter_maxchro_purchasing_cost[index_2], "Product sales": iter_maxchro_sales[index_2], "Product profit": iter_maxchro_profit[index_2], "Cargo_type": copy_cargolane_type, "Prod_type": result_type, "Prod_vol": result_capacity, "Inventory_cost": iter_maxchro_inventory_cost[index_2],  "Backroom_cost": iter_maxchro_backroom_cost[index_2],  "Display_cost": iter_maxchro_display_cost[index_2],  "Ordering_cost": iter_maxchro_ordering_cost[index_2], "Replenishment": iter_maxchro_replenishment[index_2], "Stockout": iter_maxchro_stockout[index_2], "Lostsales": iter_maxchro_lostsales[index_2]}
+        final_result = {"VM ID": VM_ID, "Device ID": CargoLane_Device_ID, "Site_ID": CargoLane_Site_ID, "CargoLane ID": CargoLane_ID, "Product selection": iter_maxchro[index_2], "Product price": iter_maxchro_price[index_2], "Purchasing cost": iter_maxchro_purchasing_cost[index_2], "Product sales": iter_maxchro_sales[index_2], "Product profit": iter_maxchro_profit[index_2], "Cargo_type": copy_cargolane_type, "Prod_type": result_type, "Prod_vol": result_capacity, "Inventory_cost": iter_maxchro_inventory_cost[index_2],  "Backroom_cost": iter_maxchro_backroom_cost[index_2],  "Display_cost": iter_maxchro_display_cost[index_2],  "Ordering_cost": iter_maxchro_ordering_cost[index_2], "Replenishment": iter_maxchro_replenishment[index_2], "Stockout": iter_maxchro_stockout[index_2], "Lostsales": iter_maxchro_lostsales[index_2], "Quantity display": iter_maxchro_quantity_display[index_2]}
         output_final_result = pd.DataFrame(final_result)
         output_final_summarization = pd.DataFrame()
         output_final_summarization = output_final_summarization.append({"Site ID": CargoLane_Site_ID[0], "Device ID": CargoLane_Device_ID[0], "Value": iter_maxprofit[index_2], "Value_type": "revenue"}, ignore_index=True)
@@ -4905,6 +4945,9 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
         data_fitness_GA_csv={"Fitness_GA":max_profit_fitness_his}
 
         fitness_GA_csv = pd.DataFrame(data_fitness_GA_csv)
+        demand.append(iter_maxchro_sales[index_2])
+        # print(demand)
+        demand1.append(sum(demand[0]))
         #print('##')
         
     if mode == "3": # print the AI result: mode 3
@@ -5019,46 +5062,7 @@ def main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_
     
     
     # print("heu:", heu_each_chro_fitness, "AI:", iter_maxprofit_fitness[iter_maxprofit_fitness.index(max(iter_maxprofit_fitness))])
-    return output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv, max_profit_fitness_his
-
-#%%
-def param(trial):
-    # Define the parameters to optimize and their search ranges
-    global population_size, mutation_rate, crossover_rate, termination
-    population_size = trial.suggest_int("population_size", 20, 40)
-    mutation_rate = trial.suggest_float("mutation_rate", 0.04, 0.06)
-    crossover_rate = trial.suggest_float("crossover_rate", 0.7, 0.9)
-    termination = trial.suggest_int("num_iterations", 50, 200)
-
-    # Plateau Detection parameters
-    plateau_threshold = 0.01  # Define the plateau threshold
-    plateau_iterations = 3  # Number of consecutive iterations without significant improvement
-
-    # Track the best value and iterations without improvement
-    best_value = -float('inf')
-    iterations_without_improvement = 0
-
-    # Call the main_program with the optimized parameters
-    output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv, max_profit_fitness_his = main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination)
-    
-    # Calculate the objective value
-    objective_value = max(max_profit_fitness_his)
-
-    # Check for plateau
-    if objective_value - best_value >= plateau_threshold:
-        iterations_without_improvement = 0
-    else:
-        iterations_without_improvement += 1
-
-    # Terminate if plateau threshold is reached
-    if iterations_without_improvement >= plateau_iterations:
-        raise TrialPruned()
-
-    # Update the best value
-    best_value = max(best_value, objective_value)
-    
-    # Return the objective value to optimize
-    return objective_value
+    return output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv, max_profit_fitness_his, demand1
 
 #%%
 # read the in/output path, parameters setting, error log
@@ -5078,21 +5082,22 @@ new_prod_ratio = int(1) # 5%
 #     termination = 2
 # elif mode == str(3):
 #     termination = 2
-# global termination
+
 if mode == str(1):
     termination = 20
 elif mode == str(2):
-    termination = 25
+    termination = 75
 elif mode == str(3):
     termination = 200
+    
 
 
-inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\ruun" # test
+inputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\RUN\5065" # test
 if mode == str(1):
     outputpath = "/Users/nataliafebri/Documents/Lab Meeting/Lab Meeting Rabu/Project VM/31 Oct/Mode1" # test
 elif mode == str(2):
-    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\ruuntest\50"  # !!!!!
-    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\ruuntest\50"
+    outputpath = r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAfinal2\5065"  # !!!!!
+    outputpath_comparison= r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAfinal2\5065"
 else:
     outputpath =r"C:\Users\Admin\iCloudDrive\KULYEAH\lab\naskah\Thesis\GAnew"  # test
 
@@ -5135,24 +5140,19 @@ ok = 0
 okno = 0
 okno_list = []
 
-
 print("This program is a property of National Taiwan University of Science and Technology." + "\n")
 logger.info("This program is a property of National Taiwan University of Science and Technology." + "\n")
 exe_times=[]
 exe=[]
 fitness=[]
 fitness_each=[]
-best_valuee=[]
-best1_value=[]
-best_paramss=[]
-best1_params=[]
+demands=[]
+demand_each=[]
 if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_property <= 20231231 and iter_def == True:
     inputfile_list = os.listdir(inputpath)
     for file in inputfile_list:
         # try:
             time_start = time.time()
-            
-
             
             
             print(file)
@@ -5265,8 +5265,7 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
             print("Model is running...")
             logger.info("Model is running...")
             
-            output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv, max_profit_fitness_his = main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination)
-            
+            output_final_result, output_final_summarization, cur_each_chro_profit, heu_each_chro_profit, output_heuristic_result, output_heuristic_summarization, fitness_GA_csv, max_profit_fitness_his, demand1 = main_program(ID_CargoLane1, ID_CargoLane2, ID_CargoLane3, ID_CargoLane4, ID_CargoLane5, Price_CargoLane1, Price_CargoLane2, Price_CargoLane3, Price_CargoLane4, Price_CargoLane5, Sales_CargoLane1, Sales_CargoLane2, Sales_CargoLane3, Sales_CargoLane4, Sales_CargoLane5, Product_max_cargolanenum, demand_product_typenum, cargolane_should_empty, New_ID1, New_ID2, New_ID3, New_ID4, New_ID5, Brand_CargoLane1, Brand_CargoLane2, Brand_CargoLane3, Brand_CargoLane4, Brand_CargoLane5, Recommend_ID1, Recommend_ID2, Recommend_ID3, Recommend_ID4, Recommend_ID5, Recommend_price1, Recommend_price2, Recommend_price3, Recommend_price4, Recommend_price5, new_prod_ratio, replacement_matrix, New_profit1, New_profit2, New_profit3, New_profit4, New_profit5, sID_CargoLane1, sID_CargoLane2, sID_CargoLane3, sID_CargoLane4, sPrice_CargoLane1, sPrice_CargoLane2, sPrice_CargoLane3, sPrice_CargoLane4, sSales_CargoLane1, sSales_CargoLane2, sSales_CargoLane3, sSales_CargoLane4, sCost_CargoLane1, sCost_CargoLane2, sCost_CargoLane3, sCost_CargoLane4, sNew_ID1, sNew_ID2, sNew_ID3, sNew_ID4, sNew_profit1, sNew_profit2, sNew_profit3, sNew_profit4, sRecommend_ID1, sRecommend_ID2, sRecommend_ID3, sRecommend_ID4, sRecommend_price1, sRecommend_price2, sRecommend_price3, sRecommend_price4, sRecommend_cost1, sRecommend_cost2, sRecommend_cost3, sRecommend_cost4, snID_CargoLane1, snID_CargoLane2, snID_CargoLane3, snID_CargoLane4, snPrice_CargoLane1, snPrice_CargoLane2, snPrice_CargoLane3, snPrice_CargoLane4, snSales_CargoLane1, snSales_CargoLane2, snSales_CargoLane3, snSales_CargoLane4, snCost_CargoLane1, snCost_CargoLane2, snCost_CargoLane3, snCost_CargoLane4, snNew_ID1, snNew_ID2, snNew_ID3, snNew_ID4, snNew_profit1, snNew_profit2, snNew_profit3, snNew_profit4, snRecommend_ID1, snRecommend_ID2, snRecommend_ID3, snRecommend_ID4, snRecommend_price1, snRecommend_price2, snRecommend_price3, snRecommend_price4, snRecommend_cost1, snRecommend_cost2, snRecommend_cost3, snRecommend_cost4, termination)
             
             outputpath_s = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result2.csv") # 設定路徑及檔名
             outputpath_r = os.path.join(outputpath, today + '_' + file + "_" + mode + "_result1.csv") # 設定路徑及檔名
@@ -5283,34 +5282,11 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
             outputpath_graph = os.path.join(outputpath_comparison, "Fitness" + file + "_" + mode + "GA.csv") # 設定路徑及檔名
             fitness_GA_csv.to_csv(outputpath_graph, sep = ",", index = False, encoding = "utf-8")
             
+            demands.append(sum(demand1))
+            demand_each.append(demands)
+            
             fitness.append(max(max_profit_fitness_his))
             fitness_each.append(fitness)
-            # param(trial)
-            # Create an Optuna study
-            study = optuna.create_study(direction='maximize')
-            
-            # Optimize the objective function
-            study.optimize(param, n_trials=100)
-            
-            # Get the best parameters and objective value
-            best_params = study.best_params
-            best_value = study.best_value
-            if study.best_trial is None:
-                print("No trials have been completed yet.")
-            else:
-                best_params = study.best_params
-                # Use the best_params for further analysis or processing
-            
-
-            
-            # Print the best parameters and objective value
-            print("***********")
-            print("Best Parameters:", best_params)
-            print("Best Value:", best_value)
-            best_paramss.append(best_params)
-            best1_params.append(best_paramss)
-            best_valuee.append(best_value)
-            best1_value.append(best_valuee)            
                         
             
             # Index_strart = Index_end + 1
@@ -5331,22 +5307,13 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
                 okno_list.append(file[20:])
                 
         # except:                   # 如果 try 的內容發生錯誤，就執行 except 裡的內容
-            print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
-            logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution failed:Incorrect input data" + "\n")
-            
+            print("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
+            logger.error("result:" + str(CargoLane_Site_ID_for_log) + ":Execution succeed" + "\n")
     filename = "execution_times.csv"
     save_directory = outputpath  # Specify the directory where the CSV file should be saved
     fullpath = os.path.join(save_directory, filename)
     outputfitness = os.path.join(outputpath_comparison, "Fitness_each.csv")
-    outputparam = os.path.join(outputpath_comparison, "parameters.csv")
-    
-    with open(outputparam, 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(['File', 'parameters', 'value'])
-        
-        for i in range(len(inputfile_list)):
-            if i < len(best_paramss):  # Check if the index is within the range of exe_times
-                writer.writerow([inputfile_list[i], best_paramss[i], best_valuee[i]])
+    outputdemand = os.path.join(outputpath_comparison, "demand_each.csv")
 
 
     with open(fullpath, 'w', newline='') as file:
@@ -5364,12 +5331,18 @@ if os.path.exists(inputpath) and os.path.exists(outputpath) and today_std_for_pr
         for i in range(len(inputfile_list)):
             if i < len(fitness_each):
                 writer.writerow([inputfile_list[i], fitness[i]])
+                
+    with open(outputdemand, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['File', 'Demand'])
+        
+        for i in range(len(inputfile_list)):
+            if i < len(demand_each):
+                writer.writerow([inputfile_list[i], demands[i]])
             
             # pass                  # 略過
             # exe_times.append(exe)
             # print("tes", exe_times)
-            
-
 else:
     if today_std_for_property > 20231231:
         print("The deadline of exection was met, it's exceeded 20231231")
@@ -5381,9 +5354,6 @@ else:
         print(inputpath, "do not exist")
     elif os.path.exists(outputpath) == False:
         print(outputpath, "do not exist")
-        
-
-
         
 # print(fitness_each)
 avgfit = sum(fitness_each[-1]) / len(fitness_each[-1])
@@ -5399,6 +5369,22 @@ df = pd.DataFrame(data)
 
 path = os.path.join(save_directory, filename)
 df.to_csv(path, index=False) 
+
+    
+for i in range(5):
+    win32api.Beep(random.randint(500,1000), random.randint(750,3000))
+    
+
+    
+# @email_sender(recipient_emails=["rafih17@gmail.com"], sender_email="rafih46@gmail.com")
+# def main():
+#     even_arr = []
+#     for i in range(10000):
+#         if i%2==0:
+#             even_arr.append(i)
+
+# if __name__=='__main__':
+#     main()
 # exe_times.append(exe)
 # print(exe_times)
         

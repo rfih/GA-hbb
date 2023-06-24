@@ -1,0 +1,80 @@
+2023-05-26 14:54:05,797 This program is a property of National Taiwan University of Science and Technology.
+
+2023-05-26 14:54:05,800 nsop_BigObject_NTUST_Data_4018(2085)_1.xlsx
+2023-05-26 14:54:06,156 Model is running...
+2023-05-26 14:54:07,164 result:4017:Execution succeed
+
+2023-05-26 14:54:07,164 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 14:54:07,164 nsop_BigObject_NTUST_Data_4018(2085)_10.xlsx
+2023-05-26 14:54:49,723 This program is a property of National Taiwan University of Science and Technology.
+
+2023-05-26 14:54:49,725 nsop_BigObject_NTUST_Data_4018(653)_1.xlsx
+2023-05-26 14:54:49,811 Model is running...
+2023-05-26 14:54:50,735 result:4017:Execution succeed
+
+2023-05-26 14:54:50,735 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 14:54:50,735 nsop_BigObject_NTUST_Data_4018(653)_10.xlsx
+2023-05-26 14:54:50,819 Model is running...
+2023-05-26 14:55:18,139 This program is a property of National Taiwan University of Science and Technology.
+
+2023-05-26 14:55:18,140 nsop_BigObject_NTUST_Data_4018(653)_1.xlsx
+2023-05-26 14:55:18,219 Model is running...
+2023-05-26 14:55:19,037 result:4017:Execution succeed
+
+2023-05-26 14:55:19,037 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 14:55:19,037 nsop_BigObject_NTUST_Data_4018(653)_10.xlsx
+2023-05-26 14:55:19,117 Model is running...
+2023-05-26 14:55:20,018 result:4017:Execution succeed
+
+2023-05-26 14:55:20,018 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 14:55:20,018 nsop_BigObject_NTUST_Data_4018(653)_100.xlsx
+2023-05-26 14:55:20,089 Model is running...
+2023-05-26 14:55:21,010 result:4017:Execution succeed
+
+2023-05-26 14:55:21,010 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 14:55:21,010 nsop_BigObject_NTUST_Data_4018(653)_11.xlsx
+2023-05-26 14:55:21,085 Model is running...
+2023-05-26 14:55:21,952 result:4017:Execution succeed
+
+2023-05-26 14:55:21,952 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 14:55:21,952 nsop_BigObject_NTUST_Data_4018(653)_12.xlsx
+2023-05-26 14:55:22,029 Model is running...
+2023-05-26 16:41:05,745 This program is a property of National Taiwan University of Science and Technology.
+
+2023-05-26 16:41:05,746 nsop_BigObject_NTUST_Data_4018(653)_1.xlsx
+2023-05-26 16:41:05,834 Model is running...
+2023-05-26 16:41:06,835 result:4017:Execution succeed
+
+2023-05-26 16:41:06,835 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 16:41:06,835 nsop_BigObject_NTUST_Data_4018(653)_10.xlsx
+2023-05-26 16:41:06,923 Model is running...
+2023-05-26 16:41:07,891 result:4017:Execution succeed
+
+2023-05-26 16:41:07,891 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 16:41:07,891 nsop_BigObject_NTUST_Data_4018(653)_100.xlsx
+2023-05-26 16:41:07,988 Model is running...
+2023-05-26 16:42:28,361 This program is a property of National Taiwan University of Science and Technology.
+
+2023-05-26 16:42:28,369 nsop_BigObject_NTUST_Data_4018(653)_1.xlsx
+2023-05-26 16:42:28,521 Model is running...
+2023-05-26 16:42:29,442 result:4017:Execution succeed
+
+2023-05-26 16:42:29,442 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 16:42:29,442 nsop_BigObject_NTUST_Data_4018(653)_10.xlsx
+2023-05-26 16:42:29,522 Model is running...
+2023-05-26 16:42:30,411 result:4017:Execution succeed
+
+2023-05-26 16:42:30,411 result:4017:Execution failed:Incorrect input data
+
+2023-05-26 16:42:30,411 nsop_BigObject_NTUST_Data_4018(653)_100.xlsx
+2023-05-26 16:42:30,491 Model is running...
+2023-05-26 18:02:40,074 handle_close[f182c8d8fb9011edbe6da0510b821ab2]({'header': {'msg_id': 'ddaf078c-72ffd0f30890f556fbd67172_8892_86', 'msg_type': 'comm_close', 'username': 'username', 'session': 'ddaf078c-72ffd0f30890f556fbd67172', 'date': datetime.datetime(2023, 5, 26, 10, 2, 40, 59854, tzinfo=tzutc()), 'version': '5.3'}, 'msg_id': 'ddaf078c-72ffd0f30890f556fbd67172_8892_86', 'msg_type': 'comm_close', 'parent_header': {}, 'metadata': {}, 'content': {'comm_id': 'f182c8d8fb9011edbe6da0510b821ab2', 'data': {}}, 'buffers': []})

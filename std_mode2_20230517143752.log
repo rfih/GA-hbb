@@ -1,0 +1,1428 @@
+2023-05-17 14:37:52,210 This program is a property of National Taiwan University of Science and Technology.
+
+2023-05-17 14:37:52,210 nsop_BigObject_NTUST_Data_4018(2032)_1.xlsx
+2023-05-17 14:37:52,706 Model is running...
+2023-05-17 14:37:54,906 findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,906 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,909 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,909 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,909 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,909 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,909 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,910 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHICB.TTF', name='Century Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibriz.ttf', name='Calibri', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\arialbd.ttf', name='Arial', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 6.698636363636363
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msjh.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\sylfaen.ttf', name='Sylfaen', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Deng.ttf', name='DengXian', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Nirmala.ttf', name='Nirmala UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\gadugib.ttf', name='Gadugi', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LEELAWAD.TTF', name='Leelawadee', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ANTQUABI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbelb.ttf', name='Corbel', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothL.ttc', name='Yu Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothM.ttc', name='Yu Gothic', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comicbd.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\palab.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LeelawUI.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GARAIT.TTF', name='Garamond', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SitkaVF.ttf', name='Sitka', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GARABD.TTF', name='Garamond', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candarab.ttf', name='Candara', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LEELAWAD.TTF', name='Leelawadee', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebucbd.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisym.ttf', name='Segoe UI Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\himalaya.ttf', name='Microsoft Himalaya', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALN.TTF', name='Arial', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 6.613636363636363
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MTEXTRA.TTF', name='MT Extra', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdana.ttf', name='Verdana', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 3.6863636363636365
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoesc.ttf', name='Segoe Script', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyhbd.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbelz.ttf', name='Corbel', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebucbd.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simhei.ttf', name='SimHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-MEDIUM.TTF', name='Dubai', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simfang.ttf', name='FangSong', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-BOLD.TTF', name='Dubai', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambriab.ttf', name='Cambria', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\l_10646.ttf', name='Lucida Sans Unicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbell.ttf', name='Corbel', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,911 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgiai.ttf', name='Georgia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibri.ttf', name='Calibri', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothM.ttc', name='Yu Gothic', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MTEXTRA.TTF', name='MT Extra', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LeelaUIb.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibrii.ttf', name='Calibri', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoepr.ttf', name='Segoe Print', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candaral.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgiaz.ttf', name='Georgia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALNI.TTF', name='Arial', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 7.613636363636363
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\tahomabd.ttf', name='Tahoma', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\WINGDNG2.TTF', name='Wingdings 2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ebrima.ttf', name='Ebrima', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\holomdl2.ttf', name='HoloLens MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\javatext.ttf', name='Javanese Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgia.ttf', name='Georgia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ANTQUAI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambriaz.ttf', name='Cambria', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\WINGDNG2.TTF', name='Wingdings 2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\courbd.ttf', name='Courier New', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebucit.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\sylfaen.ttf', name='Sylfaen', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\monbaiti.ttf', name='Mongolian Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Gabriola.ttf', name='Gabriola', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comicbd.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\palabi.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguibl.ttf', name='Segoe UI', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 10.525
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguili.ttf', name='Segoe UI', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consolab.ttf', name='Consolas', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\malgunbd.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOSB.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothB.ttc', name='Yu Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candaral.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simkai.ttf', name='KaiTi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ANTQUABI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\gadugib.ttf', name='Gadugi', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simsun.ttc', name='SimSun', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\bahnschrift.ttf', name='Bahnschrift', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisym.ttf', name='Segoe UI Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisb.ttf', name='Segoe UI', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consolaz.ttf', name='Consolas', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyh.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constani.ttf', name='Constantia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbeli.ttf', name='Corbel', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHICBI.TTF', name='Century Gothic', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\times.ttf', name='Times New Roman', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candara.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segmdl2.ttf', name='Segoe MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\taileb.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothR.ttc', name='Yu Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\bahnschrift.ttf', name='Bahnschrift', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constanz.ttf', name='Constantia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msjhl.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\kaiu.ttf', name='DFKai-SB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyi.ttf', name='Microsoft Yi Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Dengb.ttf', name='DengXian', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdanab.ttf', name='Verdana', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 3.9713636363636367
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\symbol.ttf', name='Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALNB.TTF', name='Arial', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 6.8986363636363635
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHIC.TTF', name='Century Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\l_10646.ttf', name='Lucida Sans Unicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BSSYM7.TTF', name='Bookshelf Symbol 7', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\malgunsl.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comic.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,914 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constan.ttf', name='Constantia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\WINGDNG3.TTF', name='Wingdings 3', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consolai.ttf', name='Consolas', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constanz.ttf', name='Constantia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mingliub.ttc', name='MingLiU-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candarab.ttf', name='Candara', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothL.ttc', name='Yu Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdanab.ttf', name='Verdana', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 3.9713636363636367
+2023-05-17 14:37:54,919 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisli.ttf', name='Segoe UI', style='italic', variant='normal', weight=350, stretch='normal', size='scalable')) = 11.0975
+2023-05-17 14:37:54,920 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GARA.TTF', name='Garamond', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,920 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgia.ttf', name='Georgia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,920 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeprb.ttf', name='Segoe Print', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,920 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LEELAWDB.TTF', name='Leelawadee', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgiab.ttf', name='Georgia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\timesbi.ttf', name='Times New Roman', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\tahomabd.ttf', name='Tahoma', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BKANT.TTF', name='Book Antiqua', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuii.ttf', name='Segoe UI', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SegoeIcons.ttf', name='Segoe Fluent Icons', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\CENTURY.TTF', name='Century', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdanai.ttf', name='Verdana', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 4.6863636363636365
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibri.ttf', name='Calibri', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constani.ttf', name='Constantia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,921 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comici.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ntailu.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\arial.ttf', name='Arial', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 6.413636363636363
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\framd.ttf', name='Franklin Gothic Medium', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consola.ttf', name='Consolas', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdanaz.ttf', name='Verdana', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 4.971363636363637
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Inkfree.ttf', name='Ink Free', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisb.ttf', name='Segoe UI', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mmrtext.ttf', name='Myanmar Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Gabriola.ttf', name='Gabriola', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ntailub.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\micross.ttf', name='Microsoft Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbell.ttf', name='Corbel', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibrii.ttf', name='Calibri', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHIC.TTF', name='Century Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibrib.ttf', name='Calibri', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\courbi.ttf', name='Courier New', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\NirmalaS.ttf', name='Nirmala UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\malgun.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mingliub.ttc', name='MingLiU-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\timesbd.ttf', name='Times New Roman', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\timesi.ttf', name='Times New Roman', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simhei.ttf', name='SimHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ebrimabd.ttf', name='Ebrima', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\REFSPCL.TTF', name='MS Reference Specialty', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LeelUIsl.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebucbi.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\symbol.ttf', name='Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ebrimabd.ttf', name='Ebrima', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOS.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoescb.ttf', name='Segoe Script', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-BOLD.TTF', name='Dubai', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LeelaUIb.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuil.ttf', name='Segoe UI', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MSUIGHUR.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mmrtextb.ttf', name='Myanmar Text', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbelz.ttf', name='Corbel', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\REFSAN.TTF', name='MS Reference Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msgothic.ttc', name='MS Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\malgun.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuiz.ttf', name='Segoe UI', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguihis.ttf', name='Segoe UI Historic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguili.ttf', name='Segoe UI', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cour.ttf', name='Courier New', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\palai.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SegUIVar.ttf', name='Segoe UI Variable', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candaraz.ttf', name='Candara', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constanb.ttf', name='Constantia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-REGULAR.TTF', name='Dubai', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambriai.ttf', name='Cambria', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simsunb.ttf', name='SimSun-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibril.ttf', name='Calibri', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyhbd.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\courbi.ttf', name='Courier New', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguibl.ttf', name='Segoe UI', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 10.525
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SitkaVF.ttf', name='Sitka', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ariblk.ttf', name='Arial', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 6.888636363636364
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebucit.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOSBI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibriz.ttf', name='Calibri', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segmdl2.ttf', name='Segoe MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALNBI.TTF', name='Arial', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 7.8986363636363635
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbelli.ttf', name='Corbel', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ntailu.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candarali.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\framdit.ttf', name='Franklin Gothic Medium', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisbi.ttf', name='Segoe UI', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbelb.ttf', name='Corbel', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SitkaVF-Italic.ttf', name='Sitka', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ANTQUAI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candarali.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MTCORSVA.TTF', name='Monotype Corsiva', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\framdit.ttf', name='Franklin Gothic Medium', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simsun.ttc', name='SimSun', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ariali.ttf', name='Arial', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 7.413636363636363
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BKANT.TTF', name='Book Antiqua', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbelli.ttf', name='Corbel', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MSUIGHUR.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuii.ttf', name='Segoe UI', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibrib.ttf', name='Calibri', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comicz.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-LIGHT.TTF', name='Dubai', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candarai.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuil.ttf', name='Segoe UI', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\tahoma.ttf', name='Tahoma', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\palabi.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LeelUIsl.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebuc.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHICBI.TTF', name='Century Gothic', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\timesbi.ttf', name='Times New Roman', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,922 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\wingding.ttf', name='Wingdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,929 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuisl.ttf', name='Segoe UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:54,929 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\lucon.ttf', name='Lucida Console', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,929 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgiaz.ttf', name='Georgia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,929 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgiai.ttf', name='Georgia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,929 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\pala.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,929 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\malgunsl.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msjhbd.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdanaz.ttf', name='Verdana', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 4.971363636363637
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\palai.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Dengb.ttf', name='DengXian', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALN.TTF', name='Arial', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 6.613636363636363
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgiab.ttf', name='Georgia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LEELAWDB.TTF', name='Leelawadee', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyhl.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simkai.ttf', name='KaiTi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\couri.ttf', name='Courier New', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mmrtext.ttf', name='Myanmar Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simsunb.ttf', name='SimSun-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cour.ttf', name='Courier New', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mingliu.ttc', name='MingLiU', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,930 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyh.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Inkfree.ttf', name='Ink Free', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\phagspab.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GARAIT.TTF', name='Garamond', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOSI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\micross.ttf', name='Microsoft Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambria.ttc', name='Cambria', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguibli.ttf', name='Segoe UI', style='italic', variant='normal', weight=900, stretch='normal', size='scalable')) = 11.525
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHICI.TTF', name='Century Gothic', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Deng.ttf', name='DengXian', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguiemj.ttf', name='Segoe UI Emoji', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeui.ttf', name='Segoe UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comicz.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mvboli.ttf', name='MV Boli', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoesc.ttf', name='Segoe Script', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constanb.ttf', name='Constantia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ariali.ttf', name='Arial', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 7.413636363636363
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\timesi.ttf', name='Times New Roman', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\arialbd.ttf', name='Arial', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 6.698636363636363
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\palab.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SegUIVar.ttf', name='Segoe UI Variable', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\NirmalaB.ttf', name='Nirmala UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msgothic.ttc', name='MS Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\lucon.ttf', name='Lucida Console', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\couri.ttf', name='Courier New', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SitkaVF-Italic.ttf', name='Sitka', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\webdings.ttf', name='Webdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibrili.ttf', name='Calibri', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuib.ttf', name='Segoe UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuiz.ttf', name='Segoe UI', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambriai.ttf', name='Cambria', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Dengl.ttf', name='DengXian', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-REGULAR.TTF', name='Dubai', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebucbi.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeprb.ttf', name='Segoe Print', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\himalaya.ttf', name='Microsoft Himalaya', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\wingding.ttf', name='Wingdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\taile.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\CENTURY.TTF', name='Century', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msjhbd.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyhl.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOSB.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\marlett.ttf', name='Marlett', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuib.ttf', name='Segoe UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Nirmala.ttf', name='Nirmala UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothR.ttc', name='Yu Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeui.ttf', name='Segoe UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\NirmalaS.ttf', name='Nirmala UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyi.ttf', name='Microsoft Yi Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\impact.ttf', name='Impact', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\holomdl2.ttf', name='HoloLens MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\gadugi.ttf', name='Gadugi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\REFSAN.TTF', name='MS Reference Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ebrima.ttf', name='Ebrima', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHICB.TTF', name='Century Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consolai.ttf', name='Consolas', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALNBI.TTF', name='Arial', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 7.8986363636363635
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candaraz.ttf', name='Candara', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ANTQUAB.TTF', name='Book Antiqua', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOSI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambriab.ttf', name='Cambria', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHICI.TTF', name='Century Gothic', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\javatext.ttf', name='Javanese Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simfang.ttf', name='FangSong', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Dengl.ttf', name='DengXian', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MSUIGHUB.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mvboli.ttf', name='MV Boli', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\pala.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\kaiu.ttf', name='DFKai-SB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\NirmalaB.ttf', name='Nirmala UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothB.ttc', name='Yu Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constan.ttf', name='Constantia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoepr.ttf', name='Segoe Print', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msjh.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOSBI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comic.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebuc.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-MEDIUM.TTF', name='Dubai', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuisl.ttf', name='Segoe UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msjhl.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibril.ttf', name='Calibri', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbel.ttf', name='Corbel', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LeelawUI.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdanai.ttf', name='Verdana', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 4.6863636363636365
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consola.ttf', name='Consolas', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GARABD.TTF', name='Garamond', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\taileb.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mmrtextb.ttf', name='Myanmar Text', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguibli.ttf', name='Segoe UI', style='italic', variant='normal', weight=900, stretch='normal', size='scalable')) = 11.525
+2023-05-17 14:37:54,931 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambria.ttc', name='Cambria', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candarai.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\arialbi.ttf', name='Arial', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 7.698636363636363
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALNB.TTF', name='Arial', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 6.8986363636363635
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisbi.ttf', name='Segoe UI', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GARA.TTF', name='Garamond', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibrili.ttf', name='Calibri', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\tahoma.ttf', name='Tahoma', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\times.ttf', name='Times New Roman', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisli.ttf', name='Segoe UI', style='italic', variant='normal', weight=350, stretch='normal', size='scalable')) = 11.0975
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbel.ttf', name='Corbel', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BSSYM7.TTF', name='Bookshelf Symbol 7', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,938 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\taile.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbeli.ttf', name='Corbel', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\WINGDNG3.TTF', name='Wingdings 3', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\arial.ttf', name='Arial', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 6.413636363636363
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\gadugi.ttf', name='Gadugi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdana.ttf', name='Verdana', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 3.6863636363636365
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ariblk.ttf', name='Arial', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 6.888636363636364
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\phagspa.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,939 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\malgunbd.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\impact.ttf', name='Impact', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consolaz.ttf', name='Consolas', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\phagspa.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguihis.ttf', name='Segoe UI Historic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mingliu.ttc', name='MingLiU', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\monbaiti.ttf', name='Mongolian Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ntailub.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candara.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\REFSPCL.TTF', name='MS Reference Specialty', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ANTQUAB.TTF', name='Book Antiqua', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consolab.ttf', name='Consolas', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\webdings.ttf', name='Webdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SegoeIcons.ttf', name='Segoe Fluent Icons', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOS.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MSUIGHUB.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALNI.TTF', name='Arial', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 7.613636363636363
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MTCORSVA.TTF', name='Monotype Corsiva', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\courbd.ttf', name='Courier New', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguiemj.ttf', name='Segoe UI Emoji', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoescb.ttf', name='Segoe Script', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambriaz.ttf', name='Cambria', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-LIGHT.TTF', name='Dubai', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\timesbd.ttf', name='Times New Roman', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comici.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\arialbi.ttf', name='Arial', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 7.698636363636363
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\phagspab.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:54,940 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\framd.ttf', name='Franklin Gothic Medium', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:54,940 findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf') with score of 0.050000.
+2023-05-17 14:37:55,006 findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0.
+2023-05-17 14:37:55,006 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,006 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2023-05-17 14:37:55,006 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,009 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,010 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHICB.TTF', name='Century Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibriz.ttf', name='Calibri', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\arialbd.ttf', name='Arial', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 6.698636363636363
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msjh.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\sylfaen.ttf', name='Sylfaen', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Deng.ttf', name='DengXian', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Nirmala.ttf', name='Nirmala UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\gadugib.ttf', name='Gadugi', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LEELAWAD.TTF', name='Leelawadee', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ANTQUABI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbelb.ttf', name='Corbel', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothL.ttc', name='Yu Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothM.ttc', name='Yu Gothic', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comicbd.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\palab.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LeelawUI.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GARAIT.TTF', name='Garamond', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SitkaVF.ttf', name='Sitka', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GARABD.TTF', name='Garamond', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candarab.ttf', name='Candara', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,012 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LEELAWAD.TTF', name='Leelawadee', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebucbd.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisym.ttf', name='Segoe UI Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\himalaya.ttf', name='Microsoft Himalaya', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALN.TTF', name='Arial', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 6.613636363636363
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MTEXTRA.TTF', name='MT Extra', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdana.ttf', name='Verdana', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 3.6863636363636365
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoesc.ttf', name='Segoe Script', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyhbd.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbelz.ttf', name='Corbel', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebucbd.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simhei.ttf', name='SimHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-MEDIUM.TTF', name='Dubai', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simfang.ttf', name='FangSong', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-BOLD.TTF', name='Dubai', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambriab.ttf', name='Cambria', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\l_10646.ttf', name='Lucida Sans Unicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbell.ttf', name='Corbel', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgiai.ttf', name='Georgia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibri.ttf', name='Calibri', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothM.ttc', name='Yu Gothic', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MTEXTRA.TTF', name='MT Extra', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LeelaUIb.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibrii.ttf', name='Calibri', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoepr.ttf', name='Segoe Print', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candaral.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgiaz.ttf', name='Georgia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALNI.TTF', name='Arial', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 7.613636363636363
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\tahomabd.ttf', name='Tahoma', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\WINGDNG2.TTF', name='Wingdings 2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ebrima.ttf', name='Ebrima', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\holomdl2.ttf', name='HoloLens MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\javatext.ttf', name='Javanese Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgia.ttf', name='Georgia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ANTQUAI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambriaz.ttf', name='Cambria', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\WINGDNG2.TTF', name='Wingdings 2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\courbd.ttf', name='Courier New', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebucit.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\sylfaen.ttf', name='Sylfaen', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\monbaiti.ttf', name='Mongolian Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Gabriola.ttf', name='Gabriola', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comicbd.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\palabi.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguibl.ttf', name='Segoe UI', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 10.525
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguili.ttf', name='Segoe UI', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consolab.ttf', name='Consolas', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\malgunbd.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOSB.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothB.ttc', name='Yu Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candaral.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simkai.ttf', name='KaiTi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ANTQUABI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\gadugib.ttf', name='Gadugi', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simsun.ttc', name='SimSun', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\bahnschrift.ttf', name='Bahnschrift', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisym.ttf', name='Segoe UI Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisb.ttf', name='Segoe UI', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consolaz.ttf', name='Consolas', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyh.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constani.ttf', name='Constantia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbeli.ttf', name='Corbel', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHICBI.TTF', name='Century Gothic', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\times.ttf', name='Times New Roman', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candara.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segmdl2.ttf', name='Segoe MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\taileb.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothR.ttc', name='Yu Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\bahnschrift.ttf', name='Bahnschrift', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constanz.ttf', name='Constantia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msjhl.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\kaiu.ttf', name='DFKai-SB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyi.ttf', name='Microsoft Yi Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,014 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Dengb.ttf', name='DengXian', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdanab.ttf', name='Verdana', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 3.9713636363636367
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\symbol.ttf', name='Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALNB.TTF', name='Arial', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 6.8986363636363635
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHIC.TTF', name='Century Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\l_10646.ttf', name='Lucida Sans Unicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BSSYM7.TTF', name='Bookshelf Symbol 7', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\malgunsl.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comic.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constan.ttf', name='Constantia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\WINGDNG3.TTF', name='Wingdings 3', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consolai.ttf', name='Consolas', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constanz.ttf', name='Constantia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mingliub.ttc', name='MingLiU-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,019 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candarab.ttf', name='Candara', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,020 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\YuGothL.ttc', name='Yu Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,020 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdanab.ttf', name='Verdana', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 3.9713636363636367
+2023-05-17 14:37:55,020 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisli.ttf', name='Segoe UI', style='italic', variant='normal', weight=350, stretch='normal', size='scalable')) = 11.0975
+2023-05-17 14:37:55,020 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GARA.TTF', name='Garamond', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,020 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgia.ttf', name='Georgia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,020 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeprb.ttf', name='Segoe Print', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,020 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LEELAWDB.TTF', name='Leelawadee', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\georgiab.ttf', name='Georgia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\timesbi.ttf', name='Times New Roman', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\tahomabd.ttf', name='Tahoma', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BKANT.TTF', name='Book Antiqua', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuii.ttf', name='Segoe UI', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SegoeIcons.ttf', name='Segoe Fluent Icons', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\CENTURY.TTF', name='Century', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdanai.ttf', name='Verdana', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 4.6863636363636365
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibri.ttf', name='Calibri', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constani.ttf', name='Constantia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comici.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ntailu.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\arial.ttf', name='Arial', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 6.413636363636363
+2023-05-17 14:37:55,021 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\framd.ttf', name='Franklin Gothic Medium', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consola.ttf', name='Consolas', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdanaz.ttf', name='Verdana', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 4.971363636363637
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Inkfree.ttf', name='Ink Free', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisb.ttf', name='Segoe UI', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mmrtext.ttf', name='Myanmar Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Gabriola.ttf', name='Gabriola', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ntailub.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\micross.ttf', name='Microsoft Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbell.ttf', name='Corbel', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibrii.ttf', name='Calibri', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHIC.TTF', name='Century Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibrib.ttf', name='Calibri', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\courbi.ttf', name='Courier New', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\NirmalaS.ttf', name='Nirmala UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\malgun.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mingliub.ttc', name='MingLiU-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\timesbd.ttf', name='Times New Roman', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\timesi.ttf', name='Times New Roman', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simhei.ttf', name='SimHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ebrimabd.ttf', name='Ebrima', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\REFSPCL.TTF', name='MS Reference Specialty', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LeelUIsl.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebucbi.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\symbol.ttf', name='Symbol', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ebrimabd.ttf', name='Ebrima', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOS.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoescb.ttf', name='Segoe Script', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-BOLD.TTF', name='Dubai', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LeelaUIb.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuil.ttf', name='Segoe UI', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MSUIGHUR.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mmrtextb.ttf', name='Myanmar Text', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbelz.ttf', name='Corbel', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\REFSAN.TTF', name='MS Reference Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msgothic.ttc', name='MS Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\malgun.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuiz.ttf', name='Segoe UI', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguihis.ttf', name='Segoe UI Historic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguili.ttf', name='Segoe UI', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cour.ttf', name='Courier New', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\palai.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SegUIVar.ttf', name='Segoe UI Variable', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candaraz.ttf', name='Candara', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constanb.ttf', name='Constantia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-REGULAR.TTF', name='Dubai', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambriai.ttf', name='Cambria', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simsunb.ttf', name='SimSun-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibril.ttf', name='Calibri', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyhbd.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\courbi.ttf', name='Courier New', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguibl.ttf', name='Segoe UI', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 10.525
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SitkaVF.ttf', name='Sitka', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ariblk.ttf', name='Arial', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 6.888636363636364
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebucit.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOSBI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibriz.ttf', name='Calibri', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segmdl2.ttf', name='Segoe MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALNBI.TTF', name='Arial', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 7.8986363636363635
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbelli.ttf', name='Corbel', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ntailu.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candarali.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\framdit.ttf', name='Franklin Gothic Medium', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisbi.ttf', name='Segoe UI', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbelb.ttf', name='Corbel', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\SitkaVF-Italic.ttf', name='Sitka', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ANTQUAI.TTF', name='Book Antiqua', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candarali.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MTCORSVA.TTF', name='Monotype Corsiva', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\framdit.ttf', name='Franklin Gothic Medium', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simsun.ttc', name='SimSun', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ariali.ttf', name='Arial', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 7.413636363636363
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BKANT.TTF', name='Book Antiqua', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbelli.ttf', name='Corbel', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MSUIGHUR.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuii.ttf', name='Segoe UI', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibrib.ttf', name='Calibri', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comicz.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\DUBAI-LIGHT.TTF', name='Dubai', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Candarai.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuil.ttf', name='Segoe UI', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\tahoma.ttf', name='Tahoma', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\palabi.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\LeelUIsl.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebuc.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHICBI.TTF', name='Century Gothic', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\timesbi.ttf', name='Times New Roman', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\wingding.ttf', name='Wingdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuisl.ttf', name='Segoe UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\lucon.ttf', name='Lucida Console', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgiaz.ttf', name='Georgia', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgiai.ttf', name='Georgia', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\pala.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\malgunsl.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msjhbd.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,022 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdanaz.ttf', name='Verdana', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 4.971363636363637
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\palai.ttf', name='Palatino Linotype', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Dengb.ttf', name='DengXian', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALN.TTF', name='Arial', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 6.613636363636363
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\georgiab.ttf', name='Georgia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LEELAWDB.TTF', name='Leelawadee', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyhl.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simkai.ttf', name='KaiTi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\couri.ttf', name='Courier New', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mmrtext.ttf', name='Myanmar Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\simsunb.ttf', name='SimSun-ExtB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cour.ttf', name='Courier New', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mingliu.ttc', name='MingLiU', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,029 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyh.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Inkfree.ttf', name='Ink Free', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\phagspab.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GARAIT.TTF', name='Garamond', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOSI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\micross.ttf', name='Microsoft Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambria.ttc', name='Cambria', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguibli.ttf', name='Segoe UI', style='italic', variant='normal', weight=900, stretch='normal', size='scalable')) = 11.525
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GOTHICI.TTF', name='Century Gothic', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Deng.ttf', name='DengXian', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguiemj.ttf', name='Segoe UI Emoji', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeui.ttf', name='Segoe UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comicz.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mvboli.ttf', name='MV Boli', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoesc.ttf', name='Segoe Script', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\constanb.ttf', name='Constantia', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ariali.ttf', name='Arial', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 7.413636363636363
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\timesi.ttf', name='Times New Roman', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\arialbd.ttf', name='Arial', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 6.698636363636363
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\palab.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SegUIVar.ttf', name='Segoe UI Variable', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\NirmalaB.ttf', name='Nirmala UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msgothic.ttc', name='MS Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\lucon.ttf', name='Lucida Console', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\couri.ttf', name='Courier New', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SitkaVF-Italic.ttf', name='Sitka', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\webdings.ttf', name='Webdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\calibrili.ttf', name='Calibri', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuib.ttf', name='Segoe UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuiz.ttf', name='Segoe UI', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambriai.ttf', name='Cambria', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Dengl.ttf', name='DengXian', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-REGULAR.TTF', name='Dubai', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\trebucbi.ttf', name='Trebuchet MS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeprb.ttf', name='Segoe Print', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\himalaya.ttf', name='Microsoft Himalaya', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\wingding.ttf', name='Wingdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\taile.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\CENTURY.TTF', name='Century', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msjhbd.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msyhl.ttc', name='Microsoft YaHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOSB.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\marlett.ttf', name='Marlett', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeuib.ttf', name='Segoe UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Nirmala.ttf', name='Nirmala UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothR.ttc', name='Yu Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\segoeui.ttf', name='Segoe UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\NirmalaS.ttf', name='Nirmala UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\msyi.ttf', name='Microsoft Yi Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\impact.ttf', name='Impact', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\holomdl2.ttf', name='HoloLens MDL2 Assets', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\gadugi.ttf', name='Gadugi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\REFSAN.TTF', name='MS Reference Sans Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ebrima.ttf', name='Ebrima', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHICB.TTF', name='Century Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consolai.ttf', name='Consolas', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALNBI.TTF', name='Arial', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 7.8986363636363635
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candaraz.ttf', name='Candara', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ANTQUAB.TTF', name='Book Antiqua', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BOOKOSI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambriab.ttf', name='Cambria', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GOTHICI.TTF', name='Century Gothic', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\javatext.ttf', name='Javanese Text', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\simfang.ttf', name='FangSong', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\Dengl.ttf', name='DengXian', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\MSUIGHUB.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\mvboli.ttf', name='MV Boli', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\pala.ttf', name='Palatino Linotype', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\kaiu.ttf', name='DFKai-SB', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\NirmalaB.ttf', name='Nirmala UI', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\YuGothB.ttc', name='Yu Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\constan.ttf', name='Constantia', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoepr.ttf', name='Segoe Print', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msjh.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOSBI.TTF', name='Bookman Old Style', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\comic.ttf', name='Comic Sans MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\trebuc.ttf', name='Trebuchet MS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-MEDIUM.TTF', name='Dubai', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoeuisl.ttf', name='Segoe UI', style='normal', variant='normal', weight=350, stretch='normal', size='scalable')) = 10.0975
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\msjhl.ttc', name='Microsoft JhengHei', style='normal', variant='normal', weight=290, stretch='normal', size='scalable')) = 10.1545
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibril.ttf', name='Calibri', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbel.ttf', name='Corbel', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\LeelawUI.ttf', name='Leelawadee UI', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\verdanai.ttf', name='Verdana', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 4.6863636363636365
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consola.ttf', name='Consolas', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\GARABD.TTF', name='Garamond', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\taileb.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mmrtextb.ttf', name='Myanmar Text', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguibli.ttf', name='Segoe UI', style='italic', variant='normal', weight=900, stretch='normal', size='scalable')) = 11.525
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\cambria.ttc', name='Cambria', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candarai.ttf', name='Candara', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\arialbi.ttf', name='Arial', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 7.698636363636363
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ARIALNB.TTF', name='Arial', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 6.8986363636363635
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\seguisbi.ttf', name='Segoe UI', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\GARA.TTF', name='Garamond', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\calibrili.ttf', name='Calibri', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\tahoma.ttf', name='Tahoma', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\times.ttf', name='Times New Roman', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguisli.ttf', name='Segoe UI', style='italic', variant='normal', weight=350, stretch='normal', size='scalable')) = 11.0975
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\corbel.ttf', name='Corbel', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\BSSYM7.TTF', name='Bookshelf Symbol 7', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\taile.ttf', name='Microsoft Tai Le', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\corbeli.ttf', name='Corbel', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\WINGDNG3.TTF', name='Wingdings 3', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\arial.ttf', name='Arial', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 6.413636363636363
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\gadugi.ttf', name='Gadugi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\verdana.ttf', name='Verdana', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 3.6863636363636365
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ariblk.ttf', name='Arial', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 6.888636363636364
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\phagspa.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\malgunbd.ttf', name='Malgun Gothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\impact.ttf', name='Impact', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,030 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\consolaz.ttf', name='Consolas', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\phagspa.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguihis.ttf', name='Segoe UI Historic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\mingliu.ttc', name='MingLiU', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\monbaiti.ttf', name='Mongolian Baiti', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ntailub.ttf', name='Microsoft New Tai Lue', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\Candara.ttf', name='Candara', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\REFSPCL.TTF', name='MS Reference Specialty', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\ANTQUAB.TTF', name='Book Antiqua', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\consolab.ttf', name='Consolas', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\webdings.ttf', name='Webdings', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\SegoeIcons.ttf', name='Segoe Fluent Icons', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\BOOKOS.TTF', name='Bookman Old Style', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,038 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MSUIGHUB.TTF', name='Microsoft Uighur', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,039 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\ARIALNI.TTF', name='Arial', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 7.613636363636363
+2023-05-17 14:37:55,039 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\MTCORSVA.TTF', name='Monotype Corsiva', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,039 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\courbd.ttf', name='Courier New', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,039 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\seguiemj.ttf', name='Segoe UI Emoji', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,039 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\segoescb.ttf', name='Segoe Script', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,040 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\cambriaz.ttf', name='Cambria', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2023-05-17 14:37:55,040 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\DUBAI-LIGHT.TTF', name='Dubai', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2023-05-17 14:37:55,040 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\timesbd.ttf', name='Times New Roman', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,040 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\comici.ttf', name='Comic Sans MS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2023-05-17 14:37:55,040 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\arialbi.ttf', name='Arial', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 7.698636363636363
+2023-05-17 14:37:55,040 findfont: score(FontEntry(fname='C:\\WINDOWS\\Fonts\\phagspab.ttf', name='Microsoft PhagsPa', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2023-05-17 14:37:55,040 findfont: score(FontEntry(fname='C:\\Windows\\Fonts\\framd.ttf', name='Franklin Gothic Medium', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2023-05-17 14:37:55,040 findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('C:\\Users\\Admin\\anaconda3\\lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf') with score of 0.050000.
+2023-05-17 14:37:55,180 result:4017:Execution succeed
+
+2023-05-17 14:37:55,180 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:37:55,180 nsop_BigObject_NTUST_Data_4018(2032)_10.xlsx
+2023-05-17 14:37:55,280 Model is running...
+2023-05-17 14:37:57,800 result:4017:Execution succeed
+
+2023-05-17 14:37:57,800 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:37:57,800 nsop_BigObject_NTUST_Data_4018(2032)_100.xlsx
+2023-05-17 14:37:57,910 Model is running...
+2023-05-17 14:38:00,241 result:4017:Execution succeed
+
+2023-05-17 14:38:00,241 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:00,241 nsop_BigObject_NTUST_Data_4018(2032)_11.xlsx
+2023-05-17 14:38:00,340 Model is running...
+2023-05-17 14:38:02,588 result:4017:Execution succeed
+
+2023-05-17 14:38:02,588 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:02,588 nsop_BigObject_NTUST_Data_4018(2032)_12.xlsx
+2023-05-17 14:38:02,673 Model is running...
+2023-05-17 14:38:04,856 result:4017:Execution succeed
+
+2023-05-17 14:38:04,856 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:04,856 nsop_BigObject_NTUST_Data_4018(2032)_13.xlsx
+2023-05-17 14:38:04,940 Model is running...
+2023-05-17 14:38:07,173 result:4017:Execution succeed
+
+2023-05-17 14:38:07,173 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:07,173 nsop_BigObject_NTUST_Data_4018(2032)_14.xlsx
+2023-05-17 14:38:07,262 Model is running...
+2023-05-17 14:38:09,349 result:4017:Execution succeed
+
+2023-05-17 14:38:09,349 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:09,349 nsop_BigObject_NTUST_Data_4018(2032)_15.xlsx
+2023-05-17 14:38:09,440 Model is running...
+2023-05-17 14:38:11,614 result:4017:Execution succeed
+
+2023-05-17 14:38:11,614 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:11,614 nsop_BigObject_NTUST_Data_4018(2032)_16.xlsx
+2023-05-17 14:38:11,710 Model is running...
+2023-05-17 14:38:13,851 result:4017:Execution succeed
+
+2023-05-17 14:38:13,851 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:13,851 nsop_BigObject_NTUST_Data_4018(2032)_17.xlsx
+2023-05-17 14:38:13,948 Model is running...
+2023-05-17 14:38:16,214 result:4017:Execution succeed
+
+2023-05-17 14:38:16,214 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:16,214 nsop_BigObject_NTUST_Data_4018(2032)_18.xlsx
+2023-05-17 14:38:16,300 Model is running...
+2023-05-17 14:38:18,423 result:4017:Execution succeed
+
+2023-05-17 14:38:18,423 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:18,423 nsop_BigObject_NTUST_Data_4018(2032)_19.xlsx
+2023-05-17 14:38:18,519 Model is running...
+2023-05-17 14:38:20,764 result:4017:Execution succeed
+
+2023-05-17 14:38:20,764 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:20,764 nsop_BigObject_NTUST_Data_4018(2032)_2.xlsx
+2023-05-17 14:38:20,864 Model is running...
+2023-05-17 14:38:23,196 result:4017:Execution succeed
+
+2023-05-17 14:38:23,196 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:23,197 nsop_BigObject_NTUST_Data_4018(2032)_20.xlsx
+2023-05-17 14:38:23,290 Model is running...
+2023-05-17 14:38:25,931 result:4017:Execution succeed
+
+2023-05-17 14:38:25,931 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:25,931 nsop_BigObject_NTUST_Data_4018(2032)_21.xlsx
+2023-05-17 14:38:26,041 Model is running...
+2023-05-17 14:38:28,548 result:4017:Execution succeed
+
+2023-05-17 14:38:28,549 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:28,549 nsop_BigObject_NTUST_Data_4018(2032)_22.xlsx
+2023-05-17 14:38:28,640 Model is running...
+2023-05-17 14:38:30,906 result:4017:Execution succeed
+
+2023-05-17 14:38:30,906 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:30,906 nsop_BigObject_NTUST_Data_4018(2032)_23.xlsx
+2023-05-17 14:38:31,002 Model is running...
+2023-05-17 14:38:33,331 result:4017:Execution succeed
+
+2023-05-17 14:38:33,331 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:33,331 nsop_BigObject_NTUST_Data_4018(2032)_24.xlsx
+2023-05-17 14:38:33,429 Model is running...
+2023-05-17 14:38:35,840 result:4017:Execution succeed
+
+2023-05-17 14:38:35,840 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:35,840 nsop_BigObject_NTUST_Data_4018(2032)_25.xlsx
+2023-05-17 14:38:35,941 Model is running...
+2023-05-17 14:38:38,301 result:4017:Execution succeed
+
+2023-05-17 14:38:38,301 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:38,301 nsop_BigObject_NTUST_Data_4018(2032)_26.xlsx
+2023-05-17 14:38:38,400 Model is running...
+2023-05-17 14:38:40,631 result:4017:Execution succeed
+
+2023-05-17 14:38:40,631 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:40,631 nsop_BigObject_NTUST_Data_4018(2032)_27.xlsx
+2023-05-17 14:38:40,719 Model is running...
+2023-05-17 14:38:43,024 result:4017:Execution succeed
+
+2023-05-17 14:38:43,024 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:43,024 nsop_BigObject_NTUST_Data_4018(2032)_28.xlsx
+2023-05-17 14:38:43,110 Model is running...
+2023-05-17 14:38:45,390 result:4017:Execution succeed
+
+2023-05-17 14:38:45,390 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:45,390 nsop_BigObject_NTUST_Data_4018(2032)_29.xlsx
+2023-05-17 14:38:45,500 Model is running...
+2023-05-17 14:38:47,748 result:4017:Execution succeed
+
+2023-05-17 14:38:47,748 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:47,748 nsop_BigObject_NTUST_Data_4018(2032)_3.xlsx
+2023-05-17 14:38:47,839 Model is running...
+2023-05-17 14:38:50,149 result:4017:Execution succeed
+
+2023-05-17 14:38:50,149 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:50,149 nsop_BigObject_NTUST_Data_4018(2032)_30.xlsx
+2023-05-17 14:38:50,250 Model is running...
+2023-05-17 14:38:52,394 result:4017:Execution succeed
+
+2023-05-17 14:38:52,399 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:52,399 nsop_BigObject_NTUST_Data_4018(2032)_31.xlsx
+2023-05-17 14:38:52,489 Model is running...
+2023-05-17 14:38:54,686 result:4017:Execution succeed
+
+2023-05-17 14:38:54,687 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:54,687 nsop_BigObject_NTUST_Data_4018(2032)_32.xlsx
+2023-05-17 14:38:54,791 Model is running...
+2023-05-17 14:38:57,240 result:4017:Execution succeed
+
+2023-05-17 14:38:57,241 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:57,241 nsop_BigObject_NTUST_Data_4018(2032)_33.xlsx
+2023-05-17 14:38:57,331 Model is running...
+2023-05-17 14:38:59,750 result:4017:Execution succeed
+
+2023-05-17 14:38:59,750 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:38:59,750 nsop_BigObject_NTUST_Data_4018(2032)_34.xlsx
+2023-05-17 14:38:59,857 Model is running...
+2023-05-17 14:39:02,200 result:4017:Execution succeed
+
+2023-05-17 14:39:02,200 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:02,200 nsop_BigObject_NTUST_Data_4018(2032)_35.xlsx
+2023-05-17 14:39:02,302 Model is running...
+2023-05-17 14:39:04,687 result:4017:Execution succeed
+
+2023-05-17 14:39:04,687 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:04,687 nsop_BigObject_NTUST_Data_4018(2032)_36.xlsx
+2023-05-17 14:39:04,798 Model is running...
+2023-05-17 14:39:07,081 result:4017:Execution succeed
+
+2023-05-17 14:39:07,081 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:07,081 nsop_BigObject_NTUST_Data_4018(2032)_37.xlsx
+2023-05-17 14:39:07,170 Model is running...
+2023-05-17 14:39:09,517 result:4017:Execution succeed
+
+2023-05-17 14:39:09,517 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:09,517 nsop_BigObject_NTUST_Data_4018(2032)_38.xlsx
+2023-05-17 14:39:09,607 Model is running...
+2023-05-17 14:39:11,842 result:4017:Execution succeed
+
+2023-05-17 14:39:11,842 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:11,842 nsop_BigObject_NTUST_Data_4018(2032)_39.xlsx
+2023-05-17 14:39:11,954 Model is running...
+2023-05-17 14:39:14,198 result:4017:Execution succeed
+
+2023-05-17 14:39:14,198 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:14,198 nsop_BigObject_NTUST_Data_4018(2032)_4.xlsx
+2023-05-17 14:39:14,379 Model is running...
+2023-05-17 14:39:16,710 result:4017:Execution succeed
+
+2023-05-17 14:39:16,710 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:16,710 nsop_BigObject_NTUST_Data_4018(2032)_40.xlsx
+2023-05-17 14:39:16,792 Model is running...
+2023-05-17 14:39:19,023 result:4017:Execution succeed
+
+2023-05-17 14:39:19,023 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:19,023 nsop_BigObject_NTUST_Data_4018(2032)_41.xlsx
+2023-05-17 14:39:19,112 Model is running...
+2023-05-17 14:39:21,482 result:4017:Execution succeed
+
+2023-05-17 14:39:21,482 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:21,482 nsop_BigObject_NTUST_Data_4018(2032)_42.xlsx
+2023-05-17 14:39:21,579 Model is running...
+2023-05-17 14:39:24,060 result:4017:Execution succeed
+
+2023-05-17 14:39:24,062 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:24,062 nsop_BigObject_NTUST_Data_4018(2032)_43.xlsx
+2023-05-17 14:39:24,167 Model is running...
+2023-05-17 14:39:26,891 result:4017:Execution succeed
+
+2023-05-17 14:39:26,891 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:26,891 nsop_BigObject_NTUST_Data_4018(2032)_44.xlsx
+2023-05-17 14:39:27,010 Model is running...
+2023-05-17 14:39:29,341 result:4017:Execution succeed
+
+2023-05-17 14:39:29,341 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:29,341 nsop_BigObject_NTUST_Data_4018(2032)_45.xlsx
+2023-05-17 14:39:29,443 Model is running...
+2023-05-17 14:39:31,850 result:4017:Execution succeed
+
+2023-05-17 14:39:31,850 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:31,851 nsop_BigObject_NTUST_Data_4018(2032)_46.xlsx
+2023-05-17 14:39:31,951 Model is running...
+2023-05-17 14:39:34,290 result:4017:Execution succeed
+
+2023-05-17 14:39:34,290 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:34,291 nsop_BigObject_NTUST_Data_4018(2032)_47.xlsx
+2023-05-17 14:39:34,383 Model is running...
+2023-05-17 14:39:36,840 result:4017:Execution succeed
+
+2023-05-17 14:39:36,841 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:36,841 nsop_BigObject_NTUST_Data_4018(2032)_48.xlsx
+2023-05-17 14:39:36,941 Model is running...
+2023-05-17 14:39:39,217 result:4017:Execution succeed
+
+2023-05-17 14:39:39,219 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:39,219 nsop_BigObject_NTUST_Data_4018(2032)_49.xlsx
+2023-05-17 14:39:39,309 Model is running...
+2023-05-17 14:39:41,511 result:4017:Execution succeed
+
+2023-05-17 14:39:41,511 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:41,511 nsop_BigObject_NTUST_Data_4018(2032)_5.xlsx
+2023-05-17 14:39:41,610 Model is running...
+2023-05-17 14:39:43,975 result:4017:Execution succeed
+
+2023-05-17 14:39:43,975 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:43,975 nsop_BigObject_NTUST_Data_4018(2032)_50.xlsx
+2023-05-17 14:39:44,083 Model is running...
+2023-05-17 14:39:46,461 result:4017:Execution succeed
+
+2023-05-17 14:39:46,461 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:46,461 nsop_BigObject_NTUST_Data_4018(2032)_51.xlsx
+2023-05-17 14:39:46,550 Model is running...
+2023-05-17 14:39:48,770 result:4017:Execution succeed
+
+2023-05-17 14:39:48,770 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:48,770 nsop_BigObject_NTUST_Data_4018(2032)_52.xlsx
+2023-05-17 14:39:48,871 Model is running...
+2023-05-17 14:39:51,180 result:4017:Execution succeed
+
+2023-05-17 14:39:51,180 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:51,180 nsop_BigObject_NTUST_Data_4018(2032)_53.xlsx
+2023-05-17 14:39:51,283 Model is running...
+2023-05-17 14:39:53,670 result:4017:Execution succeed
+
+2023-05-17 14:39:53,670 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:53,672 nsop_BigObject_NTUST_Data_4018(2032)_54.xlsx
+2023-05-17 14:39:53,759 Model is running...
+2023-05-17 14:39:56,070 result:4017:Execution succeed
+
+2023-05-17 14:39:56,070 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:56,070 nsop_BigObject_NTUST_Data_4018(2032)_55.xlsx
+2023-05-17 14:39:56,160 Model is running...
+2023-05-17 14:39:58,431 result:4017:Execution succeed
+
+2023-05-17 14:39:58,431 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:39:58,431 nsop_BigObject_NTUST_Data_4018(2032)_56.xlsx
+2023-05-17 14:39:58,532 Model is running...
+2023-05-17 14:40:00,951 result:4017:Execution succeed
+
+2023-05-17 14:40:00,951 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:00,951 nsop_BigObject_NTUST_Data_4018(2032)_57.xlsx
+2023-05-17 14:40:01,133 Model is running...
+2023-05-17 14:40:03,457 result:4017:Execution succeed
+
+2023-05-17 14:40:03,458 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:03,459 nsop_BigObject_NTUST_Data_4018(2032)_58.xlsx
+2023-05-17 14:40:03,569 Model is running...
+2023-05-17 14:40:05,717 result:4017:Execution succeed
+
+2023-05-17 14:40:05,717 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:05,717 nsop_BigObject_NTUST_Data_4018(2032)_59.xlsx
+2023-05-17 14:40:05,811 Model is running...
+2023-05-17 14:40:07,970 result:4017:Execution succeed
+
+2023-05-17 14:40:07,975 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:07,975 nsop_BigObject_NTUST_Data_4018(2032)_6.xlsx
+2023-05-17 14:40:08,080 Model is running...
+2023-05-17 14:40:10,283 result:4017:Execution succeed
+
+2023-05-17 14:40:10,283 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:10,283 nsop_BigObject_NTUST_Data_4018(2032)_60.xlsx
+2023-05-17 14:40:10,371 Model is running...
+2023-05-17 14:40:12,542 result:4017:Execution succeed
+
+2023-05-17 14:40:12,542 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:12,542 nsop_BigObject_NTUST_Data_4018(2032)_61.xlsx
+2023-05-17 14:40:12,667 Model is running...
+2023-05-17 14:40:15,367 result:4017:Execution succeed
+
+2023-05-17 14:40:15,367 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:15,367 nsop_BigObject_NTUST_Data_4018(2032)_62.xlsx
+2023-05-17 14:40:15,459 Model is running...
+2023-05-17 14:40:17,750 result:4017:Execution succeed
+
+2023-05-17 14:40:17,750 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:17,750 nsop_BigObject_NTUST_Data_4018(2032)_63.xlsx
+2023-05-17 14:40:17,860 Model is running...
+2023-05-17 14:40:20,249 result:4017:Execution succeed
+
+2023-05-17 14:40:20,249 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:20,250 nsop_BigObject_NTUST_Data_4018(2032)_64.xlsx
+2023-05-17 14:40:20,342 Model is running...
+2023-05-17 14:40:22,662 result:4017:Execution succeed
+
+2023-05-17 14:40:22,662 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:22,662 nsop_BigObject_NTUST_Data_4018(2032)_65.xlsx
+2023-05-17 14:40:22,771 Model is running...
+2023-05-17 14:40:25,461 result:4017:Execution succeed
+
+2023-05-17 14:40:25,461 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:25,461 nsop_BigObject_NTUST_Data_4018(2032)_66.xlsx
+2023-05-17 14:40:25,570 Model is running...
+2023-05-17 14:40:28,140 result:4017:Execution succeed
+
+2023-05-17 14:40:28,140 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:28,140 nsop_BigObject_NTUST_Data_4018(2032)_67.xlsx
+2023-05-17 14:40:28,226 Model is running...
+2023-05-17 14:40:30,399 result:4017:Execution succeed
+
+2023-05-17 14:40:30,399 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:30,399 nsop_BigObject_NTUST_Data_4018(2032)_68.xlsx
+2023-05-17 14:40:30,489 Model is running...
+2023-05-17 14:40:32,792 result:4017:Execution succeed
+
+2023-05-17 14:40:32,792 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:32,792 nsop_BigObject_NTUST_Data_4018(2032)_69.xlsx
+2023-05-17 14:40:32,885 Model is running...
+2023-05-17 14:40:35,050 result:4017:Execution succeed
+
+2023-05-17 14:40:35,050 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:35,050 nsop_BigObject_NTUST_Data_4018(2032)_7.xlsx
+2023-05-17 14:40:35,139 Model is running...
+2023-05-17 14:40:37,281 result:4017:Execution succeed
+
+2023-05-17 14:40:37,281 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:37,281 nsop_BigObject_NTUST_Data_4018(2032)_70.xlsx
+2023-05-17 14:40:37,370 Model is running...
+2023-05-17 14:40:39,481 result:4017:Execution succeed
+
+2023-05-17 14:40:39,481 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:39,481 nsop_BigObject_NTUST_Data_4018(2032)_71.xlsx
+2023-05-17 14:40:39,567 Model is running...
+2023-05-17 14:40:41,690 result:4017:Execution succeed
+
+2023-05-17 14:40:41,691 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:41,691 nsop_BigObject_NTUST_Data_4018(2032)_72.xlsx
+2023-05-17 14:40:41,851 Model is running...
+2023-05-17 14:40:43,945 result:4017:Execution succeed
+
+2023-05-17 14:40:43,945 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:43,945 nsop_BigObject_NTUST_Data_4018(2032)_73.xlsx
+2023-05-17 14:40:44,034 Model is running...
+2023-05-17 14:40:46,515 result:4017:Execution succeed
+
+2023-05-17 14:40:46,515 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:46,515 nsop_BigObject_NTUST_Data_4018(2032)_74.xlsx
+2023-05-17 14:40:46,618 Model is running...
+2023-05-17 14:40:49,076 result:4017:Execution succeed
+
+2023-05-17 14:40:49,079 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:49,080 nsop_BigObject_NTUST_Data_4018(2032)_75.xlsx
+2023-05-17 14:40:49,170 Model is running...
+2023-05-17 14:40:51,484 result:4017:Execution succeed
+
+2023-05-17 14:40:51,484 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:51,484 nsop_BigObject_NTUST_Data_4018(2032)_76.xlsx
+2023-05-17 14:40:51,576 Model is running...
+2023-05-17 14:40:53,893 result:4017:Execution succeed
+
+2023-05-17 14:40:53,893 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:53,893 nsop_BigObject_NTUST_Data_4018(2032)_77.xlsx
+2023-05-17 14:40:53,990 Model is running...
+2023-05-17 14:40:56,502 result:4017:Execution succeed
+
+2023-05-17 14:40:56,502 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:56,502 nsop_BigObject_NTUST_Data_4018(2032)_78.xlsx
+2023-05-17 14:40:56,627 Model is running...
+2023-05-17 14:40:58,960 result:4017:Execution succeed
+
+2023-05-17 14:40:58,960 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:40:58,960 nsop_BigObject_NTUST_Data_4018(2032)_79.xlsx
+2023-05-17 14:40:59,043 Model is running...
+2023-05-17 14:41:01,235 result:4017:Execution succeed
+
+2023-05-17 14:41:01,239 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:01,239 nsop_BigObject_NTUST_Data_4018(2032)_8.xlsx
+2023-05-17 14:41:01,343 Model is running...
+2023-05-17 14:41:03,810 result:4017:Execution succeed
+
+2023-05-17 14:41:03,810 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:03,810 nsop_BigObject_NTUST_Data_4018(2032)_80.xlsx
+2023-05-17 14:41:03,911 Model is running...
+2023-05-17 14:41:06,159 result:4017:Execution succeed
+
+2023-05-17 14:41:06,160 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:06,160 nsop_BigObject_NTUST_Data_4018(2032)_81.xlsx
+2023-05-17 14:41:06,262 Model is running...
+2023-05-17 14:41:08,669 result:4017:Execution succeed
+
+2023-05-17 14:41:08,669 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:08,669 nsop_BigObject_NTUST_Data_4018(2032)_82.xlsx
+2023-05-17 14:41:08,770 Model is running...
+2023-05-17 14:41:11,051 result:4017:Execution succeed
+
+2023-05-17 14:41:11,051 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:11,051 nsop_BigObject_NTUST_Data_4018(2032)_83.xlsx
+2023-05-17 14:41:11,143 Model is running...
+2023-05-17 14:41:13,435 result:4017:Execution succeed
+
+2023-05-17 14:41:13,435 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:13,435 nsop_BigObject_NTUST_Data_4018(2032)_84.xlsx
+2023-05-17 14:41:13,544 Model is running...
+2023-05-17 14:41:16,002 result:4017:Execution succeed
+
+2023-05-17 14:41:16,002 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:16,002 nsop_BigObject_NTUST_Data_4018(2032)_85.xlsx
+2023-05-17 14:41:16,102 Model is running...
+2023-05-17 14:41:18,520 result:4017:Execution succeed
+
+2023-05-17 14:41:18,520 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:18,520 nsop_BigObject_NTUST_Data_4018(2032)_86.xlsx
+2023-05-17 14:41:18,611 Model is running...
+2023-05-17 14:41:21,035 result:4017:Execution succeed
+
+2023-05-17 14:41:21,035 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:21,035 nsop_BigObject_NTUST_Data_4018(2032)_87.xlsx
+2023-05-17 14:41:21,130 Model is running...
+2023-05-17 14:41:23,501 result:4017:Execution succeed
+
+2023-05-17 14:41:23,501 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:23,501 nsop_BigObject_NTUST_Data_4018(2032)_88.xlsx
+2023-05-17 14:41:23,700 Model is running...
+2023-05-17 14:41:26,660 result:4017:Execution succeed
+
+2023-05-17 14:41:26,661 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:26,661 nsop_BigObject_NTUST_Data_4018(2032)_89.xlsx
+2023-05-17 14:41:26,784 Model is running...
+2023-05-17 14:41:29,363 result:4017:Execution succeed
+
+2023-05-17 14:41:29,363 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:29,363 nsop_BigObject_NTUST_Data_4018(2032)_9.xlsx
+2023-05-17 14:41:29,463 Model is running...
+2023-05-17 14:41:31,880 result:4017:Execution succeed
+
+2023-05-17 14:41:31,880 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:31,880 nsop_BigObject_NTUST_Data_4018(2032)_90.xlsx
+2023-05-17 14:41:31,980 Model is running...
+2023-05-17 14:41:34,285 result:4017:Execution succeed
+
+2023-05-17 14:41:34,285 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:34,285 nsop_BigObject_NTUST_Data_4018(2032)_91.xlsx
+2023-05-17 14:41:34,396 Model is running...
+2023-05-17 14:41:36,750 result:4017:Execution succeed
+
+2023-05-17 14:41:36,750 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:36,750 nsop_BigObject_NTUST_Data_4018(2032)_92.xlsx
+2023-05-17 14:41:36,842 Model is running...
+2023-05-17 14:41:39,135 result:4017:Execution succeed
+
+2023-05-17 14:41:39,135 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:39,135 nsop_BigObject_NTUST_Data_4018(2032)_93.xlsx
+2023-05-17 14:41:39,240 Model is running...
+2023-05-17 14:41:41,512 result:4017:Execution succeed
+
+2023-05-17 14:41:41,512 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:41,512 nsop_BigObject_NTUST_Data_4018(2032)_94.xlsx
+2023-05-17 14:41:41,611 Model is running...
+2023-05-17 14:41:43,890 result:4017:Execution succeed
+
+2023-05-17 14:41:43,890 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:43,890 nsop_BigObject_NTUST_Data_4018(2032)_95.xlsx
+2023-05-17 14:41:43,991 Model is running...
+2023-05-17 14:41:46,291 result:4017:Execution succeed
+
+2023-05-17 14:41:46,294 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:46,294 nsop_BigObject_NTUST_Data_4018(2032)_96.xlsx
+2023-05-17 14:41:46,380 Model is running...
+2023-05-17 14:41:48,690 result:4017:Execution succeed
+
+2023-05-17 14:41:48,690 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:48,690 nsop_BigObject_NTUST_Data_4018(2032)_97.xlsx
+2023-05-17 14:41:48,786 Model is running...
+2023-05-17 14:41:51,201 result:4017:Execution succeed
+
+2023-05-17 14:41:51,201 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:51,201 nsop_BigObject_NTUST_Data_4018(2032)_98.xlsx
+2023-05-17 14:41:51,294 Model is running...
+2023-05-17 14:41:53,685 result:4017:Execution succeed
+
+2023-05-17 14:41:53,685 result:4017:Execution failed:Incorrect input data
+
+2023-05-17 14:41:53,685 nsop_BigObject_NTUST_Data_4018(2032)_99.xlsx
+2023-05-17 14:41:53,786 Model is running...
+2023-05-17 14:41:56,100 result:4017:Execution succeed
+
+2023-05-17 14:41:56,100 result:4017:Execution failed:Incorrect input data
+
